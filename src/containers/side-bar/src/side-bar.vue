@@ -13,7 +13,7 @@
 
       <el-sub-menu :index="'1'">
         <template :slot="'title'">
-          <el-icon :name="'message'"></el-icon>
+          <el-icon :name="'fa-envelope-o'"></el-icon>
           <span slot="title">导航一</span>
         </template>
 

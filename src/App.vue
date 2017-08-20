@@ -9,6 +9,8 @@
 
 <script>
 import SideBar from '@/containers/side-bar'
+// use font-awesome instead of element-icon-font
+// import 'font-awesome/scss/font-awesome.scss'
 
 export default {
   name: 'app',
@@ -30,32 +32,32 @@ export default {
 <style src="@/assets/css/_reset.scss" lang="scss"></style>
 
 <style lang="scss">
-* {
-  // outline: 1px red solid;
-}
-html {
-  height: 100%;
-  font-size: 16px;
-  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-}
 
-body {
-  margin: 0;
-  height: inherit;
-
-  #app {
-    display: flex;
-    height: inherit;
-    
-    background-color: #f2f2f2;
-    
-    main {
-      padding: 10px 20px;
-    }
+  [class^="el-icon-fa"], [class*=" el-icon-fa"] {
+    font-family:"FontAwesome" !important;
+    display: inline-block;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-}
 
-p {
-  margin: 0;
+  $fa-font-path: "../node_modules/font-awesome/fonts";
+  $fa-css-prefix: "el-icon-fa";
+
+  @import "../node_modules/font-awesome/scss/font-awesome.scss";
+  
+</style>
+
+<style lang="scss">
+#app {
+  display: flex;
+  height: inherit;
+  
+  background-color: #f2f2f2;
+  
+  main {
+    padding: 10px 20px;
+  }
 }
 </style>

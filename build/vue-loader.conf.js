@@ -7,9 +7,6 @@ module.exports = {
     sourceMap: isProduction
       ? config.build.productionSourceMap
       : config.dev.cssSourceMap,
-    extract: isProduction,
-    loaders: {
-      'scss': 'style-loader!css-loader!sass-loader'
-    }
+    extract: isProduction
   })
 }

@@ -21,12 +21,17 @@ html {
 }
 
 html {
+  height: 100%;
   box-sizing: border-box;
 
       -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0;
+  height: inherit;
 }
 
 *,
@@ -114,24 +119,3 @@ p {
 // :-ms-input-placeholder {
 //   color: $color-deep;
 // }
-
-form {
-  margin: 0;
-}
-input,
-button,
-textarea,
-label {
-  padding: 2px;
-  border: none;
-  outline: none;
-  margin: 0;
-
-  font-size: inherit;
-  font-family: inherit;
-  line-height: inherit;
-  color: inherit;
-}
-textarea {
-  resize: none;
-}
