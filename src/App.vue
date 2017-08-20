@@ -1,23 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/pictures/logo.png">
-    <router-view></router-view>
+    <el-button>Hello element-ui</el-button>
   </div>
 </template>
 
 <script>
+import { Button, Select } from 'element-ui'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    elButton : Button
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
