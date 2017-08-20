@@ -4,7 +4,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-/* 为了减少项目体积， element 组件按需引入
+/* element 组件按需引入
  * http://element.eleme.io/#/zh-CN/component/quickstart#an-xu-yin-ru 
  */
 
