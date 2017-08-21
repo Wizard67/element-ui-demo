@@ -32,7 +32,7 @@ export default {
 <style lang="scss">
   // use font-awesome instead of element-icon-font
   // https://github.com/ElemeFE/element/issues/1054 
-  [class^="el-icon-fa"], [class*=" el-icon-fa"] {
+  i[class^="el-icon-fa"], i[class*=" el-icon-fa"] {
     font-family:"FontAwesome" !important;
     display: inline-block;
     font-size: inherit;
