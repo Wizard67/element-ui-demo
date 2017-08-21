@@ -30,6 +30,7 @@ export default {
 <style src="@/assets/css/_reset.scss" lang="scss"></style>
 
 <style lang="scss">
+
   // use font-awesome instead of element-icon-font
   // https://github.com/ElemeFE/element/issues/1054 
   i[class^="el-icon-fa"], i[class*=" el-icon-fa"] {
