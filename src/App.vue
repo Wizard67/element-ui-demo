@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss">
 
-  [class^="el-icon-fa"], [class*=" el-icon-fa"] {
+  i[class^="el-icon-fa"], i[class*=" el-icon-fa"] {
     font-family:"FontAwesome" !important;
     display: inline-block;
     font-size: inherit;
@@ -42,7 +42,7 @@ export default {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  $fa-font-path: "../node_modules/font-awesome/fonts";
+  $fa-font-path: "~font-awesome/fonts";
   $fa-css-prefix: "el-icon-fa";
 
   @import "../node_modules/font-awesome/scss/font-awesome.scss";
