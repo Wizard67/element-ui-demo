@@ -7,6 +7,7 @@ import store from './store'
 /* element 组件按需引入
  * http://element.eleme.io/#/zh-CN/component/quickstart#an-xu-yin-ru 
  */
+import elementUI from './ui'
 
 Vue.config.productionTip = false
 

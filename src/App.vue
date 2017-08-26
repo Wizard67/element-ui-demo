@@ -9,8 +9,6 @@
 
 <script>
 import SideBar from '@/containers/side-bar'
-// use font-awesome instead of element-icon-font
-// import 'font-awesome/scss/font-awesome.scss'
 
 export default {
   name: 'app',
@@ -32,7 +30,6 @@ export default {
 <style src="@/assets/css/_reset.scss" lang="scss"></style>
 
 <style lang="scss">
-
   i[class^="el-icon-fa"], i[class*=" el-icon-fa"] {
     font-family:"FontAwesome" !important;
     display: inline-block;
@@ -45,7 +42,7 @@ export default {
   $fa-font-path: "~font-awesome/fonts";
   $fa-css-prefix: "el-icon-fa";
 
-  @import "../node_modules/font-awesome/scss/font-awesome.scss";
+  @import "~font-awesome/scss/font-awesome.scss";
   
 </style>
 
