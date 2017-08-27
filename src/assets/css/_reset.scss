@@ -100,22 +100,30 @@ p {
   margin: 0;
 }
 
-/**
-* reset the placeholder color of input
-*/
-// ::-webkit-input-placeholder {
-//   color: $color-deep;
-// }
-// :-moz-placeholder {
-//   opacity: 1;
+// use font-awesome icon
+i[class^="el-icon-fa"], i[class*=" el-icon-fa"] {
+  font-family:"FontAwesome" !important;
+  display: inline-block;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-//   color: $color-deep;
-// }
-// ::-moz-placeholder {
-//   opacity: 1;
+$fa-font-path: "~font-awesome/fonts";
+$fa-css-prefix: "el-icon-fa";
 
-//   color: $color-deep;
-// }
-// :-ms-input-placeholder {
-//   color: $color-deep;
-// }
+@import "~font-awesome/scss/font-awesome.scss";
+
+
+
+#app {
+  display: flex;
+  height: inherit;
+  
+  background-color: #f2f2f2;
+  
+  main {
+    padding: 10px 20px;
+  }
+}
