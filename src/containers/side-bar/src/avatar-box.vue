@@ -48,6 +48,8 @@ export default {
 
   &>.text {
     padding: 0 20px;
+    visibility: visible;
+    transition: visibility .3s ease-in-out;
 
     &>.greeting {
       font-size: 14px;
@@ -72,10 +74,10 @@ export default {
         }
 
         &>.text {
-            display: none;
-            transition: display .3s ease-in-out;
+            visibility: hidden;
+            transition: visibility .2s ease-in-out;
         }
-    }    
+    }
 }
 </style>
 
