@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <side-bar :user="user" :list="navList"></side-bar>
-    <main>
-      <router-view></router-view>
-    </main>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -18,19 +16,7 @@ export default {
         {
           title: '数据统计',
           icon: 'fa-area-chart',
-          index: '1',
-          child: [
-            {
-              index: '1-1',
-              icon: '',
-              title: '选项2'
-            },
-            {
-              index: '1-2',
-              icon: '',
-              title: '选项3'
-            }
-          ]
+          index: 'data_statistics'
         },
         {
           title: '用户管理',
@@ -67,4 +53,4 @@ export default {
 }
 </script>
 
-<style src="@/assets/css/_reset.scss" lang="scss"></style>
+<style src="@/assets/css/base.scss" lang="scss"></style>

@@ -1,13 +1,14 @@
-// 引入 Vue，App，Vue-router，Vuex
 import Vue from 'vue'
-import App from './App'
-import router from './router'
-import store from './store'
+
+import router from '@configs/router'
+import store from '@configs/store'
 
 /* element 组件按需引入
  * http://element.eleme.io/#/zh-CN/component/quickstart#an-xu-yin-ru 
  */
-import elementUI from './ui'
+import '@configs/elementUI'
+
+import App from '@pages/App'
 
 Vue.config.productionTip = false
 
@@ -15,6 +16,5 @@ new Vue({
   el: '#app',
   router,
   store,
-  template: '<App/>',
-  components: { App }
+  render: h => h(App)
 })

@@ -1,6 +1,6 @@
 <template>
     <div class="avatar-box">
-        <img class="avatar el-dropdown-link"
+        <img class="avatar"
              :src="avatar">
         <div class="text">
             <p class="greeting">{{ greeting }}</p>

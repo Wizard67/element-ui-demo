@@ -100,7 +100,9 @@ p {
   margin: 0;
 }
 
-// use font-awesome icon
+/*********** reset element-ui ***********/
+
+// extend font-awesome icon
 i[class^="el-icon-fa"], i[class*=" el-icon-fa"] {
   font-family:"FontAwesome" !important;
   display: inline-block;
@@ -115,15 +117,25 @@ $fa-css-prefix: "el-icon-fa";
 
 @import "~font-awesome/scss/font-awesome.scss";
 
+// add margin for el-card component
+.el-card {
+  width: 100%;
+  border: 0;
+  background-color: transparent;
+  box-shadow: none;
 
+  .el-card__header {
+    margin: 10px 10px 0 10px;
+  }
 
-#app {
-  display: flex;
-  height: inherit;
-  
-  background-color: #f2f2f2;
-  
-  main {
-    padding: 10px 20px;
+  .el-card__body {
+    margin: 0 10px 10px 10px;
+  }
+
+  .el-card__header,
+  .el-card__body {
+    background-color: #ffffff;
+    background-clip: border-box;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
   }
 }

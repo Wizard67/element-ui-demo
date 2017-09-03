@@ -21,6 +21,7 @@ npm run build --report
 ## Todo
 
 - [ ] 基础功能  
+    - [x] 调整项目目录结构  
     - [x] 使用 font-awesome 扩展 element 图标  
-- [ ] 权限控制  
-- [ ] 信息通知  
+- [ ] 页面设置  
+ 

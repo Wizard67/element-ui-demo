@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+#app {
+  display: flex;
+  height: inherit;
+  
+  background-color: #f2f2f2;
+  
+  main {
+    padding: 10px;
+    
+    width: 100%;
+    overflow: auto;
+  }
+}

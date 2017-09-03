@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "chart.js": "^2.6.0",
     "element-ui": "^1.4.3",
     "font-awesome": "^4.7.0",
     "vue": "^2.4.2",
+    "vue-chartjs": "^2.8.2",
     "vue-router": "^2.3.0",
     "vuex": "^2.3.1"
   },
