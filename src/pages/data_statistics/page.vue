@@ -3,32 +3,48 @@
         <div class="layout-1">
             <el-card>
                 <span slot="header">用户信息</span>
-                <chart-box :height="300"></chart-box>
+                <chart-bar :height="300" :data="data" :options="options"></chart-bar>
             </el-card>
             <el-card>
                 <span slot="header">用户信息</span>
-                <chart-box :height="300"></chart-box>
+                <chart-bar :height="300" :data="data" :options="options"></chart-bar>
             </el-card>
             <el-card>
                 <span slot="header">用户信息</span>
-                <chart-box :height="300"></chart-box>
+                <chart-bar :height="300" :data="data" :options="options"></chart-bar>
             </el-card>
         </div>
         <div class="layout-2">
             <el-card>
                 <span slot="header">用户信息</span>
-                <chart-box :height="300"></chart-box>
+                <chart-bar :height="300" :data="data" :options="options"></chart-bar>
             </el-card>
         </div>
     </main>
 </template>
 
 <script>
-import ChartBox from '@/containers/chart-box'
+import { ChartBar } from '@/containers/chart-box'
 export default {
     name: 'DataStatistics',
+    data(){
+        return {
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                datasets: [{
+                    label: 'GitHub Commits',
+                    backgroundColor: '#f87979',
+                    data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        }
+    },
     components: {
-        ChartBox
+        ChartBar
     }
 }
 </script>
