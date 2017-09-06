@@ -81,6 +81,7 @@ $nav-width-collapse: 64px;
   width: $nav-width;
   height: 100%;
   background-color: #324157;
+  z-index: 600;
   transition: width .2s ease-in-out;
   will-change: transform;
 
