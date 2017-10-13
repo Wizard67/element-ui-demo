@@ -26,7 +26,7 @@
 <script>
 import { ChartBar } from '@/containers/chart-box'
 export default {
-    name: 'DataStatistics',
+    name: '#page-Dashboard',
     data(){
         return {
             data: {

@@ -16,7 +16,7 @@ export default {
         {
           title: '数据统计',
           icon: 'fa-area-chart',
-          index: 'data_statistics'
+          index: 'dashboard'
         },
         {
           title: '用户管理',

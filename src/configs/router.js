@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import DataStatistics from '@/pages/data_statistics/page'
+import Dashboard from '@/pages/dashboard/page'
 
 Vue.use(Router)
 
@@ -9,12 +9,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: DataStatistics
+      component: Dashboard
     },
     {
-      path: '/data_statistics',
-      name: 'DataStatistics',
-      component: DataStatistics
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard
     },
   ]
 })
