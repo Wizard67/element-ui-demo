@@ -8,7 +8,7 @@ import store from '@/configs/store'
  */
 import '@/configs/elementUI'
 
-import App from '@/pages/App'
+import App from '@/App'
 
 Vue.config.productionTip = false
 

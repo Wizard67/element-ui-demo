@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 /* global */
-import global from '@/pages/data'
+import global from '@/data'
 
 /* modules */
 
