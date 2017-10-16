@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import axios from 'axios'
-import $store from '@/store'
 
 // 设置报头
 axios.defaults.headers = {
