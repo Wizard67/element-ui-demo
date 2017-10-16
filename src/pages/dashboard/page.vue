@@ -49,4 +49,28 @@ export default {
 }
 </script>
 
-<style src="./style.scss" lang="scss"></style>
+<style lang="scss">
+    @import "~@/assets/css/utils";
+
+    /*********** #layout ***********/
+    @include _media(xl) {
+        .layout-1 {
+            @include _flex(top);
+        }
+        .layout-2 {
+            @include _flex(top);
+        }
+    }
+
+    @include _media(lg) {}
+
+    @include _media(md) {
+        .layout-1 {
+            @include _flex(column)
+        }
+    }
+
+    @include _media(sm) {}
+
+    @include _media(xs) {}
+</style>
