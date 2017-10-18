@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 
 const Dashboard = require('@/pages/dashboard/page').default
-
+const Pages = require.context('@/pages', true, /page\.vue$/)
 /**
  * auto inject the page.vue
  */
@@ -22,9 +22,8 @@ function importAll (r) {
 
   return list
 }
-const routeList = importAll( require.context('@/pages', true, /page\.vue$/) )
+const routeList = importAll(Pages)
 
-console.log(...routeList)
 Vue.use(Router)
 
 export default new Router({
