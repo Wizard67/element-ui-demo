@@ -1,5 +1,5 @@
 const state = {
-
+    aa: 'nihao'
 }
 
 const getters = {
@@ -15,6 +15,7 @@ const mutations = {
 }
 
 export default {
+    namespace: 'dashboard',
     namespaced: true,
     state,
     getters,
