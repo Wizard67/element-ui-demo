@@ -26,7 +26,8 @@
 <script>
 import { ChartBar } from '@/containers/chart-box'
 export default {
-    name: '#page-Dashboard',
+    path: '/dashboard',
+    name: 'dashboard',
     data(){
         return {
             data: {
