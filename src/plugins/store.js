@@ -1,17 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-/* root */
-import root from '@/store'
+const Stores = require.context('@/views/', true, /store\.js$/)
 
-/* views */
-const Stores = require.context('@/views', true, /store\.js$/)
-
-const modules = []
+let root = {}
+const modules = [] 
 
 Stores.keys().forEach((url) => {
   const store = Stores(url).default
-  modules[store.namespace] = store
+  if (store.namespaced) {
+    modules[store.namespace] = store
+  } else {
+    root = store
+  }
 })
 
 Vue.use( Vuex )
