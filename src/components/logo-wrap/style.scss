@@ -1,0 +1,20 @@
+@import '~@/assets/style/utils';
+
+.logo-wrap {
+  @include flex( middle start );
+  width: unset;
+  padding: 20px;
+}
+.logo {
+  &__image {
+      width: 26px;
+      height: 26px;
+  }
+
+  &__text {
+      margin: 0 16px;
+      color: grey;
+      font-size: 18px;
+      line-height: 26px;
+  }
+}
