@@ -1,5 +1,6 @@
 <template>
   <el-menu unique-opened router>
+
     <template v-for="(item, index) in list">
 
       <template v-if="item.hasOwnProperty('child') && item.child.length > 0">
@@ -38,8 +39,8 @@ export default {
       list: [
         {
           title: '数据统计',
-          icon: 'fa-area-chart',
-          index: 'dashboard'
+          icon: 'edit',
+          index: 'about'
         },
         {
           title: '用户管理',
@@ -70,6 +71,6 @@ export default {
 
 <style lang="scss">
 .el-menu {
-    height: 100%;
+  border-right: unset;
 }
 </style>
