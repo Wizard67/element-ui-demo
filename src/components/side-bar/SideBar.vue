@@ -1,18 +1,21 @@
 <template>
-  <el-menu unique-opened router>
+  <el-menu
+    class="fix-menu"
+    router
+    unique-opened>
 
-    <template v-for="(item, index) in list">
+    <template v-for="(item, index) in nav">
 
-      <template v-if="item.hasOwnProperty('child') && item.child.length > 0">
-        <el-submenu :index="item.index" :key="index">
+      <template v-if="item.childs && item.childs.length > 0">
+        <el-submenu :index="item.index ?item.index :`${index}`" :key="index">
           <template :slot="'title'">
             <el-icon :name="item.icon"></el-icon>
             <span :slot="'title'">{{ item.title }}</span>
           </template>
 
-          <template v-for="(citem, cindex) in item.child">
+          <template v-for="(citem, cindex) in item.childs">
             <el-menu-item :index="citem.index" :key="cindex">
-              <template v-if="citem.hasOwnProperty('icon') && citem.icon">
+              <template v-if="citem.icon && citem.icon">
                 <el-icon :name="citem.icon"></el-icon>
               </template>
               {{ citem.title }}
@@ -34,43 +37,49 @@
 
 <script>
 export default {
+  props: {
+    nav: {
+      type: Array,
+    }
+  },
   data() {
     return {
-      list: [
-        {
-          title: '数据统计',
-          icon: 'edit',
-          index: 'about'
-        },
-        {
-          title: '用户管理',
-          icon: 'fa-users',
-          index: '2',
-          child: [
-            {
-              index: '2-1',
-              icon: '',
-              title: '选项1'
-            },
-            {
-              index: '2-2',
-              icon: '',
-              title: '选项2'
-            }
-          ]
-        },{
-          title: '内容管理',
-          icon: 'fa-television',
-          index: '3'
-        }
-      ]
     }
   }
-};
+}
 </script>
 
-<style lang="scss">
-.el-menu {
+<style lang="scss" scoped>
+.fix-menu {
   border-right: unset;
+  background-color: #545c64;
+
+  /deep/ {
+    .el-menu--inline {
+      background-color: #394147;
+    }
+
+    .el-submenu__title {
+      color: #a6aaae;
+
+      &:hover {
+        color: white;
+        background-color: unset;
+      }
+      i {
+        color: inherit;
+      }
+    }
+
+    .el-menu-item {
+      color: #a6aaae;
+      
+      &:focus,
+      &:hover {
+        color: white;
+        background-color: #909090;
+      }
+    }
+  }
 }
 </style>
