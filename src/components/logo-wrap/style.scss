@@ -4,6 +4,7 @@
   @include flex( middle start );
   width: unset;
   padding: 20px;
+  background-color: #45515c;
 }
 .logo {
   &__image {
@@ -13,7 +14,7 @@
 
   &__text {
       margin: 0 16px;
-      color: grey;
+      color: white;
       font-size: 18px;
       line-height: 26px;
   }
