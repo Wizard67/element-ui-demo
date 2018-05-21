@@ -15,3 +15,8 @@ body {
     margin: 0;
     height: inherit;
 }
+
+::selection {
+    background-color: #909399;
+    color: white;
+}
