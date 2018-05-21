@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style src="@/assets/style/reset.scss" lang="scss"></style>
+<style src="@/assets/style/base.scss" lang="scss"></style>
 <style src="./style.scss" lang="scss"></style>
 <style lang="scss">
 /* fix el-container's height */
