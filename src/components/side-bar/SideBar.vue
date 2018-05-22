@@ -75,7 +75,8 @@ export default {
       color: #a6aaae;
       
       &:focus,
-      &:hover {
+      &:hover,
+      &.is-active {
         color: white;
         background-color: #909090;
       }
