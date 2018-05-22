@@ -1,5 +1,5 @@
 const state = {
-
+    name: 'nihao'
 }
 
 const getters = {

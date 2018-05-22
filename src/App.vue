@@ -142,7 +142,6 @@ export default {
 </script>
 
 <style src="@/assets/style/base.scss" lang="scss"></style>
-<style src="./style.scss" lang="scss"></style>
 <style lang="scss" scoped>
 .fix-container {
   height: 100%;
