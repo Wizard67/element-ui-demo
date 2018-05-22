@@ -2,7 +2,7 @@
   <el-container class="fix-container">
 
     <el-aside class="fix-aside">
-      <logo-wrap logo="@/assets/logo.png">ElementUI Demo</logo-wrap>
+      <logo-wrap logo="/logo.png">ElementUI Demo</logo-wrap>
       <side-bar :nav="nav"></side-bar>
     </el-aside>
 

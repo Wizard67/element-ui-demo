@@ -1,6 +1,6 @@
 <template functional>
   <div class="logo-wrap">
-    <img class="logo__image" src="@/assets/logo.png">
+    <img class="logo__image" :src="props.logo">
     <div class="logo__text">
       <slot></slot>
     </div>
@@ -9,11 +9,7 @@
 
 <script>
 export default {
-  props: {
-    logo: {
-      type: String
-    }
-  }
+  name: 'LogoWrap'
 }
 </script>
 
