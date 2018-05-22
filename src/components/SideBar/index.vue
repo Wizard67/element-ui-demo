@@ -37,6 +37,7 @@
 
 <script>
 export default {
+  name: 'SideBar',
   props: {
     nav: {
       type: Array,

@@ -2,8 +2,8 @@
   <el-container class="fix-container">
 
     <el-aside class="fix-aside">
-      <logo-wrap logo="/logo.png">ElementUI Demo</logo-wrap>
-      <side-bar :nav="nav"></side-bar>
+      <LogoWrap logo="/logo.png">ElementUI Demo</LogoWrap>
+      <SideBar :nav="nav"></SideBar>
     </el-aside>
 
     <el-container>
@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import LogoWrap from '@/components/logo-wrap'
-import SideBar from '@/components/side-bar'
+import LogoWrap from '@/components/LogoWrap'
+import SideBar from '@/components/SideBar'
 
 export default {
   name: 'App',

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'home',
+  name: 'Home',
   path: '/1-1'
 }
 </script>
