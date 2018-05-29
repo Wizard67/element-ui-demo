@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@nn-yy/scss-flex": "^0.1.0",
-    "element-ui": "^2.3.0",
+    "element-ui": "^2.4.0",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
