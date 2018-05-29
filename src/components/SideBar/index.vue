@@ -1,8 +1,14 @@
 <template>
   <el-menu
     class="fix-menu"
+    :collapse="collapse"
+    :collapse-transition="true"
     router
     unique-opened>
+    
+    <LogoWrap :logo="logo">
+      {{title}}
+    </LogoWrap>
 
     <template v-for="(item, index) in nav">
 
@@ -36,9 +42,21 @@
 </template>
 
 <script>
+import LogoWrap from '@/components/LogoWrap'
+
 export default {
   name: 'SideBar',
   props: {
+    logo: {
+      type: String,
+    },
+    title: {
+      type: String,
+    },
+    collapse: {
+      default: false,
+      type: Boolean,
+    },
     nav: {
       type: Array,
     }
@@ -46,14 +64,22 @@ export default {
   data() {
     return {
     }
+  },
+  components: {
+    LogoWrap
   }
 }
 </script>
 
 <style lang="scss" scoped>
+
 .fix-menu {
   border-right: unset;
   background-color: #545c64;
+
+  &:not(.el-menu--collapse) {
+    width: 300px;
+  }
 
   /deep/ {
     .el-menu--inline {

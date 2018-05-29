@@ -1,7 +1,7 @@
-<template functional>
+<template>
   <div class="logo-wrap">
-    <img class="logo__image" :src="props.logo">
-    <div class="logo__text">
+    <img class="logo__image" :src="logo">
+    <div class="logo__text" v-if="!collapse">
       <slot></slot>
     </div>
   </div>
@@ -9,7 +9,17 @@
 
 <script>
 export default {
-  name: 'LogoWrap'
+  name: 'LogoWrap',
+  props: {
+    logo: {
+      required: true,
+      type: String,
+    },
+    collapse: {
+      default: false,
+      type: Boolean,
+    }
+  }
 }
 </script>
 

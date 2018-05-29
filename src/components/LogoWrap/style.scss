@@ -3,19 +3,21 @@
 .logo-wrap {
   @include flex( start middle );
   width: unset;
-  padding: 20px;
+  padding: 17px 20px;
   background-color: #45515c;
 }
 .logo {
   &__image {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
   }
 
   &__text {
-      margin: 0 16px;
+      margin: 0 20px;
       color: white;
       font-size: 18px;
       line-height: 26px;
+      word-break: keep-all;
+      white-space:nowrap;
   }
 }

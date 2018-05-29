@@ -1,13 +1,20 @@
 <template>
   <el-container class="fix-container">
 
-    <el-aside class="fix-aside">
-      <LogoWrap logo="/logo.png">ElementUI Demo</LogoWrap>
-      <SideBar :nav="nav"></SideBar>
+    <el-aside class="fix-aside" style="width: unset">
+
+      <SideBar logo="/logo.png"
+        title="ElementUI Demo"
+        :nav="nav"
+        :collapse="isCollapse"
+      />
+
     </el-aside>
 
     <el-container>
-      <el-header>Header</el-header>
+      <el-header class="fix-header">
+
+      </el-header>
 
       <el-main>
         <router-view/>
@@ -19,13 +26,13 @@
 </template>
 
 <script>
-import LogoWrap from '@/components/LogoWrap'
 import SideBar from '@/components/SideBar'
 
 export default {
   name: 'App',
   data() {
     return {
+      isCollapse: false,
       nav: [
         {
           title: 'dashboard',
@@ -134,9 +141,13 @@ export default {
       ]
     }
   },
+  methods: {
+    handleCollapse(value) {
+      this.isCollapse = !this.isCollapse
+    }
+  },
   components: {
-    LogoWrap,
-    SideBar
+    SideBar,
   }
 }
 </script>
@@ -148,7 +159,12 @@ export default {
 }
 
 .fix-aside {
+  width: unset;
   border-right: solid 1px #e6e6e6;
   background-color: #545c64;
+}
+
+.fix-header {
+  padding: 0;
 }
 </style>
