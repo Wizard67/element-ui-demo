@@ -4,7 +4,7 @@
     popper-class="my-autocomplete"
     v-model="searchInput"
     :fetch-suggestions="querySearch"
-    placeholder="请输入内容"
+    placeholder="站内搜索"
     @select="handleSelect"
     @keyup.enter.native="handleSubmit"
   >
