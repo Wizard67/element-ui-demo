@@ -76,6 +76,7 @@ export default {
 .fix-menu {
   border-right: unset;
   background-color: #545c64;
+  overflow: hidden;
 
   &:not(.el-menu--collapse) {
     width: 300px;
