@@ -1,25 +1,28 @@
 <template>
-  <el-autocomplete
-    ref="searchFiled"
-    popper-class="my-autocomplete"
-    v-model="searchInput"
-    :fetch-suggestions="querySearch"
-    placeholder="站内搜索"
-    @select="handleSelect"
-    @keyup.enter.native="handleSubmit"
-  >
-  
+  <div>
     <i
-      class="el-icon-icon-search el-input__icon fix-icon"
-      slot="prefix"
+      class="el-icon-icon-search fix-icon"
       @click="handleSubmit">
     </i>
 
-    <template slot-scope="{ item }">
-      <div class="message">{{ item.message }}</div>
-    </template>
-
-  </el-autocomplete>
+    <transition name="slide-fade">
+      <el-autocomplete
+        style="margin-left: 12px;"
+        ref="searchFiled"
+        popper-class="my-autocomplete"
+        v-if="isShow"
+        v-model="searchInput"
+        :fetch-suggestions="querySearch"
+        placeholder="站内搜索"
+        @select="handleSelect"
+        @keyup.enter.native="handleSubmit"
+      >
+        <template slot-scope="{ item }">
+          <div class="message">{{ item.message }}</div>
+        </template>
+      </el-autocomplete>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -34,6 +37,7 @@ export default {
   },
   data() {
     return {
+      isShow: false,
       searchInput: '',
     };
   },
@@ -47,9 +51,11 @@ export default {
       this.searchInput = item.message
     },
     handleSubmit(event) {
-      this.searchInput
-        ? this.$emit('onSearch', this.searchInput)
-        : this.$refs.searchFiled.focus()
+      if(this.isShow) {
+        this.searchInput ?　this.$emit('onSearch', this.searchInput) : this.isShow = !this.isShow
+      } else {
+        this.isShow = !this.isShow
+      }
     },
   },
 }
