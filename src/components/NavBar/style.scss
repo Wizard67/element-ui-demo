@@ -1,0 +1,39 @@
+@import '~@nn-yy/scss-flex';
+
+.nav-bar {
+  @include flex( between, middle );
+  height: 100%;
+  padding: 0 20px;
+  background-color: white;
+  font-size: 18px;
+
+  &__helper {
+    @include flex( center, middle );
+    @include flex-self( auto, none );
+    width: unset;
+
+    i {
+      cursor: pointer;
+    }
+  }
+
+  &__main {
+    @include flex( start, middle );
+  }
+}
+
+.user-card {
+  cursor: pointer;
+
+  &__avatar {
+    width: 34px;
+    height: 34px;
+    border: 1px rgb(219, 219, 219) solid;
+    border-radius: 200px;
+    vertical-align: middle;
+  }
+
+  &__name {
+    margin-left: 10px;
+  }
+}
