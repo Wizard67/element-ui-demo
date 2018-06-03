@@ -36,22 +36,3 @@ export default {
 </script>
 
 <style src="./style.scss" lang="scss"></style>
-<style lang="scss" scoped>
-@import "~@nn-yy/scss-flex";
-
-.fix-badge {
-  display: block;
-  cursor: pointer;
-  i {
-    display: block;
-  }
-}
-
-.fix-tabs {
-  /deep/ {
-    .el-tabs__nav-wrap {
-      @include flex( center middle );
-    }
-  }
-}
-</style>
