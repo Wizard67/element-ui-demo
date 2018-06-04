@@ -1,7 +1,7 @@
 @import '~@nn-yy/scss-flex';
 
 .logo-wrap {
-  @include flex( start middle );
+  @include flex( start, middle );
   width: unset;
   padding: 17px 20px;
   background-color: #45515c;
