@@ -14,6 +14,22 @@
     <el-container>
       <el-header class="fix-header">
 
+        <NavBar @onCollapse="handleCollapse"
+          :collapse="isCollapse"
+        >
+
+          <SearchFiled :suggestions="suggestions"
+            @onSearch="handleSearch"
+          />
+
+          <MessageBox :messages="messages" />
+
+          <UserDropdown :userName="userInfo.userName"
+            :avatar="userInfo.avatar"  
+          />
+
+        </NavBar>
+
       </el-header>
 
       <el-main>
@@ -27,12 +43,20 @@
 
 <script>
 import SideBar from '@/components/SideBar'
+import NavBar from '@/components/NavBar'
+import SearchFiled from '@/components/NavBar/SearchFlied'
+import UserDropdown from '@/components/NavBar/UserDropdown'
+import MessageBox from '@/components/NavBar/MessageBox'
 
 export default {
   name: 'App',
   data() {
     return {
       isCollapse: false,
+      userInfo: {
+        userName: 'Wizrad67',
+        avatar: '/avatar.jpg',
+      },
       nav: [
         {
           title: 'dashboard',
@@ -138,16 +162,45 @@ export default {
             },
           ]
         },
-      ]
+      ],
+      suggestions: [
+        { message: '搜索提示一'},
+        { message: '搜索提示二'},
+        { message: '搜索提示三'},
+      ],
+      messages: {
+        notify: [
+            {
+              main: '通知1',
+            },
+            {
+              main: '通知2',
+            },
+        ],
+        messages: [
+            {
+              main: '消息',
+            },
+        ],
+        schedule: [
+        ],
+      },
     }
   },
   methods: {
     handleCollapse(value) {
       this.isCollapse = !this.isCollapse
+    },
+    handleSearch(value) {
+      alert(value)
     }
   },
   components: {
     SideBar,
+    NavBar,
+    SearchFiled,
+    UserDropdown,
+    MessageBox,
   }
 }
 </script>
