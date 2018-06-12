@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@nn-yy/scss-flex";
+@import "~@nn-yy/css-flex/flex";
 
 .fix-badge {
   display: block;

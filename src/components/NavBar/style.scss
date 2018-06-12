@@ -1,4 +1,4 @@
-@import '~@nn-yy/scss-flex';
+@import '~@nn-yy/css-flex/flex';
 
 .nav-bar {
   @include flex( between, middle );
@@ -9,7 +9,7 @@
 
   &__helper {
     @include flex( center, middle );
-    @include flex-self( auto, none );
+    @include flex-self( keep );
     width: unset;
 
     i {
