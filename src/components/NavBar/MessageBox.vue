@@ -34,11 +34,12 @@ export default {
   props: {
     messages: {
       type: Object,
+      required: true
     }
   },
   methods: {
     getMessageLength(arr) {
-      return arr.length > 0 ? `(${arr.length})` : ''
+      return arr && arr.length > 0 ? `(${arr.length})` : ''
     }
   },
   components: {

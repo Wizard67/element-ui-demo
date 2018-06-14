@@ -1,5 +1,5 @@
 <template>
-  <div v-if="content.length">
+  <div v-if="content && content.length">
     <template v-for="(item, index) in content">
       <p :key="index">
         {{item.main}}
