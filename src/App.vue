@@ -3,7 +3,7 @@
 
     <el-aside class="fix-aside" style="width: unset">
 
-      <SideBar logo="/logo.png"
+      <SideBar :logo="logo"
         title="ElementUI Demo"
         :nav="nav"
         :collapse="isCollapse"
@@ -54,6 +54,7 @@ export default {
   name: 'App',
   data() {
     return {
+      logo: require('@/assets/images/logo.png'),
       isCollapse: false
     }
   },

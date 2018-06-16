@@ -19,6 +19,11 @@ const getters = {
 }
 
 const mutations = {
+
+  setUserInfo(store, value) {
+    store.userInfo = value
+  },
+
   setMessages(store, value) {
     store.messages = value
   },
@@ -30,6 +35,10 @@ const mutations = {
 
 const actions = {
   initApp({commit}) {
+    ajax('userInfo').then( ({payload}) => {
+      commit('setUserInfo', payload)
+    })
+
     ajax('initApp').then( ({payload}) => {
       commit('setMessages', payload.messages)
       commit('setNav', payload.nav)
