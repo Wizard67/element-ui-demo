@@ -1,6 +1,6 @@
 language: node_js
 node_js: 
-    - '8.2.0'
+    - '8.4.0'
 
 branches:
   only:
@@ -25,3 +25,7 @@ after_script:
   - git add .
   - git commit -m "Travis CI Auto Builder"
   - git push --force https://$TOKEN@github.com/Wizard67/element-ui-demo.git master:gh-pages
+
+notifications:
+  email: 
+    on_success: never
