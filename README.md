@@ -1,7 +1,11 @@
 # element-ui-demo
 
+[![Build Status](https://travis-ci.org/Wizard67/element-ui-demo.svg?branch=master)](https://travis-ci.org/Wizard67/element-ui-demo)
+
 > A simple demo base on element-ui   
 一个基于 element-ui 的简单后台管理项目。
+
+[预览](https://wizard67.github.io/element-ui-demo/)
 
 ## Usage
 
