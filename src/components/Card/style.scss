@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+@import "~@nn-yy/css-flex/flex";
+
+.card {
+  &__head {
+    @include flex( between, middle );
+    padding-bottom: .5em;
+    font-size: 14px;
+  }
+
+  &__content {
+    @include flex-column(start, between);
+    padding: .5em 0;
+    font-weight: 600;
+  }
+
+  &__foot {
+    padding-top: .5em;
+    border-top: 1px #dcdfe6 solid;
+  }
+}
