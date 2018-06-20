@@ -34,8 +34,8 @@
 
       <el-main>
         <router-view/>
+        <FooterInfo/>
       </el-main>
-
     </el-container>
 
   </el-container>
@@ -47,6 +47,7 @@ import NavBar from '@/components/NavBar'
 import SearchFiled from '@/components/NavBar/SearchFlied'
 import UserDropdown from '@/components/NavBar/UserDropdown'
 import MessageBox from '@/components/NavBar/MessageBox'
+import FooterInfo from '@/components/FooterInfo'
 
 import { mapState } from 'vuex'
 
@@ -83,6 +84,7 @@ export default {
     SearchFiled,
     UserDropdown,
     MessageBox,
+    FooterInfo
   }
 }
 </script>
