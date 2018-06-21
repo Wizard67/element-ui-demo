@@ -10,6 +10,7 @@
     "axios": "^0.18.0",
     "echarts": "^4.1.0",
     "element-ui": "^2.4.0",
+    "lodash": "^4.17.10",
     "vue": "^2.5.13",
     "vue-echarts": "^3.0.8",
     "vue-router": "^3.0.1",
