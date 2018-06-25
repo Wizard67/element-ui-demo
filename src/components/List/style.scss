@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+@import "~@nn-yy/css-flex/flex";
+
+%ListBase {
+  @include flex( center, middle );
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: .5em;
+  border-radius: 200px;
+  color: #606266;
+  background-color: #F2F6FC;
+}
+
+.list-group {
+  @include flex-column();
+  margin: 0;
+  padding: 0;
+}
+
+.list {
+  @include flex( start, middle );
+  width: 100%;
+  padding: 10px 0;
+  list-style: none;
+
+  line-height: 1.6;
+
+  &__order {
+    @extend %ListBase;
+
+    &--mark {
+      @extend %ListBase;
+      color: white;
+      background-color: #303133;
+    }
+  }
+
+  &__main {
+    @include flex-self(full);
+  }
+  
+}
