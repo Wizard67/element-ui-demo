@@ -151,76 +151,58 @@ export const activityChartConfig = {
 
 export const areaVisitsChartConfig = {
   tooltip: {
-    trigger: "item"
+    trigger: 'item'
   },
-  legend: {
-    orient: 'vertical',
-    left: 'left',
-    data:['访问']
+  geo: {
+    map: 'china',
+    label: {
+      emphasis: {
+        show: false
+      }
+    },
+    itemStyle: {
+      normal: {
+        areaColor: '#909399',
+        borderColor: '#C0C4CC'
+      },
+      emphasis: {
+        areaColor: '#909399'
+      }
+    }
   },
   series: [
     {
-      zoom: 1.2,
-      name: "区域访问",
-      type: "map",
-      mapType: "china",
-      label: {
+      name: '访问量',
+      type: 'scatter',
+      coordinateSystem: 'geo',
+      data: [],
+      symbolSize: val => val[2] / 10,
+      itemStyle: {
         normal: {
-          show: false
-        },
-        emphasis: {
-          show: false
+          color: '#E6A23C'
+        }
+      }
+    },
+    {
+      name: '访问量',
+      type: 'effectScatter',
+      coordinateSystem: 'geo',
+      data: [],
+      symbolSize: val => val[2] / 10,
+      showEffectOn: 'render',
+      rippleEffect: {
+        scale: 2,
+        brushType: 'fill'
+      },
+      hoverAnimation: true,
+      itemStyle: {
+        normal: {
+          color: '#E6A23C',
+          shadowBlur: 20,
+          shadowColor: '#333'
         }
       },
-      itemStyle: {
-        areaColor: '#fff',
-        borderColor: '#606266'
-      },
-      emphasis: {
-        label: false,
-        itemStyle: {
-          areaColor: '#fff',
-          borderColor: '#b3b3b3',
-          shadowColor: 'rgba(0, 0, 0, 0.5)',
-          shadowBlur: 10
-        },
-      },
-      data: [
-        { name: "北京", value: Math.round(Math.random() * 1000) },
-        { name: "天津", value: Math.round(Math.random() * 1000) },
-        { name: "上海", value: Math.round(Math.random() * 1000) },
-        { name: "重庆", value: Math.round(Math.random() * 1000) },
-        { name: "河北", value: Math.round(Math.random() * 1000) },
-        { name: "河南", value: Math.round(Math.random() * 1000) },
-        { name: "云南", value: Math.round(Math.random() * 1000) },
-        { name: "辽宁", value: Math.round(Math.random() * 1000) },
-        { name: "黑龙江", value: Math.round(Math.random() * 1000) },
-        { name: "湖南", value: Math.round(Math.random() * 1000) },
-        { name: "安徽", value: Math.round(Math.random() * 1000) },
-        { name: "山东", value: Math.round(Math.random() * 1000) },
-        { name: "新疆", value: Math.round(Math.random() * 1000) },
-        { name: "江苏", value: Math.round(Math.random() * 1000) },
-        { name: "浙江", value: Math.round(Math.random() * 1000) },
-        { name: "江西", value: Math.round(Math.random() * 1000) },
-        { name: "湖北", value: Math.round(Math.random() * 1000) },
-        { name: "广西", value: Math.round(Math.random() * 1000) },
-        { name: "甘肃", value: Math.round(Math.random() * 1000) },
-        { name: "山西", value: Math.round(Math.random() * 1000) },
-        { name: "内蒙古", value: Math.round(Math.random() * 1000) },
-        { name: "陕西", value: Math.round(Math.random() * 1000) },
-        { name: "吉林", value: Math.round(Math.random() * 1000) },
-        { name: "福建", value: Math.round(Math.random() * 1000) },
-        { name: "贵州", value: Math.round(Math.random() * 1000) },
-        { name: "广东", value: Math.round(Math.random() * 1000) },
-        { name: "青海", value: Math.round(Math.random() * 1000) },
-        { name: "西藏", value: Math.round(Math.random() * 1000) },
-        { name: "四川", value: Math.round(Math.random() * 1000) },
-        { name: "宁夏", value: Math.round(Math.random() * 1000) },
-        { name: "海南", value: Math.round(Math.random() * 1000) },
-        { name: "台湾", value: Math.round(Math.random() * 1000) },
-        { name: "香港", value: Math.round(Math.random() * 1000) },
-        { name: "澳门", value: Math.round(Math.random() * 1000) }
-      ]
+      zlevel: 1
     }
   ]
 }
