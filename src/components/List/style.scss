@@ -8,8 +8,9 @@
   height: 1.2em;
   margin-right: .5em;
   border-radius: 200px;
-  color: #606266;
+  color: #909399;
   background-color: #F2F6FC;
+  line-height: 1.2em;
 }
 
 .list-group {
@@ -23,7 +24,9 @@
   width: 100%;
   padding: 10px 0;
   list-style: none;
+  color: #606266;
 
+  font-weight: 400;
   line-height: 1.6;
 
   &__order {
@@ -32,7 +35,7 @@
     &--mark {
       @extend %ListBase;
       color: white;
-      background-color: #303133;
+      background-color: #606266;
     }
   }
 
