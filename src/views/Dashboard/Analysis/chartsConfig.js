@@ -151,7 +151,8 @@ export const activityChartConfig = {
 
 export const areaVisitsChartConfig = {
   tooltip: {
-    trigger: 'item'
+    trigger: 'item',
+    formatter: (params) => `${params.seriesName}</br>${params.marker}${params.data.name}:${params.data.value[2]}`
   },
   geo: {
     map: 'china',
@@ -176,7 +177,7 @@ export const areaVisitsChartConfig = {
       type: 'scatter',
       coordinateSystem: 'geo',
       data: [],
-      symbolSize: val => val[2] / 10,
+      symbolSize: val => Math.sqrt(val[2]) / 6,
       itemStyle: {
         normal: {
           color: '#E6A23C'
@@ -188,7 +189,7 @@ export const areaVisitsChartConfig = {
       type: 'effectScatter',
       coordinateSystem: 'geo',
       data: [],
-      symbolSize: val => val[2] / 10,
+      symbolSize: (val, params) => Math.sqrt(val[2]) / (2 + params.dataIndex / 10),
       showEffectOn: 'render',
       rippleEffect: {
         scale: 2,
