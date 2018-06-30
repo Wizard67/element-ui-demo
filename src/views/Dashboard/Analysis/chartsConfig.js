@@ -303,7 +303,7 @@ export const visitsTypeChartConfig = {
     {
       name: '访问渠道',
       type: 'pie',
-      radius : '70%',
+      radius : ['35%', '70%'],
       center: ['50%', '50%'],
       label: {
         show: true,
