@@ -130,7 +130,7 @@ export const activityChartConfig = {
   tooltip : {
     show: true,
     confine: true,
-    formatter: (params) => `${params.marker}${params.data}%`
+    formatter: (params) => `${params.seriesName}</br>${params.marker}${params.data}`
   },
   color: [ '#67C23A'],
   series : [
@@ -152,7 +152,7 @@ export const activityChartConfig = {
 export const areaVisitsChartConfig = {
   tooltip: {
     trigger: 'item',
-    formatter: (params) => `${params.seriesName}</br>${params.marker}${params.data.name}:${params.data.value[2]}`
+    formatter: (params) => `${params.seriesName}</br>${params.marker}${params.data.name} ${params.data.value[2]}`
   },
   geo: {
     map: 'china',
@@ -217,11 +217,7 @@ export const trafficChartConfig = {
   },
   tooltip: {
     trigger: 'axis',
-    formatter: function (params) {
-      params = params[0];
-      var date = new Date(params.name);
-      return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
-    },
+    formatter: (params) => `${params[0].seriesName}</br>${params[0].marker}${params[0].axisValueLabel} ${params[0].value[1]}`,
     axisPointer: {
       animation: false
     }
@@ -256,6 +252,10 @@ export const trafficChartConfig = {
 }
 
 export const payloadChartConfig = {
+  tooltip: {
+    trigger: 'item',
+    formatter: (params) => `${params.seriesName}</br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#909399;"></span>${params.value}`
+  },
   series: [
     {
       type: 'gauge',
@@ -287,9 +287,9 @@ export const payloadChartConfig = {
       detail: {
         fontSize: 16,
         formatter:'{value}%',
-        
       },
-      data: [{value: 50}]
+      name: "负载率",
+      data: {}
     }
   ]
 }
