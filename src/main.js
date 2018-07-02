@@ -3,7 +3,7 @@ import App from '@/App'
 import router from '@/router'
 import store from '@/store/index'
 
-import '@/theme'
+import '@/themes/element-ui'
 
 Vue.config.productionTip = false
 

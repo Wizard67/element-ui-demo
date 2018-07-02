@@ -69,8 +69,8 @@
 </template>
 
 <script>
-import ChartCard from './ChartCard';
-import MapCard from './MapCard';
+import ChartCard from './components/ChartCard';
+import MapCard from './components/MapCard';
 
 import ECharts from "vue-echarts/components/ECharts";
 import "echarts/lib/component/visualMap";
@@ -91,7 +91,7 @@ import { salesChartConfig,
     areaVisitsChartConfig,
        trafficChartConfig,
     visitsTypeChartConfig,
-       payloadChartConfig } from './chartsConfig'
+       payloadChartConfig } from '@/themes/echarts/chartsConfig'
 
 import { mapState } from 'vuex'
 

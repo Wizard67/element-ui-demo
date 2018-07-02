@@ -23,7 +23,7 @@ import List from '@/components/List';
 import ECharts from "vue-echarts/components/ECharts";
 import debounce from 'lodash/debounce';
 
-import chinaJson from "./china.json"
+import chinaJson from "@/themes/echarts/china.json"
 ECharts.registerMap('china', chinaJson)
 
 export default {
