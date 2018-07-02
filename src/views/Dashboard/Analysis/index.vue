@@ -2,30 +2,30 @@
   <article>
     <el-row :gutter="20">
       <el-col :lg="6">
-        <ChartCard height="80px" :options="salesChartConfig" :value="salesChartData" title="销售额" tip="指标说明">
-          <template slot="content">8846</template>
-          <template slot="foot">总销售额 ￥12,423,454</template>
+        <ChartCard height="80px" :options="salesChartConfig" :value="salesChartData.chart" title="销售额" tip="指标说明">
+          <template slot="content">{{salesChartData.value | toThousands}}</template>
+          <template slot="foot">总销售额 ￥{{visitsChartData.total | toThousands}}</template>
         </ChartCard>
       </el-col>
 
       <el-col :lg="6">
-        <ChartCard height="80px" :options="visitsChartConfig" :value="visitsChartData" title="访问量" tip="指标说明">
-          <template slot="content">6156</template>
-          <template slot="foot">总访问 1,423,124</template>
+        <ChartCard height="80px" :options="visitsChartConfig" :value="visitsChartData.chart" title="访问量" tip="指标说明">
+          <template slot="content">{{visitsChartData.value | toThousands}}</template>
+          <template slot="foot">总访问 {{visitsChartData.total | toThousands}}</template>
         </ChartCard>
       </el-col>
 
       <el-col :lg="6">
-        <ChartCard height="80px" :options="paymentsChartConfig" :value="paymentsChartData" title="支付笔数" tip="指标说明">
-          <template slot="content">4560</template>
-          <template slot="foot">转化率 60%</template>
+        <ChartCard height="80px" :options="paymentsChartConfig" :value="paymentsChartData.chart" title="支付笔数" tip="指标说明">
+          <template slot="content">{{paymentsChartData.value | toThousands}}</template>
+          <template slot="foot">转化率 {{paymentsChartData.total | toThousands}}</template>
         </ChartCard>
       </el-col>
 
       <el-col :lg="6">
-        <ChartCard height="80px" :options="activityChartConfig" :value="activityChartData" title="运营活动效果" tip="指标说明">
-          <template slot="content">78%</template>
-          <template slot="foot">周同比 12%</template>
+        <ChartCard height="80px" :options="activityChartConfig" :value="activityChartData.chart" title="运营活动效果" tip="指标说明">
+          <template slot="content">{{activityChartData.value}}%</template>
+          <template slot="foot">周同比 {{activityChartData.total}}%</template>
         </ChartCard>
       </el-col>
 
@@ -57,11 +57,11 @@
       </el-col>
 
       <el-col :lg="8">
-        <ChartCard height="280px" :options="payloadChartConfig" :value="payloadChartDate" title="负载率" tip="指标说明" />
+        <ChartCard height="280px" :options="payloadChartConfig" :value="payloadChartDate.chart" title="负载率" tip="指标说明" />
       </el-col>
 
       <el-col :lg="8">
-        <ChartCard height="280px" :options="visitsTypeChartConfig" :value="visitsTypeChartData" title="访问渠道" tip="指标说明" />
+        <ChartCard height="280px" :options="visitsTypeChartConfig" :value="visitsTypeChartData.chart" title="访问渠道" tip="指标说明" />
       </el-col>
     </el-row>
 
@@ -138,6 +138,12 @@ export default {
   methods: {
     fetchMapDate(range) {
       this.$store.dispatch('analysis/getMapDate')
+    }
+  },
+
+  filters: {
+    toThousands(num) {
+      return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
     }
   },
 
