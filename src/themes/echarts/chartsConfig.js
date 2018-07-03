@@ -189,7 +189,7 @@ export const areaVisitsChartConfig = {
       type: 'effectScatter',
       coordinateSystem: 'geo',
       data: [],
-      symbolSize: (val, params) => Math.sqrt(val[2]) / (2 + params.dataIndex / 10),
+      symbolSize: val => Math.sqrt(val[2]) / 4.5,
       showEffectOn: 'render',
       rippleEffect: {
         scale: 2,
