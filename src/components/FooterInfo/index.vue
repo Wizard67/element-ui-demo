@@ -11,11 +11,11 @@
 <script>
 export default {
   name: 'FooterInfo'
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  .font--light {
-    text-align: center;
-  }
+.font--light {
+  text-align: center;
+}
 </style>

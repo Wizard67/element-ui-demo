@@ -31,7 +31,7 @@
       </template>
 
       <template v-else>
-        <el-menu-item :index="item.index"  :key="index">
+        <el-menu-item :index="item.index" :key="index">
           <el-icon :name="item.icon"></el-icon>
           <span :slot="'title'">{{ item.title }}</span>
         </el-menu-item>
@@ -42,37 +42,35 @@
 </template>
 
 <script>
-import LogoWrap from '@/components/LogoWrap'
+import LogoWrap from '@/components/LogoWrap';
 
 export default {
   name: 'SideBar',
+  components: {
+    LogoWrap
+  },
   props: {
     logo: {
-      type: String,
+      type: String
     },
     title: {
-      type: String,
+      type: String
     },
     collapse: {
       default: false,
-      type: Boolean,
+      type: Boolean
     },
     nav: {
-      type: Array,
+      type: Array
     }
   },
   data() {
-    return {
-    }
-  },
-  components: {
-    LogoWrap
+    return {};
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-
 .fix-menu {
   border-right: unset;
   background-color: #545c64;
@@ -101,7 +99,7 @@ export default {
 
     .el-menu-item {
       color: #a6aaae;
-      
+
       &:focus,
       &:hover,
       &.is-active {

@@ -24,7 +24,8 @@ export default {
       type: Array
     }
   }
-}
+};
 </script>
 
-<style src="./style.scss" lang="scss"></style>
+<style src="./style.scss" lang="scss">
+</style>

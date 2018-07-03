@@ -1,25 +1,26 @@
-import axios from 'axios'
+import axios from 'axios';
 
-axios.defaults.baseURL = 'https://easy-mock.com/mock/5b212f773cfa8868e0eba929/element-ui-demo/'
+axios.defaults.baseURL =
+  'https://easy-mock.com/mock/5b212f773cfa8868e0eba929/element-ui-demo/';
 
 // add a request interceptor
 axios.interceptors.request.use(
-  (config) => {
-    return config
+  config => {
+    return config;
   },
-  (err) => {
-    return Promise.reject(err)
+  err => {
+    return Promise.reject(err);
   }
-)
+);
 
 // add a response interceptor
 axios.interceptors.response.use(
-  (response) => {
-    return response
+  response => {
+    return response;
   },
-  (error) => {
-    return Promise.reject(error)
+  error => {
+    return Promise.reject(error);
   }
-)
+);
 
-export default axios
+export default axios;

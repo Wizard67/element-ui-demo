@@ -1,12 +1,12 @@
 export const salesChartConfig = {
   grid: {
-    top: "10",
-    right: "10",
+    top: '10',
+    right: '10',
     bottom: 0,
-    left: "10"
+    left: '10'
   },
   xAxis: {
-    type: "category",
+    type: 'category',
     show: false,
     boundaryGap: false,
     axisLabel: {
@@ -14,33 +14,34 @@ export const salesChartConfig = {
     }
   },
   yAxis: {
-    type: "value",
+    type: 'value',
     show: false
   },
   tooltip: {
     show: true,
     confine: true,
-    formatter: (params) => `${params.seriesName}</br>${params.marker}${params.data}`
+    formatter: params =>
+      `${params.seriesName}</br>${params.marker}${params.data}`
   },
   series: [
     {
       name: '日销售额',
-      type: "line",
+      type: 'line',
       data: []
     }
   ],
   color: ['#E6A23C']
-}
+};
 
 export const visitsChartConfig = {
   grid: {
-    top: "10",
-    right: "5",
+    top: '10',
+    right: '5',
     bottom: 0,
-    left: "5"
+    left: '5'
   },
   xAxis: {
-    type: "category",
+    type: 'category',
     show: false,
     boundaryGap: false,
     axisLabel: {
@@ -48,35 +49,36 @@ export const visitsChartConfig = {
     }
   },
   yAxis: {
-    type: "value",
+    type: 'value',
     show: false
   },
   tooltip: {
     show: true,
     confine: true,
-    formatter: (params) => `${params.seriesName}</br>${params.marker}${params.data}`
+    formatter: params =>
+      `${params.seriesName}</br>${params.marker}${params.data}`
   },
   series: [
     {
       name: '日访问量',
       data: [],
-      type: "line",
+      type: 'line',
       smooth: true,
       areaStyle: {}
     }
   ],
   color: ['#F56C6C']
-}
+};
 
 export const paymentsChartConfig = {
   grid: {
     top: 0,
-    right: "10",
+    right: '10',
     bottom: 0,
-    left: "10"
+    left: '10'
   },
   xAxis: {
-    type: "category",
+    type: 'category',
     show: false,
     boundaryGap: false,
     axisLabel: {
@@ -84,33 +86,34 @@ export const paymentsChartConfig = {
     }
   },
   yAxis: {
-    type: "value",
+    type: 'value',
     show: false
   },
   tooltip: {
     show: true,
     confine: true,
-    formatter: (params) => `${params.seriesName}</br>${params.marker}${params.data}`
+    formatter: params =>
+      `${params.seriesName}</br>${params.marker}${params.data}`
   },
   color: ['#409EFF'],
   series: [
     {
       name: '日支付数',
-      type: "bar",
+      type: 'bar',
       data: []
     }
   ]
-}
+};
 
 export const activityChartConfig = {
   grid: {
-    top: "20",
-    right: "10",
+    top: '20',
+    right: '10',
     bottom: 0,
     left: 0
   },
   xAxis: {
-    type: "value",
+    type: 'value',
     min: 0,
     max: 100,
     splitLine: {
@@ -120,39 +123,43 @@ export const activityChartConfig = {
     }
   },
   yAxis: {
-    type: "category",
+    type: 'category',
     axisLine: {
       lineStyle: {
         color: '#C0C4CC'
       }
     }
   },
-  tooltip : {
+  tooltip: {
     show: true,
     confine: true,
-    formatter: (params) => `${params.seriesName}</br>${params.marker}${params.data}`
+    formatter: params =>
+      `${params.seriesName}</br>${params.marker}${params.data}`
   },
-  color: [ '#67C23A'],
-  series : [
+  color: ['#67C23A'],
+  series: [
     {
       name: '运营效果',
-      type:'bar',
+      type: 'bar',
       label: {
-          normal: {
-              show: true,
-              formatter: '{b}'
-          }
+        normal: {
+          show: true,
+          formatter: '{b}'
+        }
       },
       barMaxWidth: '30',
-      data:[]
+      data: []
     }
   ]
-}
+};
 
 export const areaVisitsChartConfig = {
   tooltip: {
     trigger: 'item',
-    formatter: (params) => `${params.seriesName}</br>${params.marker}${params.data.name} ${params.data.value[2]}`
+    formatter: params =>
+      `${params.seriesName}</br>${params.marker}${params.data.name} ${
+        params.data.value[2]
+      }`
   },
   geo: {
     map: 'china',
@@ -206,18 +213,21 @@ export const areaVisitsChartConfig = {
       zlevel: 1
     }
   ]
-}
+};
 
 export const trafficChartConfig = {
   grid: {
-    top: "20%",
-    right: "20",
-    bottom: "20%",
-    left: "20"
+    top: '20%',
+    right: '20',
+    bottom: '20%',
+    left: '20'
   },
   tooltip: {
     trigger: 'axis',
-    formatter: (params) => `${params[0].seriesName}</br>${params[0].marker}${params[0].axisValueLabel} ${params[0].value[1]}`,
+    formatter: params =>
+      `${params[0].seriesName}</br>${params[0].marker}${
+        params[0].axisValueLabel
+      } ${params[0].value[1]}`,
     axisPointer: {
       animation: false
     }
@@ -242,19 +252,26 @@ export const trafficChartConfig = {
     }
   },
   color: ['#409EFF'],
-  series: [{
-    name: '即时流量',
-    type: 'line',
-    showSymbol: false,
-    hoverAnimation: false,
-    data: []
-  }]
-}
+  series: [
+    {
+      name: '即时流量',
+      type: 'line',
+      showSymbol: false,
+      hoverAnimation: false,
+      data: []
+    }
+  ]
+};
 
 export const payloadChartConfig = {
   tooltip: {
     trigger: 'item',
-    formatter: (params) => `${params.seriesName}</br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#909399;"></span>${params.value}`
+    formatter: params =>
+      `${
+        params.seriesName
+      }</br><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#909399;"></span>${
+        params.value
+      }`
   },
   series: [
     {
@@ -262,11 +279,7 @@ export const payloadChartConfig = {
       splitNumber: 5,
       axisLine: {
         lineStyle: {
-          color: [
-            [0.2, '#67C23A'],
-            [0.8, '#409EFF'],
-            [1, '#F56C6C']
-          ],
+          color: [[0.2, '#67C23A'], [0.8, '#409EFF'], [1, '#F56C6C']],
           width: 15
         }
       },
@@ -280,31 +293,31 @@ export const payloadChartConfig = {
         show: false,
         length: 10
       },
-      pointer : {
-        length : '60%',
-        width : 2,
+      pointer: {
+        length: '60%',
+        width: 2
       },
       detail: {
         fontSize: 16,
-        formatter:'{value}%',
+        formatter: '{value}%'
       },
-      name: "负载率",
+      name: '负载率',
       data: {}
     }
   ]
-}
+};
 
 export const visitsTypeChartConfig = {
-  tooltip : {
+  tooltip: {
     trigger: 'item',
-    formatter: (params) => `${params.name}</br>${params.marker}${params.percent}%`
+    formatter: params => `${params.name}</br>${params.marker}${params.percent}%`
   },
   color: ['#409EFF', '#67C23A', '#E6A23C', '#F56C6C', '#909399'],
-  series : [
+  series: [
     {
       name: '访问渠道',
       type: 'pie',
-      radius : ['35%', '70%'],
+      radius: ['35%', '70%'],
       center: ['50%', '50%'],
       label: {
         show: true,
@@ -315,7 +328,7 @@ export const visitsTypeChartConfig = {
           color: '#DCDFE6'
         }
       },
-      data:[],
+      data: [],
       itemStyle: {
         emphasis: {
           shadowBlur: 10,
@@ -325,4 +338,4 @@ export const visitsTypeChartConfig = {
       }
     }
   ]
-}
+};

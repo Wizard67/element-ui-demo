@@ -72,39 +72,50 @@
 import ChartCard from './components/ChartCard';
 import MapCard from './components/MapCard';
 
-import ECharts from "vue-echarts/components/ECharts";
-import "echarts/lib/component/visualMap";
+import ECharts from 'vue-echarts/components/ECharts';
+import 'echarts/lib/component/visualMap';
 import 'echarts/lib/component/geo';
 import 'echarts/lib/component/tooltip';
-import "echarts/lib/chart/scatter";
-import "echarts/lib/chart/line";
-import "echarts/lib/chart/bar";
-import "echarts/lib/chart/map";
+import 'echarts/lib/chart/scatter';
+import 'echarts/lib/chart/line';
+import 'echarts/lib/chart/bar';
+import 'echarts/lib/chart/map';
 import 'echarts/lib/chart/effectScatter';
-import "echarts/lib/chart/pie";
-import "echarts/lib/chart/gauge";
+import 'echarts/lib/chart/pie';
+import 'echarts/lib/chart/gauge';
 
-import { salesChartConfig,
-        visitsChartConfig,
-      paymentsChartConfig,
-      activityChartConfig,
-    areaVisitsChartConfig,
-       trafficChartConfig,
-    visitsTypeChartConfig,
-       payloadChartConfig } from '@/themes/echarts/chartsConfig'
+import {
+  salesChartConfig,
+  visitsChartConfig,
+  paymentsChartConfig,
+  activityChartConfig,
+  areaVisitsChartConfig,
+  trafficChartConfig,
+  visitsTypeChartConfig,
+  payloadChartConfig
+} from '@/themes/echarts/chartsConfig';
 
-import { mapState } from 'vuex'
+import { mapState } from 'vuex';
 
 export default {
-  name: "Analysis",
-  path: "/dashboard/analysis",
-
+  name: 'Analysis',
+  path: '/dashboard/analysis',
+  components: {
+    ChartCard,
+    MapCard,
+    Chart: ECharts
+  },
+  filters: {
+    toThousands(num) {
+      return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
+    }
+  },
   data() {
     return {
       date: [new Date(), new Date()],
       pickerOptions: {
         disabledDate(date) {
-          return date.getTime() > Date.now()
+          return date.getTime() > Date.now();
         }
       },
       salesChartConfig,
@@ -117,7 +128,6 @@ export default {
       payloadChartConfig
     };
   },
-
   computed: {
     ...mapState('analysis', [
       'salesChartData',
@@ -130,27 +140,13 @@ export default {
       'payloadChartDate'
     ])
   },
-
   created() {
-    this.$store.dispatch('analysis/initAnalysis')
+    this.$store.dispatch('analysis/initAnalysis');
   },
-
   methods: {
-    fetchMapDate(range) {
-      this.$store.dispatch('analysis/getMapDate')
+    fetchMapDate() {
+      this.$store.dispatch('analysis/getMapDate');
     }
-  },
-
-  filters: {
-    toThousands(num) {
-      return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
-    }
-  },
-
-  components: {
-    ChartCard,
-    MapCard,
-    Chart: ECharts
   }
 };
 </script>

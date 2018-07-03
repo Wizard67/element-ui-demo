@@ -10,29 +10,28 @@
 </template>
 
 <script>
-
-
 export default {
   name: 'NavBar',
   props: {
     collapse: {
-      type: Boolean,
-    },
+      type: Boolean
+    }
   },
   computed: {
     helperClass() {
       return {
         'el-icon-icon-outdent': !this.collapse,
-        'el-icon-icon-indent': this.collapse,
-      }
-    },
+        'el-icon-icon-indent': this.collapse
+      };
+    }
   },
   methods: {
     handleCollapse() {
-      this.$emit('onCollapse')
-    },
+      this.$emit('onCollapse');
+    }
   }
-}
+};
 </script>
 
-<style src="./style.scss" lang="scss"></style>
+<style src="./style.scss" lang="scss">
+</style>

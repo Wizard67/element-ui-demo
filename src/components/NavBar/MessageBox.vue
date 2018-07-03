@@ -28,9 +28,12 @@
 </template>
 
 <script>
-import MessageBoxItem from '@/components/NavBar/MessageBoxItem'
+import MessageBoxItem from '@/components/NavBar/MessageBoxItem';
 
 export default {
+  components: {
+    MessageBoxItem
+  },
   props: {
     messages: {
       type: Object,
@@ -39,17 +42,14 @@ export default {
   },
   methods: {
     getMessageLength(arr) {
-      return arr && arr.length > 0 ? `(${arr.length})` : ''
+      return arr && arr.length > 0 ? `(${arr.length})` : '';
     }
-  },
-  components: {
-    MessageBoxItem,
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import "~@nn-yy/css-flex/flex";
+@import '~@nn-yy/css-flex/flex';
 
 .fix-badge {
   display: block;
@@ -62,10 +62,8 @@ export default {
 .fix-tabs {
   /deep/ {
     .el-tabs__nav-wrap {
-      @include flex( center, middle );
+      @include flex(center, middle);
     }
   }
 }
 </style>
-
-

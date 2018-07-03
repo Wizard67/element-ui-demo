@@ -21,11 +21,15 @@
 </template>
 
 <script>
-import Card from "@/components/Card"
-import ECharts from "vue-echarts/components/ECharts.vue"
+import Card from '@/components/Card';
+import ECharts from 'vue-echarts/components/ECharts.vue';
 
 export default {
   name: 'ChartCard',
+  components: {
+    Card,
+    Chart: ECharts
+  },
   props: {
     height: {
       type: String,
@@ -50,13 +54,9 @@ export default {
   },
   computed: {
     mergeOptions() {
-      this.options.series[0].data = this.value
-      return this.options
+      this.options.series[0].data = this.value;
+      return this.options;
     }
-  },
-  components: {
-    Card,
-    Chart: ECharts
   }
-}
+};
 </script>

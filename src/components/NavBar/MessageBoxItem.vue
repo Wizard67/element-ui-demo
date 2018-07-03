@@ -15,8 +15,8 @@
 export default {
   props: {
     content: {
-      type: Array,
+      type: Array
     }
   }
-}
+};
 </script>

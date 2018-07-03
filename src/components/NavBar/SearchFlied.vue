@@ -26,45 +26,50 @@
 </template>
 
 <script>
-const _createFilter = (queryString, flied) => restaurant => (restaurant[flied].toLowerCase().indexOf(queryString.toLowerCase()) > 0)
+const _createFilter = (queryString, flied) => restaurant =>
+  restaurant[flied].toLowerCase().indexOf(queryString.toLowerCase()) > 0;
 
 export default {
   name: 'SearchFiled',
   props: {
     suggestions: {
-      type: Array,
-    },
+      type: Array
+    }
   },
   data() {
     return {
       isShow: false,
-      searchInput: '',
+      searchInput: ''
     };
   },
   methods: {
     querySearch(queryString, cb) {
-      const restaurants = this.suggestions
-      let results = queryString ? restaurants.filter(_createFilter(queryString, 'message')) : restaurants
-      cb(results)
+      const restaurants = this.suggestions;
+      let results = queryString
+        ? restaurants.filter(_createFilter(queryString, 'message'))
+        : restaurants;
+      cb(results);
     },
     handleSelect(item) {
-      this.searchInput = item.message
+      this.searchInput = item.message;
     },
-    handleSubmit(event) {
-      if(this.isShow) {
-        this.searchInput ?　this.$emit('onSearch', this.searchInput) : this.isShow = !this.isShow
+    handleSubmit() {
+      if (this.isShow) {
+        this.searchInput
+          ? this.$emit('onSearch', this.searchInput)
+          : (this.isShow = !this.isShow);
       } else {
-        this.isShow = !this.isShow
+        this.isShow = !this.isShow;
       }
-    },
-  },
-}
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-  .fix-icon {
-    font-size: 18px;
-    color: inherit;
-    cursor: pointer;
-  }
+.fix-icon {
+  font-size: 18px;
+  color: inherit;
+  cursor: pointer;
+}
 </style>

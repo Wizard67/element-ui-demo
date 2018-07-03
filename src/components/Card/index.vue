@@ -23,7 +23,8 @@
 <script>
 export default {
   name: 'Card'
-}
+};
 </script>
 
-<style src="./style.scss" lang="scss"></style>
+<style src="./style.scss" lang="scss">
+</style>

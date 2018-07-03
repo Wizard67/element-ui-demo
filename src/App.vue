@@ -42,42 +42,17 @@
 </template>
 
 <script>
-import SideBar from '@/components/SideBar'
-import NavBar from '@/components/NavBar'
-import SearchFiled from '@/components/NavBar/SearchFlied'
-import UserDropdown from '@/components/NavBar/UserDropdown'
-import MessageBox from '@/components/NavBar/MessageBox'
-import FooterInfo from '@/components/FooterInfo'
+import SideBar from '@/components/SideBar';
+import NavBar from '@/components/NavBar';
+import SearchFiled from '@/components/NavBar/SearchFlied';
+import UserDropdown from '@/components/NavBar/UserDropdown';
+import MessageBox from '@/components/NavBar/MessageBox';
+import FooterInfo from '@/components/FooterInfo';
 
-import { mapState } from 'vuex'
+import { mapState } from 'vuex';
 
 export default {
   name: 'App',
-  data() {
-    return {
-      logo: require('@/assets/images/logo.png'),
-      isCollapse: false
-    }
-  },
-  computed: {
-    ...mapState([
-      'userInfo',
-      'nav',
-      'suggestions',
-      'messages'
-    ])
-  },
-  methods: {
-    handleCollapse(value) {
-      this.isCollapse = !this.isCollapse
-    },
-    handleSearch(value) {
-      alert(value)
-    }
-  },
-  created() {
-    this.$store.dispatch('initApp')
-  },
   components: {
     SideBar,
     NavBar,
@@ -85,11 +60,32 @@ export default {
     UserDropdown,
     MessageBox,
     FooterInfo
+  },
+  data() {
+    return {
+      logo: require('@/assets/images/logo.png'),
+      isCollapse: false
+    };
+  },
+  computed: {
+    ...mapState(['userInfo', 'nav', 'suggestions', 'messages'])
+  },
+  created() {
+    this.$store.dispatch('initApp');
+  },
+  methods: {
+    handleCollapse() {
+      this.isCollapse = !this.isCollapse;
+    },
+    handleSearch(value) {
+      alert(value);
+    }
   }
-}
+};
 </script>
 
-<style src="@/assets/style/base.scss" lang="scss"></style>
+<style src="@/assets/style/base.scss" lang="scss">
+</style>
 <style lang="scss" scoped>
 .fix-container {
   height: 100%;

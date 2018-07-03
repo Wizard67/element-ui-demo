@@ -28,7 +28,7 @@ export default {
     avatar: {
       type: String,
       required: true
-    },
+    }
   }
-}
+};
 </script>

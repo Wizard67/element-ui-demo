@@ -13,14 +13,15 @@ export default {
   props: {
     logo: {
       required: true,
-      type: String,
+      type: String
     },
     collapse: {
       default: false,
-      type: Boolean,
+      type: Boolean
     }
   }
-}
+};
 </script>
 
-<style src="./style.scss" lang="scss"></style>
+<style src="./style.scss" lang="scss">
+</style>
