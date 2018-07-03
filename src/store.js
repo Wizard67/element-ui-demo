@@ -3,8 +3,8 @@ import ajax from '@/ajax'
 const state = {
   nav: [],
   userInfo: {
-    userName: 'Wizrad67',
-    avatar: '/avatar.jpg'
+    userName: 'UserName',
+    avatar: require('@/assets/images/avatar.png')
   },
   messages: {},
   suggestions: [

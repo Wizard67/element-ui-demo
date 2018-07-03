@@ -23,13 +23,11 @@ export default {
   props: {
     userName: {
       type: String,
-      required: true,
-      default: 'userName',
+      required: true
     },
     avatar: {
       type: String,
-      required: true,
-      default: '/avatar.jpg',
+      required: true
     },
   }
 }
