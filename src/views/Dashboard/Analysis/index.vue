@@ -99,7 +99,6 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'Analysis',
-  path: '/dashboard/analysis',
   components: {
     ChartCard,
     MapCard,
