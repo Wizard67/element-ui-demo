@@ -5,4 +5,4 @@ export default [
     alias: '/',
     component: () => import('@/views/Dashboard/Analysis/')
   }
-]
+];
