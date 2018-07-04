@@ -22,7 +22,7 @@ npm run build
 
 - [ ] 项目
     - [x] 目录结构的划分
-    - [x] 去中心化的路由注册与状态管理
+    - [x] 去中心化的<del>路由注册与</del>状态管理
     - [x] Mock 服务
     - [x] eslint + prettier 统一代码风格
 - [ ] element-ui
