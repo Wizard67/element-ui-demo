@@ -2,20 +2,27 @@
   <Card>
     <template slot="head">
       <span>{{title}}</span>
-      <el-tooltip effect="dark" :content="tip" placement="top">
+      <el-tooltip effect="dark" placement="top"
+        :content="tip"
+      >
         <i class="el-icon-icon-question-circle-o"></i>
       </el-tooltip>
     </template>
+
     <template slot="content">
       <template v-if="$slots.content">
         <div class="font--focus">
-          <slot name="content"></slot>
+          <slot name="content" />
         </div>
       </template>
-      <Chart :options="mergeOptions" :auto-resize="true" style="width: 100%;" :style="{height: height}"></Chart>
+      <Chart style="width: 100%;" :style="{height: height}"
+        :options="mergeOptions"
+        :auto-resize="true"
+      />
     </template>
+
     <template slot="foot">
-      <slot name="foot"></slot>
+      <slot name="foot" />
     </template>
   </Card>
 </template>
