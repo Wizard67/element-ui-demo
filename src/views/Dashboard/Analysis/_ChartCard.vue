@@ -15,7 +15,7 @@
           <slot name="content" />
         </div>
       </template>
-      <Chart style="width: 100%;" :style="{height: height}"
+      <ECharts style="width: 100%;" :style="{height: height}"
         :options="mergeOptions"
         :auto-resize="true"
       />
@@ -35,7 +35,7 @@ export default {
   name: 'ChartCard',
   components: {
     Card,
-    Chart: ECharts
+    ECharts
   },
   props: {
     height: {

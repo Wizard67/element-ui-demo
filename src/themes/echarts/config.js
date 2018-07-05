@@ -1,4 +1,4 @@
-export const salesChartConfig = {
+const sales = {
   grid: {
     top: '10',
     right: '10',
@@ -33,7 +33,7 @@ export const salesChartConfig = {
   color: ['#E6A23C']
 };
 
-export const visitsChartConfig = {
+const visits = {
   grid: {
     top: '10',
     right: '5',
@@ -70,7 +70,7 @@ export const visitsChartConfig = {
   color: ['#F56C6C']
 };
 
-export const paymentsChartConfig = {
+const payments = {
   grid: {
     top: 0,
     right: '10',
@@ -105,7 +105,7 @@ export const paymentsChartConfig = {
   ]
 };
 
-export const activityChartConfig = {
+const activity = {
   grid: {
     top: '20',
     right: '10',
@@ -153,7 +153,7 @@ export const activityChartConfig = {
   ]
 };
 
-export const areaVisitsChartConfig = {
+const areaVisits = {
   tooltip: {
     trigger: 'item',
     formatter: params =>
@@ -199,8 +199,7 @@ export const areaVisitsChartConfig = {
       symbolSize: val => Math.sqrt(val[2]) / 4.5,
       showEffectOn: 'render',
       rippleEffect: {
-        scale: 2,
-        brushType: 'fill'
+        brushType: 'stroke'
       },
       hoverAnimation: true,
       itemStyle: {
@@ -215,7 +214,7 @@ export const areaVisitsChartConfig = {
   ]
 };
 
-export const trafficChartConfig = {
+const traffic = {
   grid: {
     top: '20%',
     right: '20',
@@ -263,7 +262,7 @@ export const trafficChartConfig = {
   ]
 };
 
-export const payloadChartConfig = {
+const payload = {
   tooltip: {
     trigger: 'item',
     formatter: params =>
@@ -307,7 +306,7 @@ export const payloadChartConfig = {
   ]
 };
 
-export const visitsTypeChartConfig = {
+const visitsType = {
   tooltip: {
     trigger: 'item',
     formatter: params => `${params.name}</br>${params.marker}${params.percent}%`
@@ -338,4 +337,15 @@ export const visitsTypeChartConfig = {
       }
     }
   ]
+};
+
+export default {
+  sales,
+  visits,
+  payments,
+  activity,
+  areaVisits,
+  traffic,
+  payload,
+  visitsType
 };

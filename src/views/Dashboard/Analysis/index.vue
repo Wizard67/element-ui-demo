@@ -3,56 +3,56 @@
     <el-row :gutter="20">
       <el-col :lg="6">
         <ChartCard height="80px" title="销售额" tip="指标说明"
-          :options="salesChartConfig"
-          :value="salesChartData.chart"
+          :options="chartConfig.sales"
+          :value="chartCardDate.sales.chart"
         >
-          <template slot="content">{{salesChartData.value | toThousands}}</template>
-          <template slot="foot">总销售额 ￥{{visitsChartData.total | toThousands}}</template>
+          <template slot="content">{{chartCardDate.sales.value | toThousands}}</template>
+          <template slot="foot">总销售额 ￥{{chartCardDate.sales.total | toThousands}}</template>
         </ChartCard>
       </el-col>
 
       <el-col :lg="6">
         <ChartCard height="80px" title="访问量" tip="指标说明"
-          :options="visitsChartConfig"
-          :value="visitsChartData.chart"
+          :options="chartConfig.visits"
+          :value="chartCardDate.visits.chart"
         >
-          <template slot="content">{{visitsChartData.value | toThousands}}</template>
-          <template slot="foot">总访问 {{visitsChartData.total | toThousands}}</template>
+          <template slot="content">{{chartCardDate.visits.value | toThousands}}</template>
+          <template slot="foot">总访问 {{chartCardDate.visits.total | toThousands}}</template>
         </ChartCard>
       </el-col>
 
       <el-col :lg="6">
         <ChartCard height="80px" title="支付笔数" tip="指标说明"
-          :options="paymentsChartConfig"
-          :value="paymentsChartData.chart"
+          :options="chartConfig.payments"
+          :value="chartCardDate.payments.chart"
         >
-          <template slot="content">{{paymentsChartData.value | toThousands}}</template>
-          <template slot="foot">转化率 {{paymentsChartData.total | toThousands}}</template>
+          <template slot="content">{{chartCardDate.payments.value | toThousands}}</template>
+          <template slot="foot">转化率 {{chartCardDate.payments.total | toThousands}}</template>
         </ChartCard>
       </el-col>
 
       <el-col :lg="6">
         <ChartCard height="80px" title="运营活动效果" tip="指标说明"
-          :options="activityChartConfig"
-          :value="activityChartData.chart"
+          :options="chartConfig.activity"
+          :value="chartCardDate.activity.chart"
         >
-          <template slot="content">{{activityChartData.value}}%</template>
-          <template slot="foot">周同比 {{activityChartData.total}}%</template>
+          <template slot="content">{{chartCardDate.activity.value}}%</template>
+          <template slot="foot">周同比 {{chartCardDate.activity.total}}%</template>
         </ChartCard>
       </el-col>
     </el-row>
 
     <el-row style="width: 100%">
       <el-col>
-        <MapCard :options="areaVisitsChartConfig"
-          :value="areaVisitsChartData"
+        <MapCard :options="chartConfig.areaVisits"
+          :value="mapCardData"
         >
           <template slot="helper">
             <el-date-picker type="daterange" align="right" value-format= "timestamp"
               range-separator="-"
               start-placeholder="开始日期"
               end-placeholder="结束日期"
-              v-model="date"
+              v-model="datePick"
               :pickerOptions="pickerOptions"
               @change="fetchMapDate"
             />
@@ -64,22 +64,22 @@
     <el-row :gutter="20">
       <el-col :lg="8">
         <ChartCard height="280px" title="即时流量" tip="指标说明"
-          :options="trafficChartConfig"
-          :value="trafficChartDate"
+          :options="chartConfig.traffic"
+          :value="chartCardDate.traffic.chart"
         />
       </el-col>
-
+      
       <el-col :lg="8">
         <ChartCard height="280px" title="负载率" tip="指标说明" 
-          :options="payloadChartConfig"
-          :value="payloadChartDate.chart"
+          :options="chartConfig.payload"
+          :value="chartCardDate.payload.chart"
         />
       </el-col>
 
       <el-col :lg="8">
         <ChartCard height="280px" title="访问渠道" tip="指标说明"
-          :options="visitsTypeChartConfig"
-          :value="visitsTypeChartData.chart"
+          :options="chartConfig.visitsType"
+          :value="chartCardDate.visitsType.chart"
         />
       </el-col>
     </el-row>
@@ -89,6 +89,7 @@
 <script>
 import ChartCard from './_ChartCard';
 import MapCard from './_MapCard';
+import ECharts from 'vue-echarts/components/ECharts';
 
 import 'echarts/lib/component/visualMap';
 import 'echarts/lib/component/geo';
@@ -101,18 +102,17 @@ import 'echarts/lib/chart/effectScatter';
 import 'echarts/lib/chart/pie';
 import 'echarts/lib/chart/gauge';
 
-import {
-  salesChartConfig,
-  visitsChartConfig,
-  paymentsChartConfig,
-  activityChartConfig,
-  areaVisitsChartConfig,
-  trafficChartConfig,
-  visitsTypeChartConfig,
-  payloadChartConfig
-} from '@/themes/echarts/chartsConfig';
+import mapJson from '@/themes/echarts/china.json';
+ECharts.registerMap('china', mapJson);
 
+import chartConfig from '@/themes/echarts/config';
 import { mapState } from 'vuex';
+
+const pickerOptions = {
+  disabledDate(date) {
+    return date.getTime() > Date.now();
+  }
+};
 
 export default {
   name: 'Analysis',
@@ -127,36 +127,17 @@ export default {
   },
   data() {
     return {
-      date: [new Date(), new Date()],
-      pickerOptions: {
-        disabledDate(date) {
-          return date.getTime() > Date.now();
-        }
-      },
-      salesChartConfig,
-      visitsChartConfig,
-      paymentsChartConfig,
-      activityChartConfig,
-      areaVisitsChartConfig,
-      trafficChartConfig,
-      visitsTypeChartConfig,
-      payloadChartConfig
+      datePick: [new Date(), new Date()],
+      chartConfig,
+      pickerOptions
     };
   },
   computed: {
-    ...mapState('analysis', [
-      'salesChartData',
-      'visitsChartData',
-      'paymentsChartData',
-      'activityChartData',
-      'areaVisitsChartData',
-      'trafficChartDate',
-      'visitsTypeChartData',
-      'payloadChartDate'
-    ])
+    ...mapState('analysis', ['chartCardDate', 'mapCardData'])
   },
   created() {
     this.$store.dispatch('analysis/initAnalysis');
+    this.$store.dispatch('analysis/getMapDate');
   },
   methods: {
     fetchMapDate() {

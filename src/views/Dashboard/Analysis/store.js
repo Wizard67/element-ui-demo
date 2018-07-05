@@ -1,71 +1,47 @@
 import ajax from '@/ajax';
 
 const state = {
-  salesChartData: [],
-  visitsChartData: [],
-  paymentsChartData: [],
-  activityChartData: [],
-  areaVisitsChartData: [],
-  trafficChartDate: [],
-  payloadChartDate: [0],
-  visitsTypeChartData: []
+  chartCardDate: {
+    sales: [],
+    visits: [],
+    payments: [],
+    activity: [],
+    traffic: [],
+    payload: [0],
+    visitsType: []
+  },
+  mapCardData: []
 };
 
 const getters = {};
 
 const mutations = {
-  setSalesChartData(store, value) {
-    store.salesChartData = value;
+  setChartCardDate(store, value) {
+    store.chartCardDate = {
+      sales: value.salesChartData,
+      visits: value.visitsChartData,
+      payments: value.paymentsChartData,
+      activity: value.activityChartData,
+      traffic: value.trafficChartDate,
+      payload: value.payloadChartDate,
+      visitsType: value.visitsTypeChartData
+    };
   },
-
-  setVisitsChartData(store, value) {
-    store.visitsChartData = value;
-  },
-
-  setPaymentsChartData(store, value) {
-    store.paymentsChartData = value;
-  },
-
-  setActivityChartData(store, value) {
-    store.activityChartData = value;
-  },
-
-  setAreaVisitsChartData(store, value) {
-    store.areaVisitsChartData = value;
-  },
-
-  setTrafficChartDate(store, value) {
-    store.trafficChartDate = value;
-  },
-
-  setPayloadChartDate(store, value) {
-    store.payloadChartDate = value;
-  },
-
-  setVisitsTypeChartData(store, value) {
-    store.visitsTypeChartData = value;
+  setMapCardData(store, value) {
+    store.mapCardData = value;
   }
 };
 
 const actions = {
   initAnalysis({ commit }) {
     ajax('initAnalysisCard').then(({ payload }) => {
-      commit('setSalesChartData', payload.salesChartData);
-      commit('setVisitsChartData', payload.visitsChartData);
-      commit('setPaymentsChartData', payload.paymentsChartData);
-      commit('setActivityChartData', payload.activityChartData);
-      commit('setTrafficChartDate', payload.trafficChartDate);
-      commit('setPayloadChartDate', payload.payloadChartDate);
-      commit('setVisitsTypeChartData', payload.visitsTypeChartData);
-    });
-    ajax('initAnalysisMap').then(({ payload }) => {
-      commit('setAreaVisitsChartData', payload.areaVisitsData);
+      commit('setChartCardDate', payload);
     });
   },
 
   getMapDate({ commit }) {
     ajax('initAnalysisMap').then(({ payload }) => {
-      commit('setAreaVisitsChartData', payload.areaVisitsData);
+      commit('setMapCardData', payload.areaVisitsData);
     });
   }
 };

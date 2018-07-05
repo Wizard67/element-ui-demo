@@ -8,7 +8,7 @@
     <template slot="content">
       <el-row style="width: 100%">
         <el-col :lg="16">
-          <Chart ref="map" style="width: 100%; height: 500px;"
+          <ECharts ref="map" style="width: 100%; height: 500px;"
             :options="mergeOptions"
             :auto-resize="false"
           />
@@ -27,15 +27,12 @@ import List from '@/components/List';
 import ECharts from 'vue-echarts/components/ECharts';
 import debounce from 'lodash/debounce';
 
-import chinaJson from '@/themes/echarts/china.json';
-ECharts.registerMap('china', chinaJson);
-
 export default {
   name: 'MapCard',
   components: {
     Card,
     List,
-    Chart: ECharts
+    ECharts
   },
   props: {
     options: {
