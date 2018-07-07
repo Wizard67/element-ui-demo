@@ -1,8 +1,21 @@
 export default [
+  /* 
+   * Login
+   */
   {
-    name: 'analysis',
-    path: '/dashboard/analysis',
-    alias: '/',
-    component: () => import('@/views/Dashboard/Analysis/')
+    name: 'app',
+    path: '/',
+    component: () => import('@/App'),
+    children: [
+      /* 
+      * Dashboard
+      */
+      {
+        name: 'analysis',
+        path: '/dashboard/analysis',
+        alias: '/',
+        component: () => import('@/views/Dashboard/Analysis/')
+      }
+    ]
   }
 ];
