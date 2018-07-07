@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+// reset theme variable
+$--color-primary: #545c64;
+
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+// reset el-card component
+.el-card {
+  margin-bottom: 20px; 
+}
