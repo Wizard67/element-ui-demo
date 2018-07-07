@@ -6,7 +6,9 @@
     router
     unique-opened>
     
-    <LogoWrap :logo="logo">
+    <LogoWrap type="dark"
+      :logo="logo"
+    >
       {{title}}
     </LogoWrap>
 
