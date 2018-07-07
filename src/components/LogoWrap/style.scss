@@ -1,23 +1,44 @@
 @import '~@nn-yy/css-flex/flex';
 
-.logo-wrap {
+.logo {
   @include flex( start, middle );
   width: unset;
   padding: 17px 20px;
-  background-color: #45515c;
-}
-.logo {
+
+  &--large {
+    @include flex( center, middle );
+    width: unset;
+    margin-bottom: 48px;
+  }
+
+  &.is-dark {
+    background-color: #45515c;
+    color: white;
+  }
+
   &__image {
-      width: 24px;
-      height: 24px;
+    width: 24px;
+    height: 24px;
+
+    &--large {
+      width: 42px;
+      height: 42px;
+    }
   }
 
   &__text {
-      margin: 0 20px;
-      color: white;
-      font-size: 18px;
-      line-height: 26px;
-      word-break: keep-all;
-      white-space:nowrap;
+    margin: 0 20px;
+    font-size: 18px;
+    line-height: 26px;
+    word-break: keep-all;
+    white-space:nowrap;
+
+    &--large {
+      margin-left: 10px;
+      color: #606266;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 36px;
+    }
   }
 }

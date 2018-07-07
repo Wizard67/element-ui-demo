@@ -1,8 +1,13 @@
-<template>
-  <div class="logo-wrap">
-    <img class="logo__image" :src="logo">
-    <div class="logo__text" v-if="!collapse">
-      <slot></slot>
+<template functional>
+  <div :class="[props.size === 'large'?'logo--large':'logo', props.type === 'dark'?'is-dark':'']">
+    <img :src="props.logo"
+      :class="props.size === 'large'?'logo__image--large':'logo__image'"
+    >
+
+    <div v-if="!props.collapse"
+      :class="props.size === 'large'?'logo__text--large':'logo__text'"
+    >
+      <slot />
     </div>
   </div>
 </template>
@@ -11,6 +16,14 @@
 export default {
   name: 'LogoWrap',
   props: {
+    type: {
+      type: String,
+      default: ''
+    },
+    size: {
+      type: String,
+      default: ''
+    },
     logo: {
       required: true,
       type: String
