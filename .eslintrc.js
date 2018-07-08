@@ -20,6 +20,10 @@ module.exports = {
     ],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-unused-vars': [
+      'error',
+      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
+    ],
     //
     // https://github.com/AlloyTeam/eslint-config-alloy/blob/master/vue.js
     //
