@@ -29,6 +29,14 @@ const mutations = {
 };
 
 const actions = {
+  login() {
+    console.log('login');
+  },
+
+  getCaptcha() {
+    console.log('fetch captcha sucessfully!');
+  },
+
   initApp({ commit }) {
     ajax('userInfo').then(({ payload }) => {
       commit('setUserInfo', payload);

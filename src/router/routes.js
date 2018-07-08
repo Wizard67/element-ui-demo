@@ -3,6 +3,15 @@ export default [
    * Login
    */
   {
+    name: 'login',
+    path: '/login',
+    component: () => import('@/Login')
+  },
+
+  /* 
+   * Login
+   */
+  {
     name: 'app',
     path: '/',
     component: () => import('@/App'),
