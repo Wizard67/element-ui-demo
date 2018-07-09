@@ -102,10 +102,10 @@ import 'echarts/lib/chart/effectScatter';
 import 'echarts/lib/chart/pie';
 import 'echarts/lib/chart/gauge';
 
-import mapJson from '@/themes/echarts/china.json';
+import mapJson from '@/assets/echarts/china.json';
 ECharts.registerMap('china', mapJson);
 
-import chartConfig from '@/themes/echarts/config';
+import chartConfig from './config';
 import { mapState } from 'vuex';
 
 const pickerOptions = {

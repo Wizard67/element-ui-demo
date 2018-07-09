@@ -2,7 +2,7 @@ import Vue from 'vue';
 import router from '@/router';
 import store from '@/store/index';
 
-import '@/themes/element-ui';
+import '@/assets/element-ui';
 
 Vue.config.productionTip = false;
 
