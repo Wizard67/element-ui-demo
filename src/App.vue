@@ -1,23 +1,18 @@
 <template>
   <el-container class="fix-container">
-
     <el-aside class="fix-aside" style="width: unset">
-
       <SideBar :logo="logo"
         title="ElementUI Demo"
         :nav="nav"
         :collapse="isCollapse"
       />
-
     </el-aside>
 
     <el-container>
       <el-header class="fix-header">
-
         <NavBar @onCollapse="handleCollapse"
           :collapse="isCollapse"
         >
-
           <SearchFiled :suggestions="suggestions"
             @onSearch="handleSearch"
           />
@@ -27,9 +22,7 @@
           <UserDropdown :userName="userInfo.userName"
             :avatar="userInfo.avatar"  
           />
-
         </NavBar>
-
       </el-header>
 
       <el-main>
@@ -37,7 +30,6 @@
         <FooterInfo/>
       </el-main>
     </el-container>
-
   </el-container>
 </template>
 
@@ -84,8 +76,6 @@ export default {
 };
 </script>
 
-<style src="@/assets/style/base.scss" lang="scss">
-</style>
 <style lang="scss" scoped>
 .fix-container {
   height: 100%;

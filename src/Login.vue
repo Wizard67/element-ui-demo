@@ -145,8 +145,6 @@ export default {
 };
 </script>
 
-<style src="@/assets/style/base.scss" lang="scss">
-</style>
 <style lang="scss" scoped>
 @import '~@nn-yy/css-flex/flex';
 
