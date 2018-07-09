@@ -67,3 +67,17 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.font {
+  &--focus {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &--light {
+    color: #909399;
+    font-size: 14px;
+  }
+}
+</style>
