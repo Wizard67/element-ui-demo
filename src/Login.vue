@@ -5,7 +5,10 @@
         ElementUI Demo
       </LogoWrap>
 
-      <el-tabs v-model="tabsActive" class="fix-tabs">
+      <el-tabs class="fix-tabs"
+        v-model="tabsActive"
+        :before-leave="() => !this.isLogin"
+      >
         <el-tab-pane label="账户密码登录" name="password">
           <el-form :model="form.password" :rules="rules" ref="password">
 
@@ -128,11 +131,16 @@ export default {
   },
   methods: {
     onSubmit() {
+      // 表单验证
       this.$refs[this.tabsActive].validate(valid => {
         if (valid) {
-          // this.$store.dispatch('login', this.form[this.tabsActive]);
           this.isLogin = true;
-          console.log(this.form[this.tabsActive]);
+          // 进行登录操作
+          this.$store.dispatch('login', this.form[this.tabsActive]).then(() => {
+            this.isLogin = false;
+            // 跳转首页
+            this.$router.push({ path: '/' });
+          });
         } else {
           return false;
         }
