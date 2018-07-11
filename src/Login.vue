@@ -136,11 +136,10 @@ export default {
         if (valid) {
           this.isLogin = true;
           // 进行登录操作
-          this.$store.dispatch('login', this.form[this.tabsActive]).then(() => {
-            this.isLogin = false;
-            // 跳转首页
-            this.$router.push({ path: '/' });
-          });
+          this.$store
+            .dispatch('login', this.form[this.tabsActive])
+            .then(() => this.$router.push({ path: '/' }))
+            .finally(() => (this.isLogin = false));
         } else {
           return false;
         }
