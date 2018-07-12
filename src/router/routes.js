@@ -24,6 +24,16 @@ export default [
         path: '/dashboard/analysis',
         alias: '/',
         component: () => import('@/views/Dashboard/Analysis/')
+      },
+
+      /* 
+      * Exception
+      */
+      {
+        name: 'no-find',
+        path: '*',
+        alias: '/404',
+        component: () => import('@/views/Exception/404/')
       }
     ]
   }
