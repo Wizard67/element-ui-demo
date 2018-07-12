@@ -1,6 +1,8 @@
 import ajax from '@/ajax';
+import axios from 'axios';
 
 const state = {
+  isFetchDate: false,
   chartCardDate: {
     sales: [],
     visits: [],
@@ -16,6 +18,9 @@ const state = {
 const getters = {};
 
 const mutations = {
+  toggleFetchDateStatus(store) {
+    store.isFetchDate = !store.isFetchDate;
+  },
   setChartCardDate(store, value) {
     store.chartCardDate = {
       sales: value.salesChartData,
@@ -33,10 +38,16 @@ const mutations = {
 };
 
 const actions = {
-  initAnalysis({ commit }) {
-    ajax('initAnalysisCard').then(({ payload }) => {
-      commit('setChartCardDate', payload);
-    });
+  initAnalysis({ commit, state }) {
+    if (state.isFetchDate) return;
+
+    axios.all([ajax('initAnalysisCard'), ajax('initAnalysisMap')]).then(
+      axios.spread((cardDate, mapDate) => {
+        commit('setChartCardDate', cardDate.payload);
+        commit('setMapCardData', mapDate.payload.areaVisitsData);
+        commit('toggleFetchDateStatus');
+      })
+    );
   },
 
   getMapDate({ commit }) {

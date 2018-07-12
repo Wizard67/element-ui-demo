@@ -137,7 +137,6 @@ export default {
   },
   created() {
     this.$store.dispatch('analysis/initAnalysis');
-    this.$store.dispatch('analysis/getMapDate');
   },
   methods: {
     fetchMapDate() {
