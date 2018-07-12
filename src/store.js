@@ -29,8 +29,12 @@ const mutations = {
 };
 
 const actions = {
-  login() {
-    console.log('login');
+  login(context, params) {
+    return new Promise((resolve, reject) => {
+      ajax('login', params).then(res => {
+        res.status === 200 ? resolve(res) : reject(res);
+      });
+    });
   },
 
   getCaptcha() {
