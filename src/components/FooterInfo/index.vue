@@ -16,6 +16,7 @@ export default {
 
 <style lang="scss" scoped>
 .font--light {
+  color: #909399;
   text-align: center;
 }
 </style>
