@@ -1,3 +1,5 @@
+import { Message } from 'element-ui';
+
 export const directiveCountDown = {
   inserted: (el, binding, vnode) => {
     vnode.event$ = () => {
@@ -24,4 +26,18 @@ export const directiveCountDown = {
   unbind: (el, binding, vnode) => {
     el.removeEventListener('click', vnode.event$);
   }
+};
+
+export const messageTips = res => {
+  const status = res.status;
+  let type;
+  if (/^2\d{2}$/.test(status)) type = 'success';
+  if (/^4\d{2}$/.test(status)) type = 'error';
+  if (/^5\d{2}$/.test(status)) type = 'warning';
+
+  Message({
+    showClose: true,
+    message: res.message,
+    type: type
+  });
 };
