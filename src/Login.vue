@@ -93,7 +93,7 @@
 
 <script>
 import LogoWrap from '@/components/LogoWrap';
-import { directiveCountDown as countDown } from '@/utils/vue';
+import { directiveCountDown as countDown, messageTips } from '@/utils/vue';
 
 const rules = {
   username: [{ required: true, message: '请输入用户名', trigger: 'change' }],
@@ -138,7 +138,11 @@ export default {
           // 进行登录操作
           this.$store
             .dispatch('login', this.form[this.tabsActive])
-            .then(() => this.$router.push({ path: '/' }))
+            .then(res => {
+              messageTips(res);
+              setTimeout(() => this.$router.push({ path: '/' }), 500);
+            })
+            .catch(res => messageTips(res))
             .finally(() => (this.isLogin = false));
         } else {
           return false;
