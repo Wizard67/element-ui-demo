@@ -19,9 +19,20 @@
 
           <MessageBox :messages="messages" />
 
-          <UserDropdown :userName="userInfo.userName"
-            :avatar="userInfo.avatar"  
-          />
+          <el-dropdown class="fix-dropdown">
+            <UserCard :userName="userInfo.userName" :avatar="userInfo.avatar" />
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item disabled>
+                个人中心
+              </el-dropdown-item>
+              <el-dropdown-item disabled>
+                设置
+              </el-dropdown-item>
+              <el-dropdown-item divided>
+                退出登录
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
         </NavBar>
       </el-header>
 
@@ -37,7 +48,7 @@
 import SideBar from '@/components/SideBar';
 import NavBar from '@/components/NavBar';
 import SearchFiled from '@/components/NavBar/SearchFlied';
-import UserDropdown from '@/components/NavBar/UserDropdown';
+import UserCard from '@/components/UserCard';
 import MessageBox from '@/components/NavBar/MessageBox';
 import FooterInfo from '@/components/FooterInfo';
 
@@ -49,7 +60,7 @@ export default {
     SideBar,
     NavBar,
     SearchFiled,
-    UserDropdown,
+    UserCard,
     MessageBox,
     FooterInfo
   },
@@ -89,5 +100,9 @@ export default {
 
 .fix-header {
   padding: 0;
+}
+
+.fix-dropdown {
+  margin-left: 25px;
 }
 </style>

@@ -21,19 +21,3 @@
     @include flex( start, middle );
   }
 }
-
-.user-card {
-  cursor: pointer;
-
-  &__avatar {
-    width: 34px;
-    height: 34px;
-    border: 1px rgb(219, 219, 219) solid;
-    border-radius: 200px;
-    vertical-align: middle;
-  }
-
-  &__name {
-    margin-left: 10px;
-  }
-}
