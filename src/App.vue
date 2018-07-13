@@ -28,11 +28,12 @@
               <el-dropdown-item disabled>
                 设置
               </el-dropdown-item>
-              <el-dropdown-item divided>
+              <el-dropdown-item divided @click.native="handleLogout">
                 退出登录
               </el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
+
         </NavBar>
       </el-header>
 
@@ -82,6 +83,12 @@ export default {
     },
     handleSearch(value) {
       alert(value);
+    },
+    handleLogout() {
+      this.$store.dispatch('logout').then(() => {
+        this.$message.success('退出登录成功');
+        setTimeout(() => this.$router.push({ name: 'login' }), 500);
+      });
     }
   }
 };

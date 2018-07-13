@@ -1,4 +1,5 @@
 import ajax from '@/ajax';
+import axios from 'axios';
 
 const state = {
   nav: [],
@@ -42,18 +43,22 @@ const actions = {
     });
   },
 
+  logout() {
+    sessionStorage.removeItem('token');
+  },
+
   getCaptcha() {
     console.log('fetch captcha sucessfully!');
   },
 
   initApp({ commit }) {
-    ajax('userInfo').then(({ payload }) => {
-      commit('setUserInfo', payload);
-    });
-    ajax('initApp').then(({ payload }) => {
-      commit('setMessages', payload.messages);
-      commit('setNav', payload.nav);
-    });
+    axios.all([ajax('userInfo'), ajax('initApp')]).then(
+      axios.spread((userInfoDate, initAppDate) => {
+        commit('setUserInfo', userInfoDate.payload);
+        commit('setMessages', initAppDate.payload.messages);
+        commit('setNav', initAppDate.payload.nav);
+      })
+    );
   }
 };
 
