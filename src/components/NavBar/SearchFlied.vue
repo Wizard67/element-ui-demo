@@ -1,13 +1,11 @@
 <template>
   <div>
-    <i
-      class="el-icon-icon-search fix-icon"
+    <i class="el-icon-icon-search fix-icon"
       @click="handleSubmit">
     </i>
 
     <transition name="slide-fade">
-      <el-autocomplete
-        style="margin-left: 12px;"
+      <el-autocomplete style="margin-left: 12px;"
         ref="searchFiled"
         popper-class="my-autocomplete"
         v-if="isShow"

@@ -3,17 +3,19 @@
     <div class="card">
       <template v-if="slots().head">
       <div class="card__head">
-        <slot name="head"></slot>
+        <slot name="head" />
       </div>
       </template>
+
       <template v-if="slots().content">
       <div class="card__content" :style="{ height: props.height? props.height: 'auto'}">
-        <slot name="content"></slot>
+        <slot name="content" />
       </div>
       </template>
+
       <template v-if="slots().foot">
         <div class="card__foot">
-          <slot name="foot"></slot>
+          <slot name="foot" />
         </div>
       </template>
     </div>
@@ -26,5 +28,5 @@ export default {
 };
 </script>
 
-<style src="./style.scss" lang="scss">
+<style src="./style.scss" lang="scss" scoped>
 </style>

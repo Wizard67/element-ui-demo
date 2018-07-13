@@ -1,10 +1,10 @@
 <template functional>
   <div class="footerInfo">
-    <slot>
-      <div class="font--light">
+    <div class="footerInfo__main">
+      <slot>
         Copyright <i class="el-icon-icon-copyright"></i> 2018 ElementUI Demo
-      </div>
-    </slot>
+      </slot>
+    </div>
   </div>
 </template>
 
@@ -14,9 +14,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.font--light {
-  color: #909399;
-  text-align: center;
-}
+<style src="./style.scss" lang="scss" scoped>
 </style>

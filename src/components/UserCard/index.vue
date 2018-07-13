@@ -1,7 +1,12 @@
 <template functional>
   <div class="user-card">
-    <img class="user-card__avatar" :src="props.avatar" alt="avatar">
-    <span class="user-card__name">{{props.userName}}</span>
+    <img class="user-card__avatar"
+      :src="props.avatar"
+      alt="avatar"
+    >
+    <span class="user-card__name">
+      {{props.userName}}
+    </span>
   </div>
 </template>
 

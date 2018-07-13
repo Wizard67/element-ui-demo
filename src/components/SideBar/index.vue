@@ -1,19 +1,16 @@
 <template>
-  <el-menu
-    class="fix-menu"
+  <el-menu class="fix-menu"
     :collapse="collapse"
     :collapse-transition="true"
     router
-    unique-opened>
+    unique-opened
+  >
     
-    <LogoWrap type="dark"
-      :logo="logo"
-    >
+    <LogoWrap type="dark" :logo="logo">
       {{title}}
     </LogoWrap>
 
     <template v-for="(item, index) in nav">
-
       <template v-if="item.childs && item.childs.length > 0">
         <el-submenu :index="item.index ?item.index :`${index}`" :key="index">
           <template :slot="'title'">
@@ -38,7 +35,6 @@
           <span :slot="'title'">{{ item.title }}</span>
         </el-menu-item>
       </template>
-
     </template>
   </el-menu>
 </template>

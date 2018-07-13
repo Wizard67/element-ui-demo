@@ -4,7 +4,7 @@
       <i :class="helperClass" @click="handleCollapse"></i>
     </div>
     <div class="nav-bar__main">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
