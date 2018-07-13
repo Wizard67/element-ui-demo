@@ -32,7 +32,12 @@ const actions = {
   login(context, params) {
     return new Promise((resolve, reject) => {
       ajax('login', params).then(res => {
-        res.status === 200 ? resolve(res) : reject(res);
+        if (res.status === 200) {
+          sessionStorage.setItem('token', res.payload.token);
+          resolve(res);
+        } else {
+          reject(res);
+        }
       });
     });
   },
