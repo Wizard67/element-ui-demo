@@ -1,5 +1,4 @@
 import ajax from '@/ajax';
-import axios from 'axios';
 
 const state = {
   isFetchDate: false,
@@ -41,12 +40,12 @@ const actions = {
   initAnalysis({ commit, state }) {
     if (state.isFetchDate) return;
 
-    axios.all([ajax('initAnalysisCard'), ajax('initAnalysisMap')]).then(
-      axios.spread((cardDate, mapDate) => {
-        commit('setChartCardDate', cardDate.payload);
-        commit('setMapCardData', mapDate.payload.areaVisitsData);
+    Promise.all([ajax('initAnalysisCard'), ajax('initAnalysisMap')]).then(
+      res => {
+        commit('setChartCardDate', res[0].payload);
+        commit('setMapCardData', res[1].payload.areaVisitsData);
         commit('toggleFetchDateStatus');
-      })
+      }
     );
   },
 

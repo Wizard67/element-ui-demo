@@ -1,5 +1,4 @@
 import ajax from '@/ajax';
-import axios from 'axios';
 
 const state = {
   nav: [],
@@ -52,13 +51,11 @@ const actions = {
   },
 
   initApp({ commit }) {
-    axios.all([ajax('userInfo'), ajax('initApp')]).then(
-      axios.spread((userInfoDate, initAppDate) => {
-        commit('setUserInfo', userInfoDate.payload);
-        commit('setMessages', initAppDate.payload.messages);
-        commit('setNav', initAppDate.payload.nav);
-      })
-    );
+    Promise.all([ajax('userInfo'), ajax('initApp')]).then(res => {
+      commit('setUserInfo', res[0].payload);
+      commit('setMessages', res[1].payload.messages);
+      commit('setNav', res[1].payload.nav);
+    });
   }
 };
 
