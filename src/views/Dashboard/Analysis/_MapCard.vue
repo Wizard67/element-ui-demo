@@ -65,13 +65,13 @@ export default {
     // echarts map 使用 auto-resize 时导致页面性能问题
     // 这里手动监听
     this.$nextTick(() => {
-      this.mapResize = this.$refs.map.resize;
+      this.mapResize = debounce(this.$refs.map.resize, 100);
       setTimeout(() => {
-        window.addEventListener('resize', debounce(this.mapResize, 100));
+        window.addEventListener('resize', this.mapResize);
       }, 100);
     });
   },
-  destroyed() {
+  beforeDestroy() {
     // 移除监听
     window.removeEventListener('resize', this.mapResize);
   }
