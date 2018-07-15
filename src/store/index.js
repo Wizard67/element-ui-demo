@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { getStoreArray } from '@/utils';
 
-import rootStore from '@/store';
+import rootStore from '@/views/store';
 
 const modules = getStoreArray();
 
