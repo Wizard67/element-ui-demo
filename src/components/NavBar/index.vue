@@ -1,12 +1,10 @@
-<template>
-  <div class="nav-bar">
-    <div class="nav-bar__helper">
-      <i :class="helperClass" @click="handleCollapse"></i>
-    </div>
-    <div class="nav-bar__main">
-      <slot />
-    </div>
-  </div>
+<template lang="pug">
+  .nav-bar
+    .nav-bar__helper
+      i(:class="helperClass" @click="handleCollapse")
+    .nav-bar__main
+      slot
+
 </template>
 
 <script>

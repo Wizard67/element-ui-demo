@@ -1,24 +1,19 @@
-<template>
-  <Card>
-    <template slot="head">
-      <span>地区访问统计</span>
-      <slot name="helper" />
-    </template>
+<template lang="pug">
+  Card
+    template(slot="head")
+      span 地区访问统计
+      slot(name="helper")
 
-    <template slot="content">
-      <el-row style="width: 100%">
-        <el-col :lg="16">
-          <ECharts ref="map" style="width: 100%; height: 500px;"
+    template(slot="content")
+      el-row(style="width: 100%")
+        el-col(:lg="16")
+          ECharts(ref="map" style="width: 100%; height: 500px;"
             :options="mergeOptions"
-            :auto-resize="false"
-          />
-        </el-col>
-        <el-col :lg="8">
-          <List :orderMark="6" :data="lists" />
-        </el-col>
-      </el-row>
-    </template>
-  </Card>
+            :auto-resize="false")
+
+        el-col(:lg="8")
+          List(:orderMark="6" :data="lists")
+
 </template>
 
 <script>

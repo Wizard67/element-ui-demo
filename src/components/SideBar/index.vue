@@ -1,42 +1,27 @@
-<template>
-  <el-menu class="fix-menu"
-    :collapse="collapse"
-    :collapse-transition="true"
-    router
-    unique-opened
-  >
+<template lang="pug">
+  el-menu.fix-menu(:collapse="collapse" :collapse-transition="true" router unique-opened)
     
-    <LogoWrap type="dark" :logo="logo">
-      {{title}}
-    </LogoWrap>
+    LogoWrap(type="dark" :logo="logo") {{title}}
 
-    <template v-for="(item, index) in nav">
-      <template v-if="item.childs && item.childs.length > 0">
-        <el-submenu :index="item.index ?item.index :`${index}`" :key="index">
-          <template :slot="'title'">
-            <el-icon :name="item.icon"></el-icon>
-            <span :slot="'title'">{{ item.title }}</span>
-          </template>
+    template(v-for="(item, index) in nav")
 
-          <template v-for="(citem, cindex) in item.childs">
-            <el-menu-item :index="citem.index" :key="cindex">
-              <template v-if="citem.icon && citem.icon">
-                <el-icon :name="citem.icon"></el-icon>
-              </template>
-              {{ citem.title }}
-            </el-menu-item>
-          </template>
-        </el-submenu>
-      </template>
+      template(v-if="item.childs && item.childs.length > 0")
+        el-submenu(:index="item.index ?item.index :`${index}`" :key="index")
+          template(:slot="'title'")
+            el-icon(:name="item.icon")
+            span(:slot="'title'") {{ item.title }}
 
-      <template v-else>
-        <el-menu-item :index="item.index" :key="index">
-          <el-icon :name="item.icon"></el-icon>
-          <span :slot="'title'">{{ item.title }}</span>
-        </el-menu-item>
-      </template>
-    </template>
-  </el-menu>
+          template(v-for="(citem, cindex) in item.childs")
+            el-menu-item(:index="citem.index" :key="cindex")
+              template(v-if="citem.icon && citem.icon")
+                el-icon(:name="citem.icon")
+              | {{ citem.title }}
+
+      template(v-else)
+        el-menu-item(:index="item.index" :key="index")
+          el-icon(:name="item.icon")
+          span(:slot="'title'") {{ item.title }}
+
 </template>
 
 <script>

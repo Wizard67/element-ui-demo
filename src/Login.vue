@@ -1,94 +1,56 @@
-<template>
-  <el-container class="fix-container">
-    <article class="fix-article">
-      <LogoWrap :logo="logo" size="large">
-        ElementUI Demo
-      </LogoWrap>
+<template lang="pug">
+  el-container.fix-container
+    article.fix-article
 
-      <el-tabs class="fix-tabs"
-        v-model="tabsActive"
-        :before-leave="() => !this.isLogin"
-      >
-        <el-tab-pane label="账户密码登录" name="password">
-          <el-form :model="form.password" :rules="rules" ref="password">
+      LogoWrap(size="large" :logo="logo") ElementUI Demo
 
-            <el-form-item prop="username">
-              <el-input type="text"
-                placeholder="admin"
+      el-tabs.fix-tabs(v-model="tabsActive" :before-leave="() => !this.isLogin")
+        el-tab-pane(label="账户密码登录" name="password")
+          el-form(ref="password" :model="form.password" :rules="rules")
+
+            el-form-item(prop="username")
+              el-input(
+                type="text" placeholder="admin"
                 v-model="form.password.username"
-                clearable
-              >
-                <i slot="prefix" class="el-input__icon el-icon-icon-user"></i>
-              </el-input>
-            </el-form-item>
-
-            <el-form-item prop="password">
-              <el-input type="password"
-                placeholder="admin"
+                clearable)
+                i.el-input__icon.el-icon-icon-user(slot="prefix")
+            
+            el-form-item(prop="password")
+              el-input(
+                type="password" placeholder="admin"
                 v-model="form.password.password"
-                clearable
-              >
-                <i slot="prefix" class="el-input__icon el-icon-icon-lock"></i>
-              </el-input>
-            </el-form-item>
-          </el-form>
-        </el-tab-pane>
+                clearable)
+                i.el-input__icon.el-icon-icon-lock(slot="prefix")
 
-        <el-tab-pane label="手机号登录" name="captcha">
-          <el-form :model="form.captcha" :rules="rules" ref="captcha">
-            <el-form-item prop="phone">
-              <el-input type="text"
-                placeholder="mobile number"
+        el-tab-pane(label="手机号登录" name="captcha")
+          el-form(ref="captcha" :model="form.captcha" :rules="rules")
+
+            el-form-item(prop="phone")
+              el-input(
+                type="text" placeholder="mobile number"
                 v-model="form.captcha.phone"
-                clearable
-              >
-                <i slot="prefix" class="el-input__icon el-icon-icon-mobile"></i>
-              </el-input>
-            </el-form-item>
+                clearable)
+                i.el-input__icon.el-icon-icon-mobile(solt="perfix")
 
-            <el-form-item prop="captcha">
-              <el-row :gutter="10">
-                <el-col :span="16">
-                  <el-input type="text"
-                    placeholder="captcha"
-                    v-model="form.captcha.captcha"
-                    clearable
-                  >
-                    <i slot="prefix" class="el-input__icon el-icon-icon-mail"></i>
-                  </el-input>
-                </el-col>
-                <el-col :span="8">
-                  <el-button class="fix-botton"
-                    v-countDown="getCaptcha"
-                    plain
-                  >
-                    获取验证码
-                  </el-button>
-                </el-col>
-              </el-row>
-            </el-form-item>
-          </el-form>
-        </el-tab-pane>
-      </el-tabs>
+            el-form-item(prop="captcha")
+              el-row(:gutter="10")
+                el-col(:span="16")
+                  el-input(
+                    type="text" placeholder="captcha"
+                    v-model="form.captcha.captcha" clearable)
+                    i.el-input__icon.el-icon-icon-mail(slot="prefix")
 
-      <el-form>
-        <el-form-item class="fix-form-item">
-          <el-checkbox v-model="autoLogin">自动登录</el-checkbox>
-          <el-button type="text">忘记密码</el-button>
-        </el-form-item>
+                el-col(:span="8")
+                  el-button.fix-button(v-countDown="getCaptcha" plain) 获取验证码
 
-        <el-form-item>
-          <el-button type="primary"
-            class="fix-botton"
-            :loading="isLogin"
-            @click="onSubmit"
-          >
-            登录
-          </el-button>
-        </el-form-item>
-      </el-form>
-    </article>
-  </el-container>
+      el-form
+        el-form-item.fix-form-item
+          el-checkbox(v-model="autoLogin") 自动登录
+          el-button(type="text") 忘记密码
+
+        el-form-item
+          el-button.fix-button(type="primary" :loading="isLogin" @click="onSubmit") 登录
+
 </template>
 
 <script>
@@ -200,7 +162,7 @@ export default {
   }
 }
 
-.fix-botton {
+.fix-button {
   width: 100%;
 }
 </style>

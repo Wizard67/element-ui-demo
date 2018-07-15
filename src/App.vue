@@ -1,48 +1,27 @@
-<template>
-  <el-container class="fix-container">
-    <el-aside class="fix-aside" style="width: unset">
-      <SideBar :logo="logo"
-        title="ElementUI Demo"
-        :nav="nav"
-        :collapse="isCollapse"
-      />
-    </el-aside>
+<template lang="pug">
+  el-container.fix-container
+    el-aside.fix-aside
+      SideBar(title="ElementUI Demo" :logo="logo" :nav="nav" :collapse="isCollapse")
 
-    <el-container>
-      <el-header class="fix-header">
-        <NavBar @onCollapse="handleCollapse"
-          :collapse="isCollapse"
-        >
-          <SearchFiled :suggestions="suggestions"
-            @onSearch="handleSearch"
-          />
+    el-container
+      el-header.fix-header
+        NavBar(:collapse="isCollapse" @onCollapse="handleCollapse")
+          SearchFiled(:suggestions="suggestions" @onSearch="handleSearch") 
 
-          <MessageBox :messages="messages" />
+          MessageBox(:messages="messages")
 
-          <el-dropdown class="fix-dropdown">
-            <UserCard :userName="userInfo.userName" :avatar="userInfo.avatar" />
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item disabled>
-                个人中心
-              </el-dropdown-item>
-              <el-dropdown-item disabled>
-                设置
-              </el-dropdown-item>
-              <el-dropdown-item divided @click.native="handleLogout">
-                退出登录
-              </el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
+          el-dropdown.fix-dropdown
+            UserCard(:userName="userInfo.userName" :avatar="userInfo.avatar")
 
-        </NavBar>
-      </el-header>
+            el-dropdown-menu(slot="dropdown")
+              el-dropdown-item(disabled) 个人中心
+              el-dropdown-item(disabled) 设置
+              el-dropdown-item(@click.native="handleLogout" divided) 退出登录
 
-      <el-main>
-        <router-view/>
-        <FooterInfo/>
-      </el-main>
-    </el-container>
-  </el-container>
+      el-main
+        router-view
+        FooterInfo
+
 </template>
 
 <script>
@@ -100,7 +79,7 @@ export default {
 }
 
 .fix-aside {
-  width: unset;
+  width: unset !important;
   border-right: solid 1px #e6e6e6;
   background-color: #545c64;
 }

@@ -1,26 +1,19 @@
-<template>
-  <div>
-    <i class="el-icon-icon-search fix-icon"
-      @click="handleSubmit">
-    </i>
+<template lang="pug">
+  div
+    i.el-icon-icon-search.fix-icon(@click="handleSubmit")
 
-    <transition name="slide-fade">
-      <el-autocomplete style="margin-left: 12px;"
-        ref="searchFiled"
+    transition(name="slide-fade")
+      el-autocomplete.fix-autocomplete(ref="searchFiled"
         popper-class="my-autocomplete"
         v-if="isShow"
         v-model="searchInput"
         :fetch-suggestions="querySearch"
         placeholder="站内搜索"
         @select="handleSelect"
-        @keyup.enter.native="handleSubmit"
-      >
-        <template slot-scope="{ item }">
-          <div class="message">{{ item.message }}</div>
-        </template>
-      </el-autocomplete>
-    </transition>
-  </div>
+        @keyup.enter.native="handleSubmit")
+        template(slot-scope="{ item }")
+          .message {{ item.message }}
+
 </template>
 
 <script>
@@ -79,6 +72,10 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+.fix-autocomplete {
+  margin-left: 12px;
+}
+
 .fix-icon {
   font-size: 18px;
   color: inherit;
