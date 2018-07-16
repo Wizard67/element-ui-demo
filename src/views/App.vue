@@ -33,6 +33,8 @@ import MessageBox from '@/components/NavBar/MessageBox';
 import FooterInfo from '@/components/FooterInfo';
 
 import { mapState } from 'vuex';
+import { getWindowSizeType } from '@/utils/vue';
+import debounce from 'lodash/debounce';
 
 export default {
   name: 'App',
@@ -47,7 +49,8 @@ export default {
   data() {
     return {
       logo: require('@/assets/images/logo.png'),
-      isCollapse: false
+      isCollapse: false,
+      preSideBarStatus: ''
     };
   },
   computed: {
@@ -55,8 +58,59 @@ export default {
   },
   created() {
     this.$store.dispatch('initApp');
+    // 监听窗口变化
+    this.initSideBarStatus();
+    window.addEventListener('resize', this.handleResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize);
   },
   methods: {
+    changeSideBarStatus(type) {
+      switch (type) {
+        case 'xs':
+          if (this.preSideBarStatus !== 'xs') {
+            this.isCollapse = true;
+            this.preSideBarStatus = 'xs';
+          }
+          break;
+        case 'sm':
+          if (this.preSideBarStatus !== 'sm') {
+            this.isCollapse = true;
+            this.preSideBarStatus = 'sm';
+          }
+          break;
+        case 'md':
+          if (this.preSideBarStatus !== 'md') {
+            this.isCollapse = true;
+            this.preSideBarStatus = 'md';
+          }
+          break;
+        case 'lg':
+          if (this.preSideBarStatus !== 'lg') {
+            this.isCollapse = false;
+            this.preSideBarStatus = 'lg';
+          }
+          break;
+        case 'xl':
+          if (this.preSideBarStatus !== 'xl') {
+            this.isCollapse = false;
+            this.preSideBarStatus = 'xl';
+          }
+          break;
+        default:
+          this.isCollapse = false;
+          break;
+      }
+    },
+    initSideBarStatus() {
+      const type = getWindowSizeType(window.innerWidth);
+      this.changeSideBarStatus(type);
+    },
+    handleResize: debounce(function(e) {
+      const type = getWindowSizeType(e.target.innerWidth);
+      this.changeSideBarStatus(type);
+    }, 100),
     handleCollapse() {
       this.isCollapse = !this.isCollapse;
     },
