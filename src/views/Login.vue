@@ -34,13 +34,13 @@
 
             el-form-item(prop="captcha")
               el-row(:gutter="10")
-                el-col(:span="16")
+                el-col(:span="16" :xs="14" :sm="16")
                   el-input(
                     type="text" placeholder="captcha"
                     v-model="form.captcha.captcha" clearable)
                     i.el-input__icon.el-icon-icon-mail(slot="prefix")
 
-                el-col(:span="8")
+                el-col(:span="8" :xs="10" :sm="8")
                   el-button.fix-button(v-countDown="getCaptcha" plain) 获取验证码
 
       el-form
@@ -128,7 +128,7 @@ export default {
 
 .fix-article {
   width: 360px;
-  padding: 120px;
+  padding: 100px 10px 0 10px;
 }
 
 .fix-form-item {
