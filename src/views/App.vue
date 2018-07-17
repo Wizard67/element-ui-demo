@@ -6,9 +6,9 @@
     el-container
       el-header.fix-header
         NavBar(:collapse="isCollapse" @onCollapse="handleCollapse")
-          SearchFiled(:suggestions="suggestions" @onSearch="handleSearch") 
+          SearchFiled(class="hidden-xs-only" :suggestions="suggestions" @onSearch="handleSearch") 
 
-          MessageBox(:messages="messages")
+          MessageBox(class="hidden-xs-only" :messages="messages")
 
           el-dropdown.fix-dropdown
             UserCard(:userName="userInfo.userName" :avatar="userInfo.avatar")

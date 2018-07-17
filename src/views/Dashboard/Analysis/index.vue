@@ -1,7 +1,7 @@
 <template lang="pug">
   article
     el-row(:gutter="20")
-      el-col(:lg="6")
+      el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
         ChartCard(
           height="80px" title="销售额" tip="指标说明"
           :options="chartConfig.sales"
@@ -9,7 +9,7 @@
           template(slot="content") {{chartCardDate.sales.value | toThousands}}
           template(slot="foot") 总销售额 ￥{{chartCardDate.sales.total | toThousands}}
 
-      el-col(:lg="6")
+      el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
         ChartCard(
           height="80px" title="访问量" tip="指标说明"
           :options="chartConfig.visits"
@@ -17,7 +17,7 @@
           template(slot="content") {{chartCardDate.visits.value | toThousands}}
           template(slot="foot") 总访问 {{chartCardDate.visits.total | toThousands}}
 
-      el-col(:lg="6")
+      el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
         ChartCard(
           height="80px" title="支付笔数" tip="指标说明"
           :options="chartConfig.payments"
@@ -25,7 +25,7 @@
           template(slot="content") {{chartCardDate.payments.value | toThousands}}
           template(slot="foot") 转化率 {{chartCardDate.payments.total | toThousands}}
 
-      el-col(:lg="6")
+      el-col(:xs="24" :sm="24" :md="12" :lg="6" :xl="6")
         ChartCard(
           height="80px" title="运营活动效果" tip="指标说明"
           :options="chartConfig.activity"
@@ -37,7 +37,7 @@
       el-col
         MapCard(:options="chartConfig.areaVisits" :value="mapCardData")
           template(slot="helper")
-            el-date-picker(type="daterange" align="right" value-format= "timestamp"
+            el-date-picker(class="hidden-xs-only" type="daterange" align="right" value-format= "timestamp"
               range-separator="-"
               start-placeholder="开始日期"
               end-placeholder="结束日期"
@@ -46,19 +46,19 @@
               @change="fetchMapDate")
 
     el-row(:gutter="20")
-      el-col(:lg="8")
+      el-col(:xs="24" :sm="24" :md="24" :lg="8" :xl="8")
         ChartCard(
           height="280px" title="即时流量" tip="指标说明"
           :options="chartConfig.traffic"
           :value="chartCardDate.traffic.chart")
       
-      el-col(:lg="8")
+      el-col(:xs="24" :sm="24" :md="24" :lg="8" :xl="8")
         ChartCard(
           height="280px" title="负载率" tip="指标说明" 
           :options="chartConfig.payload"
           :value="chartCardDate.payload.chart")
 
-      el-col(:lg="8")
+      el-col(:xs="24" :sm="24" :md="24" :lg="8" :xl="8")
         ChartCard(
           height="280px" title="访问渠道" tip="指标说明"
           :options="chartConfig.visitsType"
