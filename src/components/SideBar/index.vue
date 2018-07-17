@@ -55,6 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .fix-menu {
+  height: 100%;
   border-right: unset;
   background-color: #545c64;
   overflow: hidden;

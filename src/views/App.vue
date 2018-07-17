@@ -1,6 +1,6 @@
 <template lang="pug">
-  el-container.fix-container
-    el-aside.fix-aside
+  el-container.fix-container(:class="{'overlay': isFixedAsideShow}")
+    el-aside.fix-aside(ref="aside" :class="{'isFixed': fixedAside, 'isFixedAsideShow': isFixedAsideShow}")
       SideBar(title="ElementUI Demo" :logo="logo" :nav="nav" :collapse="isCollapse")
 
     el-container
@@ -33,11 +33,11 @@ import MessageBox from '@/components/NavBar/MessageBox';
 import FooterInfo from '@/components/FooterInfo';
 
 import { mapState } from 'vuex';
-import { getWindowSizeType } from '@/utils/vue';
-import debounce from 'lodash/debounce';
+import { layoutMixin } from '@/utils/mixin';
 
 export default {
   name: 'App',
+  mixins: [layoutMixin],
   components: {
     SideBar,
     NavBar,
@@ -50,7 +50,9 @@ export default {
     return {
       logo: require('@/assets/images/logo.png'),
       isCollapse: false,
-      preSideBarStatus: ''
+      preSideBarStatus: '',
+      fixedAside: false,
+      isFixedAsideShow: false
     };
   },
   computed: {
@@ -58,61 +60,15 @@ export default {
   },
   created() {
     this.$store.dispatch('initApp');
-    // 监听窗口变化
-    this.initSideBarStatus();
-    window.addEventListener('resize', this.handleResize);
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize);
   },
   methods: {
-    changeSideBarStatus(type) {
-      switch (type) {
-        case 'xs':
-          if (this.preSideBarStatus !== 'xs') {
-            this.isCollapse = true;
-            this.preSideBarStatus = 'xs';
-          }
-          break;
-        case 'sm':
-          if (this.preSideBarStatus !== 'sm') {
-            this.isCollapse = true;
-            this.preSideBarStatus = 'sm';
-          }
-          break;
-        case 'md':
-          if (this.preSideBarStatus !== 'md') {
-            this.isCollapse = true;
-            this.preSideBarStatus = 'md';
-          }
-          break;
-        case 'lg':
-          if (this.preSideBarStatus !== 'lg') {
-            this.isCollapse = false;
-            this.preSideBarStatus = 'lg';
-          }
-          break;
-        case 'xl':
-          if (this.preSideBarStatus !== 'xl') {
-            this.isCollapse = false;
-            this.preSideBarStatus = 'xl';
-          }
-          break;
-        default:
-          this.isCollapse = false;
-          break;
-      }
-    },
-    initSideBarStatus() {
-      const type = getWindowSizeType(window.innerWidth);
-      this.changeSideBarStatus(type);
-    },
-    handleResize: debounce(function(e) {
-      const type = getWindowSizeType(e.target.innerWidth);
-      this.changeSideBarStatus(type);
-    }, 100),
     handleCollapse() {
-      this.isCollapse = !this.isCollapse;
+      if (this.preSideBarStatus === 'xs') {
+        this.isCollapse = false;
+        this.isFixedAsideShow = !this.isFixedAsideShow;
+      } else {
+        this.isCollapse = !this.isCollapse;
+      }
     },
     handleSearch(value) {
       alert(value);
@@ -130,12 +86,36 @@ export default {
 <style lang="scss" scoped>
 .fix-container {
   height: 100%;
+
+  &.overlay {
+    &::before {
+      content: '';
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: #5253534b;
+      z-index: 998;
+    }
+  }
 }
 
 .fix-aside {
   width: unset !important;
   border-right: solid 1px #e6e6e6;
-  background-color: #545c64;
+
+  &.isFixed {
+    position: fixed;
+    width: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    z-index: 999;
+    transition: transform 0.25s ease-in-out;
+
+    &.isFixedAsideShow {
+      transform: translateX(0);
+      transition: transform 0.25s ease-in-out;
+    }
+  }
 }
 
 .fix-header {

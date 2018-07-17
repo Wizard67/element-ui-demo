@@ -24,7 +24,8 @@ export default {
     }
   },
   methods: {
-    handleCollapse() {
+    handleCollapse(event) {
+      event.stopPropagation();
       this.$emit('onCollapse');
     }
   }
