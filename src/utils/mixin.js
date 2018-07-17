@@ -26,6 +26,7 @@ export const layoutMixin = {
         case 'sm':
           if (this.preSideBarStatus !== 'sm') {
             this.isCollapse = true;
+            this.isFixedAsideShow = false;
             this.fixedAside = false;
             this.preSideBarStatus = 'sm';
           }
@@ -33,6 +34,7 @@ export const layoutMixin = {
         case 'md':
           if (this.preSideBarStatus !== 'md') {
             this.isCollapse = true;
+            this.isFixedAsideShow = false;
             this.fixedAside = false;
             this.preSideBarStatus = 'md';
           }
@@ -40,6 +42,7 @@ export const layoutMixin = {
         case 'lg':
           if (this.preSideBarStatus !== 'lg') {
             this.isCollapse = false;
+            this.isFixedAsideShow = false;
             this.fixedAside = false;
             this.preSideBarStatus = 'lg';
           }
@@ -47,12 +50,14 @@ export const layoutMixin = {
         case 'xl':
           if (this.preSideBarStatus !== 'xl') {
             this.isCollapse = false;
+            this.isFixedAsideShow = false;
             this.fixedAside = false;
             this.preSideBarStatus = 'xl';
           }
           break;
         default:
           this.isCollapse = false;
+          this.isFixedAsideShow = false;
           this.fixedAside = false;
           break;
       }
