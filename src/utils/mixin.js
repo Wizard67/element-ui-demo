@@ -68,9 +68,10 @@ export const layoutMixin = {
     listenClick(event) {
       if (this.isFixedAsideShow && this.preSideBarStatus === 'xs') {
         this.$nextTick(() => {
-          if (!this.$refs.aside.$el.contains(event.target)) this.isFixedAsideShow = false;
+          if (!this.$refs.aside.$el.contains(event.target))
+            this.isFixedAsideShow = false;
         });
       }
     }
   }
-}
+};

@@ -37,7 +37,6 @@ import { layoutMixin } from '@/utils/mixin';
 
 export default {
   name: 'App',
-  mixins: [layoutMixin],
   components: {
     SideBar,
     NavBar,
@@ -46,6 +45,7 @@ export default {
     MessageBox,
     FooterInfo
   },
+  mixins: [layoutMixin],
   data() {
     return {
       logo: require('@/assets/images/logo.png'),
