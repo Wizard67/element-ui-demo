@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { getStoreArray } from '@/utils';
+import { getStoreArray } from './utils';
 
 const modules = getStoreArray();
 
