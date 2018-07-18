@@ -20,6 +20,8 @@
 import Card from '@/components/Card';
 import List from '@/components/List';
 import ECharts from 'vue-echarts/components/ECharts';
+
+import { addListener, removeListener } from 'resize-detector';
 import debounce from 'lodash/debounce';
 
 export default {
@@ -54,11 +56,11 @@ export default {
   mounted() {
     // echarts map 使用 auto-resize 时导致页面性能问题
     // 这里手动监听
-    window.addEventListener('resize', this.handleResize);
+    addListener(this.$el, this.handleResize);
   },
   beforeDestroy() {
     // 移除监听
-    window.removeEventListener('resize', this.handleResize);
+    removeListener(this.$el, this.handleResize);
   },
   methods: {
     handleResize: debounce(function() {
