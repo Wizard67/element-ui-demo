@@ -18,7 +18,7 @@
               el-dropdown-item(disabled) 设置
               el-dropdown-item(@click.native="handleLogout" divided) 退出登录
 
-      el-main
+      el-main.fix-main
         router-view
         FooterInfo
 
@@ -124,5 +124,10 @@ export default {
 
 .fix-dropdown {
   margin-left: 25px;
+}
+
+.fix-main {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 </style>

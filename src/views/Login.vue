@@ -129,7 +129,7 @@ export default {
 
 .fix-article {
   width: 360px;
-  padding: 100px 10px 0 10px;
+  padding: 100px 26px 0 26px;
 }
 
 .fix-form-item {
@@ -140,6 +140,7 @@ export default {
   /deep/ {
     .el-form-item__content {
       @include flex(between);
+      font-size: 400;
 
       &::before,
       &::after {

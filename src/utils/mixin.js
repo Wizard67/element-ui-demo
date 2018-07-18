@@ -7,10 +7,12 @@ export const layoutMixin = {
 
     window.addEventListener('resize', this.listenResize);
     window.addEventListener('click', this.listenClick);
+    window.addEventListener('touchend', this.listenClick);
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.listenResize);
     window.addEventListener('click', this.listenClick);
+    window.addEventListener('touchend', this.listenClick);
   },
   methods: {
     changeSideBarStatus(type) {
