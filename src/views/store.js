@@ -1,4 +1,5 @@
 import ajax from '@/ajax';
+import storage from '@/utils/storage';
 
 const state = {
   nav: [],
@@ -29,11 +30,13 @@ const mutations = {
 };
 
 const actions = {
-  login(context, params) {
+  login(context, { autoLogin, ...params }) {
+    autoLogin ? storage.init('local') : storage.init('session');
+
     return new Promise((resolve, reject) => {
       ajax('login', params).then(res => {
         if (res.status === 200) {
-          sessionStorage.setItem('token', res.payload.token);
+          storage.setItem('token', res.payload.token);
           resolve(res);
         } else {
           reject(res);
@@ -43,7 +46,7 @@ const actions = {
   },
 
   logout() {
-    sessionStorage.removeItem('token');
+    storage.removeItem('token');
   },
 
   getCaptcha() {

@@ -77,7 +77,7 @@ export default {
     return {
       logo: require('@/assets/images/logo.png'),
       rules,
-      autoLogin: true,
+      autoLogin: false,
       isLogin: false,
       tabsActive: 'password',
       form: {
@@ -100,7 +100,10 @@ export default {
           this.isLogin = true;
           // 进行登录操作
           this.$store
-            .dispatch('login', this.form[this.tabsActive])
+            .dispatch('login', {
+              ...this.form[this.tabsActive],
+              autoLogin: this.autoLogin
+            })
             .then(res => {
               messageTips(res);
               setTimeout(() => this.$router.push({ path: '/' }), 500);
