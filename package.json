@@ -29,6 +29,8 @@
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.0.1",
+    "vue-class-component": "^6.2.0",
+    "vue-property-decorator": "^7.0.0",
     "vue-template-compiler": "^2.5.16"
   },
   "browserslist": [
