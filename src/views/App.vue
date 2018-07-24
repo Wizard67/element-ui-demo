@@ -32,11 +32,12 @@ import UserCard from '@/components/UserCard';
 import MessageBox from '@/components/NavBar/MessageBox';
 import FooterInfo from '@/components/FooterInfo';
 
-import { mapState } from 'vuex';
 import { layoutMixin } from '@/utils/mixin';
 
-export default {
-  name: 'App',
+import { Vue, Component } from 'vue-property-decorator';
+import { State, Action } from 'vuex-class';
+
+@Component({
   components: {
     SideBar,
     NavBar,
@@ -45,42 +46,47 @@ export default {
     MessageBox,
     FooterInfo
   },
-  mixins: [layoutMixin],
-  data() {
-    return {
-      logo: require('@/assets/images/logo.png'),
-      isCollapse: false,
-      preSideBarStatus: '',
-      fixedAside: false,
-      isFixedAsideShow: false
-    };
-  },
-  computed: {
-    ...mapState(['userInfo', 'nav', 'suggestions', 'messages'])
-  },
+  mixins: [layoutMixin]
+})
+export default class App extends Vue {
+  logo = require('@/assets/images/logo.png');
+  isCollapse = false;
+  preSideBarStatus = '';
+  fixedAside = false;
+  isFixedAsideShow = false;
+
+  @State userInfo;
+  @State nav;
+  @State suggestions;
+  @State messages;
+
+  @Action initApp;
+  @Action logout;
+
   created() {
-    this.$store.dispatch('initApp');
-  },
-  methods: {
-    handleCollapse() {
-      if (this.preSideBarStatus === 'xs') {
-        this.isCollapse = false;
-        this.isFixedAsideShow = !this.isFixedAsideShow;
-      } else {
-        this.isCollapse = !this.isCollapse;
-      }
-    },
-    handleSearch(value) {
-      alert(value);
-    },
-    handleLogout() {
-      this.$store.dispatch('logout').then(() => {
-        this.$message.success('退出登录成功');
-        setTimeout(() => this.$router.push({ name: 'login' }), 500);
-      });
+    this.initApp();
+  }
+
+  handleCollapse() {
+    if (this.preSideBarStatus === 'xs') {
+      this.isCollapse = false;
+      this.isFixedAsideShow = !this.isFixedAsideShow;
+    } else {
+      this.isCollapse = !this.isCollapse;
     }
   }
-};
+
+  handleSearch(value) {
+    alert(value);
+  }
+
+  handleLogout() {
+    this.logout().then(() => {
+      this.$message.success('退出登录成功');
+      setTimeout(() => this.$router.push({ name: 'login' }), 500);
+    });
+  }
+}
 </script>
 
 <style lang="scss" scoped>

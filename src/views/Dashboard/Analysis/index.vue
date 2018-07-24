@@ -86,42 +86,39 @@ import mapJson from '@/assets/echarts/china.json';
 ECharts.registerMap('china', mapJson);
 
 import chartConfig from './config';
-import { mapState } from 'vuex';
 
-const pickerOptions = {
-  disabledDate(date) {
-    return date.getTime() > Date.now();
-  }
-};
+import { Vue, Component } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
+const analysisModule = namespace('analysis');
 
-export default {
-  name: 'Analysis',
+@Component({
   components: {
     ChartCard,
     MapCard
   },
   filters: {
-    toThousands(num) {
-      return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
-    }
-  },
-  data() {
-    return {
-      datePick: [new Date(), new Date()],
-      chartConfig,
-      pickerOptions
-    };
-  },
-  computed: {
-    ...mapState('analysis', ['chartCardDate', 'mapCardData'])
-  },
-  created() {
-    this.$store.dispatch('analysis/initAnalysis');
-  },
-  methods: {
-    fetchMapDate() {
-      this.$store.dispatch('analysis/getMapDate');
-    }
+    toThousands: num => (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
   }
-};
+})
+export default class Analysis extends Vue {
+  datePick = [new Date(), new Date()];
+  chartConfig = chartConfig;
+  pickerOptions = {
+    disabledDate: date => date.getTime() > Date.now()
+  };
+
+  @analysisModule.State chartCardDate;
+  @analysisModule.State mapCardData;
+
+  @analysisModule.Action initAnalysis;
+  @analysisModule.Action getMapDate;
+
+  created() {
+    this.initAnalysis();
+  }
+
+  fetchMapDate() {
+    this.getMapDate();
+  }
+}
 </script>

@@ -8,14 +8,14 @@
 </template>
 
 <script>
-export default {
-  name: 'noFind',
-  methods: {
-    onclick() {
-      this.$router.push('/');
-    }
+import { Vue, Component } from 'vue-property-decorator';
+
+@Component
+export default class NoFind extends Vue {
+  onclick() {
+    this.$router.push('/');
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

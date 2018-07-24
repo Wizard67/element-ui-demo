@@ -24,48 +24,45 @@ import ECharts from 'vue-echarts/components/ECharts';
 import { addListener, removeListener } from 'resize-detector';
 import debounce from 'lodash/debounce';
 
-export default {
-  name: 'MapCard',
+import { Vue, Component, Prop } from 'vue-property-decorator';
+
+@Component({
   components: {
     Card,
     List,
     ECharts
-  },
-  props: {
-    options: {
-      type: Object,
-      required: true
-    },
-    value: {
-      type: [Array, Object],
-      default: () => []
-    }
-  },
-  computed: {
-    mergeOptions() {
-      this.options.series[0].data = this.value;
-      this.options.series[1].data = this.value.slice(0, 6);
-      return this.options;
-    },
-    lists() {
-      return this.value
-        .slice(0, 10)
-        .map(v => ({ name: v.name, value: v.value[2] }));
-    }
-  },
+  }
+})
+export default class MapCard extends Vue {
+  handleResize = debounce(() => this.$refs.map.resize(), 100);
+
+  @Prop({ type: Object, required: true })
+  options;
+  @Prop({
+    type: [Array, Object],
+    default: () => []
+  })
+  value;
+
+  get mergeOptions() {
+    this.options.series[0].data = this.value;
+    this.options.series[1].data = this.value.slice(0, 6);
+    return this.options;
+  }
+
+  get lists() {
+    return this.value.slice(0, 10).map(v => ({ name: v.name, value: v.value[2] }));
+  }
+
   mounted() {
     // echarts map 使用 auto-resize 时导致页面性能问题
     // 这里手动监听
     addListener(this.$el, this.handleResize);
-  },
+  }
+
   beforeDestroy() {
     // 移除监听
     removeListener(this.$el, this.handleResize);
-  },
-  methods: {
-    handleResize: debounce(function() {
-      this.$refs.map.resize();
-    }, 100)
   }
-};
+}
 </script>

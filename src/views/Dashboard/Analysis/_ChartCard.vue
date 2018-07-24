@@ -22,41 +22,34 @@
 import Card from '@/components/Card';
 import ECharts from 'vue-echarts/components/ECharts.vue';
 
-export default {
-  name: 'ChartCard',
+import { Vue, Component, Prop } from 'vue-property-decorator';
+
+@Component({
   components: {
     Card,
     ECharts
-  },
-  props: {
-    height: {
-      type: String,
-      default: '100px'
-    },
-    title: {
-      type: String,
-      default: 'Title'
-    },
-    tip: {
-      type: String,
-      default: 'Tip'
-    },
-    options: {
-      type: Object,
-      required: true
-    },
-    value: {
-      type: [Array, Object],
-      default: () => []
-    }
-  },
-  computed: {
-    mergeOptions() {
-      this.options.series[0].data = this.value;
-      return this.options;
-    }
   }
-};
+})
+export default class ChartCard extends Vue {
+  @Prop({ type: String, default: '100px' })
+  height;
+  @Prop({ type: String, default: 'Title' })
+  title;
+  @Prop({ type: String, default: 'Tip' })
+  tip;
+  @Prop({ type: Object, required: true })
+  options;
+  @Prop({
+    type: [Array, Object],
+    default: () => []
+  })
+  value;
+
+  get mergeOptions() {
+    this.options.series[0].data = this.value;
+    return this.options;
+  }
+}
 </script>
 
 <style lang="scss" scoped>
