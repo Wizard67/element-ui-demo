@@ -8,5 +8,7 @@ module.exports = {
     //     styleLibraryName: 'theme-chalk'
     //   }
     // ]
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
+    ['@babel/plugin-proposal-class-properties', { loose: true }]
   ]
 };
