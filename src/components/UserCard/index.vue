@@ -6,18 +6,14 @@
 </template>
 
 <script>
-export default {
-  name: 'UserCard',
-  props: {
-    userName: {
-      type: String,
-      required: true
-    },
-    avatar: {
-      type: String,
-      required: true
-    }
-  }
+import { Vue, Component, Prop } from 'vue-property-decorator'
+
+@Component
+export default class UserCard extends Vue {
+  @Prop({ type: String, required: true })
+  userName
+  @Prop({ type: String, required: true })
+  avatar
 }
 </script>
 

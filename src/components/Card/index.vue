@@ -16,8 +16,11 @@
 </template>
 
 <script>
-export default {
-  name: 'Card'
+import { Vue, Component } from 'vue-property-decorator'
+
+@Component
+export default class Card extends Vue {
+
 }
 </script>
 

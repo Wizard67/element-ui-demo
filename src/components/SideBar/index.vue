@@ -26,27 +26,23 @@
 
 <script>
 import LogoWrap from '@/components/LogoWrap'
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
-export default {
-  name: 'SideBar',
-  components: {
-    LogoWrap
-  },
-  props: {
-    logo: {
-      type: String
-    },
-    title: {
-      type: String
-    },
-    collapse: {
-      default: false,
-      type: Boolean
-    },
-    nav: {
-      type: Array
-    }
-  }
+@Component({
+  components: { LogoWrap }
+})
+export default class SideBar extends Vue {
+  @Prop({ type: String })
+  logo
+
+  @Prop({ type: String })
+  title
+
+  @Prop({ default: false, type: Boolean })
+  collapse
+
+  @Prop({ type: Array })
+  nav
 }
 </script>
 

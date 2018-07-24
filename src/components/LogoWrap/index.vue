@@ -7,26 +7,18 @@
 </template>
 
 <script>
-export default {
-  name: 'LogoWrap',
-  props: {
-    type: {
-      type: String,
-      default: ''
-    },
-    size: {
-      type: String,
-      default: ''
-    },
-    logo: {
-      required: true,
-      type: String
-    },
-    collapse: {
-      default: false,
-      type: Boolean
-    }
-  }
+import { Vue, Component, Prop } from 'vue-property-decorator'
+
+@Component
+export default class LogoWrap extends Vue {
+    @Prop({ type: String, default: '' })
+    type
+    @Prop({ type: String, default: '' })
+    size
+    @Prop({ required: true, type: String })
+    logo
+    @Prop({ default: false, type: Boolean })
+    collapse
 }
 </script>
 

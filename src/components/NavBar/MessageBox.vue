@@ -19,20 +19,17 @@
 <script>
 import MessageBoxItem from '@/components/NavBar/MessageBoxItem'
 
-export default {
-  components: {
-    MessageBoxItem
-  },
-  props: {
-    messages: {
-      type: Object,
-      required: true
-    }
-  },
-  methods: {
-    getMessageLength (arr) {
-      return arr && arr.length > 0 ? `(${arr.length})` : ''
-    }
+import { Vue, Component, Prop } from 'vue-property-decorator'
+
+@Component({
+  components: { MessageBoxItem }
+})
+export default class MessageBox extends Vue {
+  @Prop({ type: Object, required: true })
+  messages
+
+  getMessageLength (arr) {
+    return arr && arr.length > 0 ? `(${arr.length})` : ''
   }
 }
 </script>

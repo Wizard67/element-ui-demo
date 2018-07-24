@@ -8,26 +8,23 @@
 </template>
 
 <script>
-export default {
-  name: 'NavBar',
-  props: {
-    collapse: {
-      type: Boolean
+import { Vue, Component, Prop } from 'vue-property-decorator'
+
+@Component
+export default class NavBar extends Vue {
+  @Prop({ type: Boolean })
+  collapse
+
+  get helperClass () {
+    return {
+      'el-icon-icon-outdent': !this.collapse,
+      'el-icon-icon-indent': this.collapse
     }
-  },
-  computed: {
-    helperClass () {
-      return {
-        'el-icon-icon-outdent': !this.collapse,
-        'el-icon-icon-indent': this.collapse
-      }
-    }
-  },
-  methods: {
-    handleCollapse (event) {
-      event.stopPropagation()
-      this.$emit('onCollapse')
-    }
+  }
+
+  handleCollapse (event) {
+    event.stopPropagation()
+    this.$emit('onCollapse')
   }
 }
 </script>

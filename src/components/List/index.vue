@@ -11,17 +11,15 @@
 </template>
 
 <script>
-export default {
-  name: 'List',
-  props: {
-    orderMark: {
-      default: 0,
-      type: Number
-    },
-    data: {
-      type: Array
-    }
-  }
+import { Vue, Component, Prop } from 'vue-property-decorator'
+
+@Component
+export default class List extends Vue {
+  @Prop({ default: 0, type: Number })
+  orderMark
+
+  @Prop({ type: Array })
+  data
 }
 </script>
 

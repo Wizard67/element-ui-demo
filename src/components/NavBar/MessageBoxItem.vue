@@ -7,11 +7,11 @@
 </template>
 
 <script>
-export default {
-  props: {
-    content: {
-      type: Array
-    }
-  }
+import { Vue, Component, Prop } from 'vue-property-decorator'
+
+@Component
+export default class MessageBoxItem extends Vue {
+  @Prop({type: Array})
+  content
 }
 </script>

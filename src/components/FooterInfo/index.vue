@@ -6,8 +6,11 @@
 </template>
 
 <script>
-export default {
-  name: 'FooterInfo'
+import { Vue, Component } from 'vue-property-decorator'
+
+@Component
+export default class FooterInfo extends Vue {
+
 }
 </script>
 
