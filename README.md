@@ -23,8 +23,9 @@ npm run build
 - [ ] 项目
     - [x] 目录结构的划分
     - [x] 去中心化的<del>路由注册与</del>状态管理
-    - [x] Mock 服务
-    - [x] eslint + prettier 统一代码风格
+    - [x] 在线 Mock 服务( [esay-mock](https://easy-mock.com/) )
+    - [x] eslint + standard 统一代码风格
+    - [ ] TypeScript 支持
 - [ ] element-ui
-    - [x] 扩展图标组件
-    - [x] 重置/修改组件样式
+    - [x] 响应式 UI 布局
+    - [x] 扩展 el-icon 组件图标类型
