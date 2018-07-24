@@ -25,12 +25,13 @@
 </template>
 
 <script>
-import SideBar from '@/components/SideBar'
-import NavBar from '@/components/NavBar'
-import SearchFiled from '@/components/NavBar/SearchFlied'
 import UserCard from '@/components/UserCard'
-import MessageBox from '@/components/NavBar/MessageBox'
 import FooterInfo from '@/components/FooterInfo'
+
+import SideBar from './components/SideBar'
+import NavBar from './components/NavBar'
+import SearchFiled from './components/SearchFlied'
+import MessageBox from './components/MessageBox'
 
 import { layoutMixin } from '@/utils/mixin'
 

@@ -29,4 +29,29 @@ export default class NavBar extends Vue {
 }
 </script>
 
-<style src="./style.scss" lang="scss"></style>
+<style lang="scss">
+@import '~@nn-yy/css-flex/flex';
+
+.nav-bar {
+  @include flex( between, middle );
+  height: 100%;
+  padding: 0 20px;
+  background-color: white;
+  font-size: 18px;
+
+  &__helper {
+    @include flex( center, middle );
+    @include flex-self( keep );
+    width: unset;
+
+    i {
+      cursor: pointer;
+    }
+  }
+
+  &__main {
+    @include flex( start, middle );
+  }
+}
+
+</style>

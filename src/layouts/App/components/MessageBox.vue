@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import MessageBoxItem from '@/components/NavBar/MessageBoxItem'
+import MessageBoxItem from './MessageBoxItem'
 
 import { Vue, Component, Prop } from 'vue-property-decorator'
 

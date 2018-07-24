@@ -5,7 +5,7 @@ export default [
   {
     name: 'login',
     path: '/login',
-    component: () => import('@/views/Login')
+    component: () => import('@/layouts/Login')
   },
 
   /*
@@ -14,7 +14,7 @@ export default [
   {
     name: 'app',
     path: '/',
-    component: () => import('@/views/App'),
+    component: () => import('@/layouts/App'),
     children: [
       /*
       * Dashboard

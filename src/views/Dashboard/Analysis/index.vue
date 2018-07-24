@@ -67,8 +67,8 @@
 </template>
 
 <script>
-import ChartCard from './_ChartCard'
-import MapCard from './_MapCard'
+import ChartCard from './components/ChartCard'
+import MapCard from './components/MapCard'
 import ECharts from 'vue-echarts/components/ECharts'
 
 import 'echarts/lib/component/visualMap'
