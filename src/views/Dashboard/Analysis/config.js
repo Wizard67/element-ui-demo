@@ -31,7 +31,7 @@ const sales = {
     }
   ],
   color: ['#E6A23C']
-};
+}
 
 const visits = {
   grid: {
@@ -68,7 +68,7 @@ const visits = {
     }
   ],
   color: ['#F56C6C']
-};
+}
 
 const payments = {
   grid: {
@@ -103,7 +103,7 @@ const payments = {
       data: []
     }
   ]
-};
+}
 
 const activity = {
   grid: {
@@ -151,7 +151,7 @@ const activity = {
       data: []
     }
   ]
-};
+}
 
 const areaVisits = {
   tooltip: {
@@ -212,7 +212,7 @@ const areaVisits = {
       zlevel: 1
     }
   ]
-};
+}
 
 const traffic = {
   grid: {
@@ -260,7 +260,7 @@ const traffic = {
       data: []
     }
   ]
-};
+}
 
 const payload = {
   tooltip: {
@@ -304,7 +304,7 @@ const payload = {
       data: {}
     }
   ]
-};
+}
 
 const visitsType = {
   tooltip: {
@@ -337,7 +337,7 @@ const visitsType = {
       }
     }
   ]
-};
+}
 
 export default {
   sales,
@@ -348,4 +348,4 @@ export default {
   traffic,
   payload,
   visitsType
-};
+}

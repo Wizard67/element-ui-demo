@@ -1,15 +1,15 @@
 export const getStoreArray = () => {
-  const modules = require.context('@/views/', true, /store\.js$/);
-  let arr = { modules: {} };
+  const modules = require.context('@/views/', true, /store\.js$/)
+  let arr = { modules: {} }
 
   modules.keys().forEach(url => {
-    const store = modules(url).default;
+    const store = modules(url).default
     if (!store.namespaced) {
-      Object.assign(arr, store);
+      Object.assign(arr, store)
     } else {
-      arr.modules[store.namespace] = store;
+      arr.modules[store.namespace] = store
     }
-  });
+  })
 
-  return arr;
-};
+  return arr
+}

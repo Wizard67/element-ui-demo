@@ -51,10 +51,10 @@
           height="280px" title="即时流量" tip="指标说明"
           :options="chartConfig.traffic"
           :value="chartCardDate.traffic.chart")
-      
+
       el-col(:xs="24" :sm="24" :md="24" :lg="8" :xl="8")
         ChartCard(
-          height="280px" title="负载率" tip="指标说明" 
+          height="280px" title="负载率" tip="指标说明"
           :options="chartConfig.payload"
           :value="chartCardDate.payload.chart")
 
@@ -67,38 +67,33 @@
 </template>
 
 <script>
-import ChartCard from './_ChartCard';
-import MapCard from './_MapCard';
-import ECharts from 'vue-echarts/components/ECharts';
+import ChartCard from './_ChartCard'
+import MapCard from './_MapCard'
+import ECharts from 'vue-echarts/components/ECharts'
 
-import 'echarts/lib/component/visualMap';
-import 'echarts/lib/component/geo';
-import 'echarts/lib/component/tooltip';
-import 'echarts/lib/chart/scatter';
-import 'echarts/lib/chart/line';
-import 'echarts/lib/chart/bar';
-import 'echarts/lib/chart/map';
-import 'echarts/lib/chart/effectScatter';
-import 'echarts/lib/chart/pie';
-import 'echarts/lib/chart/gauge';
+import 'echarts/lib/component/visualMap'
+import 'echarts/lib/component/geo'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/chart/scatter'
+import 'echarts/lib/chart/line'
+import 'echarts/lib/chart/bar'
+import 'echarts/lib/chart/map'
+import 'echarts/lib/chart/effectScatter'
+import 'echarts/lib/chart/pie'
+import 'echarts/lib/chart/gauge'
 
-import mapJson from '@/assets/echarts/china.json';
-ECharts.registerMap('china', mapJson);
+import mapJson from '@/assets/echarts/china.json'
 
-import chartConfig from './config';
+import chartConfig from './config'
 
-import { Vue, Component } from 'vue-property-decorator';
-import { namespace } from 'vuex-class';
-const analysisModule = namespace('analysis');
+import { Vue, Component } from 'vue-property-decorator'
+import { namespace } from 'vuex-class'
+ECharts.registerMap('china', mapJson)
+const analysisModule = namespace('analysis')
 
 @Component({
-  components: {
-    ChartCard,
-    MapCard
-  },
-  filters: {
-    toThousands: num => (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
-  }
+  components: { ChartCard, MapCard },
+  filters: { toThousands: num => (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,') }
 })
 export default class Analysis extends Vue {
   datePick = [new Date(), new Date()];
@@ -113,12 +108,12 @@ export default class Analysis extends Vue {
   @analysisModule.Action initAnalysis;
   @analysisModule.Action getMapDate;
 
-  created() {
-    this.initAnalysis();
+  created () {
+    this.initAnalysis()
   }
 
-  fetchMapDate() {
-    this.getMapDate();
+  fetchMapDate () {
+    this.getMapDate()
   }
 }
 </script>

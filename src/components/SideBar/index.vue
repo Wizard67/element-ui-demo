@@ -1,6 +1,6 @@
 <template lang="pug">
   el-menu.fix-menu(:collapse="collapse" :collapse-transition="true" router unique-opened)
-    
+
     LogoWrap(type="dark" :logo="logo") {{title}}
 
     template(v-for="(item, index) in nav")
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import LogoWrap from '@/components/LogoWrap';
+import LogoWrap from '@/components/LogoWrap'
 
 export default {
   name: 'SideBar',
@@ -46,11 +46,8 @@ export default {
     nav: {
       type: Array
     }
-  },
-  data() {
-    return {};
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

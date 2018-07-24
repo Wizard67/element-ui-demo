@@ -14,7 +14,7 @@
                 v-model="form.password.username"
                 clearable)
                 i.el-input__icon.el-icon-icon-user(slot="prefix")
-            
+
             el-form-item(prop="password" :rules="{ required: true, message: '请输入密码', trigger: 'change' }")
               el-input(
                 type="password" placeholder="admin"
@@ -54,20 +54,16 @@
 </template>
 
 <script>
-import LogoWrap from '@/components/LogoWrap';
-import { directiveCountDown as countDown } from '@/utils/directive';
-import { messageTips } from '@/utils';
+import LogoWrap from '@/components/LogoWrap'
+import { directiveCountDown as countDown } from '@/utils/directive'
+import { messageTips } from '@/utils'
 
-import { Vue, Component } from 'vue-property-decorator';
-import { Action } from 'vuex-class';
+import { Vue, Component } from 'vue-property-decorator'
+import { Action } from 'vuex-class'
 
 @Component({
-  components: {
-    LogoWrap
-  },
-  directives: {
-    countDown
-  }
+  components: { LogoWrap },
+  directives: { countDown }
 })
 export default class Login extends Vue {
   logo = require('@/assets/images/logo.png');
@@ -88,23 +84,23 @@ export default class Login extends Vue {
   @Action login;
   @Action getCaptcha;
 
-  onSubmit() {
+  onSubmit () {
     this.$refs[this.tabsActive].validate(valid => {
-      if (!valid) return false;
+      if (!valid) return false
 
-      this.isLogin = true;
+      this.isLogin = true
       this.login({ ...this.form[this.tabsActive], autoLogin: this.autoLogin })
         .then(res => {
-          messageTips(res);
-          setTimeout(() => this.$router.push({ path: '/' }), 500);
+          messageTips(res)
+          setTimeout(() => this.$router.push({ path: '/' }), 500)
         })
         .catch(res => messageTips(res))
-        .finally(() => (this.isLogin = false));
-    });
+        .finally(() => { this.isLogin = false })
+    })
   }
 
-  getCaptcha() {
-    this.getCaptcha();
+  getCaptcha () {
+    this.getCaptcha()
   }
 }
 </script>

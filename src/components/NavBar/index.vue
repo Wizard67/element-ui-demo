@@ -16,21 +16,20 @@ export default {
     }
   },
   computed: {
-    helperClass() {
+    helperClass () {
       return {
         'el-icon-icon-outdent': !this.collapse,
         'el-icon-icon-indent': this.collapse
-      };
+      }
     }
   },
   methods: {
-    handleCollapse(event) {
-      event.stopPropagation();
-      this.$emit('onCollapse');
+    handleCollapse (event) {
+      event.stopPropagation()
+      this.$emit('onCollapse')
     }
   }
-};
+}
 </script>
 
-<style src="./style.scss" lang="scss">
-</style>
+<style src="./style.scss" lang="scss"></style>

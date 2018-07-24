@@ -17,8 +17,9 @@
 </template>
 
 <script>
-const _createFilter = (queryString, flied) => restaurant =>
-  restaurant[flied].toLowerCase().indexOf(queryString.toLowerCase()) > 0;
+const _createFilter = (queryString, flied) => {
+  return restaurant => restaurant[flied].toLowerCase().indexOf(queryString.toLowerCase()) > 0
+}
 
 export default {
   name: 'SearchFiled',
@@ -27,34 +28,34 @@ export default {
       type: Array
     }
   },
-  data() {
+  data () {
     return {
       isShow: false,
       searchInput: ''
-    };
+    }
   },
   methods: {
-    querySearch(queryString, cb) {
-      const restaurants = this.suggestions;
+    querySearch (queryString, cb) {
+      const restaurants = this.suggestions
       let results = queryString
         ? restaurants.filter(_createFilter(queryString, 'message'))
-        : restaurants;
-      cb(results);
+        : restaurants
+      cb(results)
     },
-    handleSelect(item) {
-      this.searchInput = item.message;
+    handleSelect (item) {
+      this.searchInput = item.message
     },
-    handleSubmit() {
+    handleSubmit () {
       if (this.isShow) {
         this.searchInput
           ? this.$emit('onSearch', this.searchInput)
-          : (this.isShow = !this.isShow);
+          : (this.isShow = !this.isShow)
       } else {
-        this.isShow = !this.isShow;
+        this.isShow = !this.isShow
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

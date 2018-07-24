@@ -1,5 +1,5 @@
-import ajax from '@/ajax';
-import storage from '@/utils/storage';
+import ajax from '@/ajax'
+import storage from '@/utils/storage'
 
 const state = {
   nav: [],
@@ -13,58 +13,58 @@ const state = {
     { message: '搜索提示二' },
     { message: '搜索提示三' }
   ]
-};
+}
 
-const getters = {};
+const getters = {}
 
 const mutations = {
-  setUserInfo(store, value) {
-    store.userInfo = value;
+  setUserInfo (store, value) {
+    store.userInfo = value
   },
-  setMessages(store, value) {
-    store.messages = value;
+  setMessages (store, value) {
+    store.messages = value
   },
-  setNav(store, value) {
-    store.nav = value;
+  setNav (store, value) {
+    store.nav = value
   }
-};
+}
 
 const actions = {
-  login(context, { autoLogin, ...params }) {
-    autoLogin ? storage.init('local') : storage.init('session');
+  login (context, { autoLogin, ...params }) {
+    autoLogin ? storage.init('local') : storage.init('session')
 
     return new Promise((resolve, reject) => {
       ajax('login', params).then(res => {
         if (res.status === 200) {
-          storage.setItem('token', res.payload.token);
-          resolve(res);
+          storage.setItem('token', res.payload.token)
+          resolve(res)
         } else {
-          reject(res);
+          reject(res)
         }
-      });
-    });
+      })
+    })
   },
 
-  logout() {
-    storage.removeItem('token');
+  logout () {
+    storage.removeItem('token')
   },
 
-  getCaptcha() {
-    console.log('fetch captcha sucessfully!');
+  getCaptcha () {
+    console.log('fetch captcha sucessfully!')
   },
 
-  initApp({ commit }) {
+  initApp ({ commit }) {
     Promise.all([ajax('userInfo'), ajax('initApp')]).then(res => {
-      commit('setUserInfo', res[0].payload);
-      commit('setMessages', res[1].payload.messages);
-      commit('setNav', res[1].payload.nav);
-    });
+      commit('setUserInfo', res[0].payload)
+      commit('setMessages', res[1].payload.messages)
+      commit('setNav', res[1].payload.nav)
+    })
   }
-};
+}
 
 export default {
   state,
   getters,
   actions,
   mutations
-};
+}

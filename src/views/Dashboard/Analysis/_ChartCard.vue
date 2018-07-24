@@ -19,16 +19,13 @@
 </template>
 
 <script>
-import Card from '@/components/Card';
-import ECharts from 'vue-echarts/components/ECharts.vue';
+import Card from '@/components/Card'
+import ECharts from 'vue-echarts/components/ECharts.vue'
 
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component({
-  components: {
-    Card,
-    ECharts
-  }
+  components: { Card, ECharts }
 })
 export default class ChartCard extends Vue {
   @Prop({ type: String, default: '100px' })
@@ -39,15 +36,12 @@ export default class ChartCard extends Vue {
   tip;
   @Prop({ type: Object, required: true })
   options;
-  @Prop({
-    type: [Array, Object],
-    default: () => []
-  })
+  @Prop({ type: [Array, Object], default: () => [] })
   value;
 
-  get mergeOptions() {
-    this.options.series[0].data = this.value;
-    return this.options;
+  get mergeOptions () {
+    this.options.series[0].data = this.value
+    return this.options
   }
 }
 </script>

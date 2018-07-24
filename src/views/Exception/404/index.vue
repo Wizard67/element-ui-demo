@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component } from 'vue-property-decorator'
 
 @Component
 export default class NoFind extends Vue {
-  onclick() {
-    this.$router.push('/');
+  onclick () {
+    this.$router.push('/')
   }
 }
 </script>

@@ -13,5 +13,5 @@ export default {
       type: Array
     }
   }
-};
+}
 </script>

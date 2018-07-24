@@ -1,5 +1,5 @@
 export default [
-  /* 
+  /*
    * Login
    */
   {
@@ -8,15 +8,15 @@ export default [
     component: () => import('@/views/Login')
   },
 
-  /* 
-   * Login
+  /*
+   * App
    */
   {
     name: 'app',
     path: '/',
     component: () => import('@/views/App'),
     children: [
-      /* 
+      /*
       * Dashboard
       */
       {
@@ -26,7 +26,7 @@ export default [
         component: () => import('@/views/Dashboard/Analysis/')
       },
 
-      /* 
+      /*
       * Exception
       */
       {
@@ -37,4 +37,4 @@ export default [
       }
     ]
   }
-];
+]

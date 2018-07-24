@@ -6,7 +6,7 @@
     el-container
       el-header.fix-header
         NavBar(:collapse="isCollapse" @onCollapse="handleCollapse")
-          SearchFiled(class="hidden-xs-only" :suggestions="suggestions" @onSearch="handleSearch") 
+          SearchFiled(class="hidden-xs-only" :suggestions="suggestions" @onSearch="handleSearch")
 
           MessageBox(class="hidden-xs-only" :messages="messages")
 
@@ -25,28 +25,21 @@
 </template>
 
 <script>
-import SideBar from '@/components/SideBar';
-import NavBar from '@/components/NavBar';
-import SearchFiled from '@/components/NavBar/SearchFlied';
-import UserCard from '@/components/UserCard';
-import MessageBox from '@/components/NavBar/MessageBox';
-import FooterInfo from '@/components/FooterInfo';
+import SideBar from '@/components/SideBar'
+import NavBar from '@/components/NavBar'
+import SearchFiled from '@/components/NavBar/SearchFlied'
+import UserCard from '@/components/UserCard'
+import MessageBox from '@/components/NavBar/MessageBox'
+import FooterInfo from '@/components/FooterInfo'
 
-import { layoutMixin } from '@/utils/mixin';
+import { layoutMixin } from '@/utils/mixin'
 
-import { Vue, Component } from 'vue-property-decorator';
-import { State, Action } from 'vuex-class';
+import { Vue, Component } from 'vue-property-decorator'
+import { State, Action } from 'vuex-class'
 
 @Component({
-  components: {
-    SideBar,
-    NavBar,
-    SearchFiled,
-    UserCard,
-    MessageBox,
-    FooterInfo
-  },
-  mixins: [layoutMixin]
+  components: { SideBar, NavBar, SearchFiled, UserCard, MessageBox, FooterInfo },
+  mixins: [ layoutMixin ]
 })
 export default class App extends Vue {
   logo = require('@/assets/images/logo.png');
@@ -63,28 +56,28 @@ export default class App extends Vue {
   @Action initApp;
   @Action logout;
 
-  created() {
-    this.initApp();
+  created () {
+    this.initApp()
   }
 
-  handleCollapse() {
+  handleCollapse () {
     if (this.preSideBarStatus === 'xs') {
-      this.isCollapse = false;
-      this.isFixedAsideShow = !this.isFixedAsideShow;
+      this.isCollapse = false
+      this.isFixedAsideShow = !this.isFixedAsideShow
     } else {
-      this.isCollapse = !this.isCollapse;
+      this.isCollapse = !this.isCollapse
     }
   }
 
-  handleSearch(value) {
-    alert(value);
+  handleSearch (value) {
+    alert(value)
   }
 
-  handleLogout() {
+  handleLogout () {
     this.logout().then(() => {
-      this.$message.success('退出登录成功');
-      setTimeout(() => this.$router.push({ name: 'login' }), 500);
-    });
+      this.$message.success('退出登录成功')
+      setTimeout(() => this.$router.push({ name: 'login' }), 500)
+    })
   }
 }
 </script>

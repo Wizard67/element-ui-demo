@@ -17,52 +17,45 @@
 </template>
 
 <script>
-import Card from '@/components/Card';
-import List from '@/components/List';
-import ECharts from 'vue-echarts/components/ECharts';
+import Card from '@/components/Card'
+import List from '@/components/List'
+import ECharts from 'vue-echarts/components/ECharts'
 
-import { addListener, removeListener } from 'resize-detector';
-import debounce from 'lodash/debounce';
+import { addListener, removeListener } from 'resize-detector'
+import debounce from 'lodash/debounce'
 
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component({
-  components: {
-    Card,
-    List,
-    ECharts
-  }
+  components: { Card, List, ECharts }
 })
 export default class MapCard extends Vue {
   handleResize = debounce(() => this.$refs.map.resize(), 100);
 
   @Prop({ type: Object, required: true })
   options;
-  @Prop({
-    type: [Array, Object],
-    default: () => []
-  })
+  @Prop({ type: [Array, Object], default: () => [] })
   value;
 
-  get mergeOptions() {
-    this.options.series[0].data = this.value;
-    this.options.series[1].data = this.value.slice(0, 6);
-    return this.options;
+  get mergeOptions () {
+    this.options.series[0].data = this.value
+    this.options.series[1].data = this.value.slice(0, 6)
+    return this.options
   }
 
-  get lists() {
-    return this.value.slice(0, 10).map(v => ({ name: v.name, value: v.value[2] }));
+  get lists () {
+    return this.value.slice(0, 10).map(v => ({ name: v.name, value: v.value[2] }))
   }
 
-  mounted() {
+  mounted () {
     // echarts map 使用 auto-resize 时导致页面性能问题
     // 这里手动监听
-    addListener(this.$el, this.handleResize);
+    addListener(this.$el, this.handleResize)
   }
 
-  beforeDestroy() {
+  beforeDestroy () {
     // 移除监听
-    removeListener(this.$el, this.handleResize);
+    removeListener(this.$el, this.handleResize)
   }
 }
 </script>

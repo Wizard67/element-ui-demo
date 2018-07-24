@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import MessageBoxItem from '@/components/NavBar/MessageBoxItem';
+import MessageBoxItem from '@/components/NavBar/MessageBoxItem'
 
 export default {
   components: {
@@ -30,11 +30,11 @@ export default {
     }
   },
   methods: {
-    getMessageLength(arr) {
-      return arr && arr.length > 0 ? `(${arr.length})` : '';
+    getMessageLength (arr) {
+      return arr && arr.length > 0 ? `(${arr.length})` : ''
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

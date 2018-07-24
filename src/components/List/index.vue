@@ -22,8 +22,7 @@ export default {
       type: Array
     }
   }
-};
+}
 </script>
 
-<style src="./style.scss" lang="scss" scoped>
-</style>
+<style src="./style.scss" lang="scss" scoped></style>

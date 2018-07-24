@@ -1,13 +1,13 @@
-import storage from '@/utils/storage';
+import storage from '@/utils/storage'
 
 export const beforeEach = (to, from, next) => {
-  const target = {};
+  const target = {}
   if (to.name === 'login' && storage.getItem('token')) {
-    target.name = from.name;
+    target.name = from.name
   }
   if (to.name !== 'login' && !storage.getItem('token')) {
-    target.name = 'login';
+    target.name = 'login'
   }
 
-  next(target);
-};
+  next(target)
+}
