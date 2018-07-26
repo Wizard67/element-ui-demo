@@ -59,6 +59,18 @@ const actions = {
       commit('setMessages', res[1].payload.messages)
       commit('setNav', res[1].payload.nav)
     })
+  },
+
+  update (context, files) {
+    console.log(files)
+    // ajax('upfile', files).then(res => {
+    //   if (res.status === 200) {
+    //     storage.setItem('token', res.payload.token)
+    //     resolve(res)
+    //   } else {
+    //     reject(res)
+    //   }
+    // })
   }
 }
 

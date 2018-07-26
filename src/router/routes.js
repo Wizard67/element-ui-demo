@@ -1,5 +1,14 @@
 export default [
   /*
+   * Test
+   */
+  {
+    name: 'test',
+    path: '/test',
+    component: () => import('@/layouts/Test')
+  },
+
+  /*
    * Login
    */
   {
