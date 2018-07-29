@@ -1,4 +1,4 @@
-import ajax from '@/ajax'
+import { request } from '@/services'
 
 const state = {
   isFetchDate: false,
@@ -40,7 +40,7 @@ const actions = {
   initAnalysis ({ commit, state }) {
     if (state.isFetchDate) return
 
-    Promise.all([ajax('initAnalysisCard'), ajax('initAnalysisMap')]).then(
+    Promise.all([request('initAnalysisCard'), request('initAnalysisMap')]).then(
       res => {
         commit('setChartCardDate', res[0].payload)
         commit('setMapCardData', res[1].payload.areaVisitsData)
@@ -50,7 +50,7 @@ const actions = {
   },
 
   getMapDate ({ commit }) {
-    ajax('initAnalysisMap').then(({ payload }) => {
+    request('initAnalysisMap').then(({ payload }) => {
       commit('setMapCardData', payload.areaVisitsData)
     })
   }

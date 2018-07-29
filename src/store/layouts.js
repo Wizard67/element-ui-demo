@@ -1,4 +1,4 @@
-import ajax from '@/ajax'
+import { request } from '@/services'
 import storage from '@/utils/storage'
 
 const state = {
@@ -34,7 +34,7 @@ const actions = {
     autoLogin ? storage.init('local') : storage.init('session')
 
     return new Promise((resolve, reject) => {
-      ajax('login', params).then(res => {
+      request('login', params).then(res => {
         if (res.status === 200) {
           storage.setItem('token', res.payload.token)
           resolve(res)
@@ -54,7 +54,7 @@ const actions = {
   },
 
   initApp ({ commit }) {
-    Promise.all([ajax('userInfo'), ajax('initApp')]).then(res => {
+    Promise.all([request('userInfo'), request('initApp')]).then(res => {
       commit('setUserInfo', res[0].payload)
       commit('setMessages', res[1].payload.messages)
       commit('setNav', res[1].payload.nav)
