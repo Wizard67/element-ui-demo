@@ -50,7 +50,7 @@ const actions = {
   },
 
   getCaptcha () {
-    console.log('fetch captcha sucessfully!')
+    // to fetch data
   },
 
   initApp ({ commit }) {

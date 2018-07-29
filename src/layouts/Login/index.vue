@@ -41,7 +41,7 @@
                     i.el-input__icon.el-icon-icon-mail(slot="prefix")
 
                 el-col(:span="8" :xs="10" :sm="8")
-                  el-button.fix-button(v-countDown="getCaptcha" plain) 获取验证码
+                  el-button.fix-button(v-countDown="sendCaptcha" plain) 获取验证码
 
       el-form
         el-form-item.fix-form-item
@@ -99,8 +99,14 @@ export default class Login extends Vue {
     })
   }
 
-  getCaptcha () {
-    this.getCaptcha()
+  sendCaptcha () {
+    this.getCaptcha().then(res => {
+      this.$message({
+        showClose: true,
+        message: '验证码已发送',
+        type: 'success'
+      })
+    })
   }
 }
 </script>
