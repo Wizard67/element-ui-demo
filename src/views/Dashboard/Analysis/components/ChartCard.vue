@@ -29,15 +29,15 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 })
 export default class ChartCard extends Vue {
   @Prop({ type: String, default: '100px' })
-  height;
+  height
   @Prop({ type: String, default: 'Title' })
-  title;
+  title
   @Prop({ type: String, default: 'Tip' })
-  tip;
+  tip
   @Prop({ type: Object, required: true })
-  options;
+  options
   @Prop({ type: [Array, Object], default: () => [] })
-  value;
+  value
 
   get mergeOptions () {
     this.options.series[0].data = this.value

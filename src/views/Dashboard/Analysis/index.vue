@@ -97,17 +97,17 @@ ECharts.registerMap('china', mapJson)
   filters: { toThousands: num => (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,') }
 })
 export default class Analysis extends Vue {
-  datePick = [new Date(), new Date()];
-  chartConfig = chartConfig;
+  datePick = [new Date(), new Date()]
+  chartConfig = chartConfig
   pickerOptions = {
     disabledDate: date => date.getTime() > Date.now()
-  };
+  }
 
-  @analysisModule.State chartCardDate;
-  @analysisModule.State mapCardData;
+  @analysisModule.State chartCardDate
+  @analysisModule.State mapCardData
 
-  @analysisModule.Action initAnalysis;
-  @analysisModule.Action getMapDate;
+  @analysisModule.Action initAnalysis
+  @analysisModule.Action getMapDate
 
   created () {
     this.initAnalysis()

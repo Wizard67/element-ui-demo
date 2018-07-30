@@ -68,10 +68,10 @@ const layoutModule = namespace('layout')
   directives: { countDown }
 })
 export default class Login extends Vue {
-  logo = require('@/assets/images/logo.png');
-  autoLogin = false;
-  isLogin = false;
-  tabsActive = 'password';
+  logo = require('@/assets/images/logo.png')
+  autoLogin = false
+  isLogin = false
+  tabsActive = 'password'
   form = {
     password: {
       username: 'admin',
@@ -81,10 +81,10 @@ export default class Login extends Vue {
       phone: '',
       captcha: ''
     }
-  };
+  }
 
-  @layoutModule.Action login;
-  @layoutModule.Action getCaptcha;
+  @layoutModule.Action login
+  @layoutModule.Action getCaptcha
 
   onSubmit () {
     this.$refs[this.tabsActive].validate(valid => {

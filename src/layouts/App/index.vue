@@ -44,19 +44,19 @@ const layoutModule = namespace('layout')
   mixins: [ layoutMixin ]
 })
 export default class App extends Vue {
-  logo = require('@/assets/images/logo.png');
-  isCollapse = false;
-  preSideBarStatus = '';
-  fixedAside = false;
-  isFixedAsideShow = false;
+  logo = require('@/assets/images/logo.png')
+  isCollapse = false
+  preSideBarStatus = ''
+  fixedAside = false
+  isFixedAsideShow = false
 
-  @layoutModule.State userInfo;
-  @layoutModule.State nav;
-  @layoutModule.State suggestions;
-  @layoutModule.State messages;
+  @layoutModule.State userInfo
+  @layoutModule.State nav
+  @layoutModule.State suggestions
+  @layoutModule.State messages
 
-  @layoutModule.Action initApp;
-  @layoutModule.Action logout;
+  @layoutModule.Action initApp
+  @layoutModule.Action logout
 
   created () {
     this.initApp()

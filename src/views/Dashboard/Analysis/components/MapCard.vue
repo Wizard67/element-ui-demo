@@ -30,12 +30,12 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
   components: { Card, List, ECharts }
 })
 export default class MapCard extends Vue {
-  handleResize = debounce(() => this.$refs.map.resize(), 100);
+  handleResize = debounce(() => this.$refs.map.resize(), 100)
 
   @Prop({ type: Object, required: true })
-  options;
+  options
   @Prop({ type: [Array, Object], default: () => [] })
-  value;
+  value
 
   get mergeOptions () {
     this.options.series[0].data = this.value
