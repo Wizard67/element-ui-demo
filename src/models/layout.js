@@ -63,6 +63,8 @@ const actions = {
 }
 
 export default {
+  namespace: 'layout',
+  namespaced: true,
   state,
   getters,
   actions,

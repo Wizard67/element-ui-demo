@@ -36,7 +36,8 @@ import MessageBox from './components/MessageBox'
 import { layoutMixin } from '@/utils/mixin'
 
 import { Vue, Component } from 'vue-property-decorator'
-import { State, Action } from 'vuex-class'
+import { namespace } from 'vuex-class'
+const layoutModule = namespace('layout')
 
 @Component({
   components: { SideBar, NavBar, SearchFiled, UserCard, MessageBox, FooterInfo },
@@ -49,13 +50,13 @@ export default class App extends Vue {
   fixedAside = false;
   isFixedAsideShow = false;
 
-  @State userInfo;
-  @State nav;
-  @State suggestions;
-  @State messages;
+  @layoutModule.State userInfo;
+  @layoutModule.State nav;
+  @layoutModule.State suggestions;
+  @layoutModule.State messages;
 
-  @Action initApp;
-  @Action logout;
+  @layoutModule.Action initApp;
+  @layoutModule.Action logout;
 
   created () {
     this.initApp()

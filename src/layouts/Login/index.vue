@@ -59,7 +59,9 @@ import { directiveCountDown as countDown } from '@/utils/directive'
 import { messageTips } from '@/utils'
 
 import { Vue, Component } from 'vue-property-decorator'
-import { Action } from 'vuex-class'
+import { namespace } from 'vuex-class'
+
+const layoutModule = namespace('layout')
 
 @Component({
   components: { LogoWrap },
@@ -81,8 +83,8 @@ export default class Login extends Vue {
     }
   };
 
-  @Action login;
-  @Action getCaptcha;
+  @layoutModule.Action login;
+  @layoutModule.Action getCaptcha;
 
   onSubmit () {
     this.$refs[this.tabsActive].validate(valid => {

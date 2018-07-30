@@ -88,8 +88,9 @@ import chartConfig from './config'
 
 import { Vue, Component } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
-ECharts.registerMap('china', mapJson)
 const analysisModule = namespace('analysis')
+
+ECharts.registerMap('china', mapJson)
 
 @Component({
   components: { ChartCard, MapCard },
