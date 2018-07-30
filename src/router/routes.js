@@ -23,7 +23,7 @@ export default [
         name: 'analysis',
         path: '/dashboard/analysis',
         alias: '/',
-        component: () => import('@/views/Dashboard/Analysis/')
+        component: () => import('@/views/Analysis/')
       },
 
       /*
@@ -33,7 +33,7 @@ export default [
         name: 'no-find',
         path: '*',
         alias: '/404',
-        component: () => import('@/views/Exception/404/')
+        component: () => import('@/views/404/')
       }
     ]
   }
