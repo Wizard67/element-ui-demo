@@ -1,4 +1,5 @@
 import storage from '@/utils/storage'
+import NProgress from '@/assets/nprogress'
 
 export const beforeEach = (to, from, next) => {
   const target = {}
@@ -9,5 +10,10 @@ export const beforeEach = (to, from, next) => {
     target.name = 'login'
   }
 
+  NProgress.start()
   next(target)
+}
+
+export const afterEach = (to, from) => {
+  NProgress.done()
 }
