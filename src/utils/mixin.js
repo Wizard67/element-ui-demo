@@ -11,8 +11,8 @@ export const layoutMixin = {
   },
   beforeDestroy () {
     window.removeEventListener('resize', this.listenResize)
-    window.addEventListener('click', this.listenClick)
-    window.addEventListener('touchend', this.listenClick)
+    window.removeEventListener('click', this.listenClick)
+    window.removeEventListener('touchend', this.listenClick)
   },
   methods: {
     changeSideBarStatus (type) {
