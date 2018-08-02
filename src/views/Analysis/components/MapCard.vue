@@ -19,7 +19,7 @@
 <script>
 import Card from '@/components/Card'
 import List from '@/components/List'
-import ECharts from '@/assets/echarts'
+import ECharts from '@/libs/echarts'
 
 import { addListener, removeListener } from 'resize-detector'
 import debounce from 'lodash/debounce'

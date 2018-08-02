@@ -2,7 +2,7 @@ import Vue from 'vue'
 import router from '@/router'
 import models from '@/models'
 
-import '@/assets/element-ui'
+import '@/libs/element-ui'
 
 Vue.config.productionTip = false
 

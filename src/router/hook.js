@@ -1,5 +1,5 @@
 import storage from '@/utils/storage'
-import NProgress from '@/assets/nprogress'
+import NProgress from '@/libs/nprogress'
 
 export const beforeEach = (to, from, next) => {
   const target = {}

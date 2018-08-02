@@ -20,7 +20,7 @@
 
 <script>
 import Card from '@/components/Card'
-import ECharts from '@/assets/echarts'
+import ECharts from '@/libs/echarts'
 
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
