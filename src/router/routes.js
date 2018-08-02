@@ -5,6 +5,9 @@ export default [
   {
     name: 'login',
     path: '/login',
+    props: {
+      name: 'attrs'
+    },
     component: () => import('@/layouts/Login')
   },
 
