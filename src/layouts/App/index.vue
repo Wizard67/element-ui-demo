@@ -1,27 +1,39 @@
-<template lang="pug">
-  el-container.fix-container(:class="{'overlay': isFixedAsideShow}")
-    el-aside.fix-aside(ref="aside" :class="{'isFixed': fixedAside, 'isFixedAsideShow': isFixedAsideShow}")
-      SideBar(title="ElementUI Demo" :logo="logo" :nav="nav" :collapse="isCollapse")
+<template>
+  <el-container class="fix-container" :class="{ 'overlay': isFixedAsideShow }">
+    <el-aside class="fix-aside" ref="aside"
+      :class="{
+        'isFixed': fixedAside,
+        'isFixedAsideShow': isFixedAsideShow
+      }"
+    >
+      <SideBar title="ElementUI Demo" :logo="logo" :nav="nav" :collapse="isCollapse"/>
+    </el-aside>
 
-    el-container
-      el-header.fix-header
-        NavBar(:collapse="isCollapse" @onCollapse="handleCollapse")
-          SearchFiled(class="hidden-xs-only" :suggestions="suggestions" @onSearch="handleSearch")
+    <el-container>
+      <el-header class="fix-header">
+        <NavBar :collapse="isCollapse" @onCollapse="handleCollapse">
+          <SearchFiled class="hidden-xs-only" :suggestions="suggestions" @onSearch="handleSearch"/>
 
-          MessageBox(class="hidden-xs-only" :messages="messages")
+          <MessageBox class="hidden-xs-only" :messages="messages"/>
 
-          el-dropdown.fix-dropdown
-            UserCard(:userName="userInfo.userName" :avatar="userInfo.avatar")
+          <el-dropdown class="fix-dropdown">
+            <UserCard :userName="userInfo.userName" :avatar="userInfo.avatar"/>
 
-            el-dropdown-menu(slot="dropdown")
-              el-dropdown-item(disabled) 个人中心
-              el-dropdown-item(disabled) 设置
-              el-dropdown-item(@click.native="handleLogout" divided) 退出登录
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item disabled>个人中心</el-dropdown-item>
+              <el-dropdown-item disabled>设置</el-dropdown-item>
+              <el-dropdown-item @click.native="handleLogout" divided>退出登录</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </NavBar>
+      </el-header>
 
-      el-main.fix-main
-        router-view
-        FooterInfo
-
+      <el-main class="fix-main">
+        <router-view/>
+        <FooterInfo/>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <script>

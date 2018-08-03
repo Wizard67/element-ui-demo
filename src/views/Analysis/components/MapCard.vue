@@ -1,19 +1,25 @@
-<template lang="pug">
-  Card
-    template(slot="head")
-      span 地区访问统计
-      slot(name="helper")
+<template>
+  <Card>
+    <template slot="head">
+      <span>地区访问统计</span>
+      <slot name="helper"/>
+    </template>
 
-    template(slot="content")
-      el-row(style="width: 100%")
-        el-col(:lg="16")
-          ECharts(ref="map" style="width: 100%; height: 500px;"
+    <template slot="content">
+      <el-row style="width: 100%">
+        <el-col :lg="16">
+          <ECharts ref="map" style="width: 100%; height: 500px;"
             :options="mergeOptions"
-            :auto-resize="false")
+            :auto-resize="false"
+          />
+        </el-col>
 
-        el-col(:lg="8")
-          List(:orderMark="6" :data="lists")
-
+        <el-col :lg="8">
+          <List :orderMark="6" :data="lists"/>
+        </el-col>
+      </el-row>
+    </template>
+  </Card>
 </template>
 
 <script>
@@ -32,10 +38,8 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 export default class MapCard extends Vue {
   handleResize = debounce(() => this.$refs.map.resize(), 100)
 
-  @Prop({ type: Object, required: true })
-  options
-  @Prop({ type: [Array, Object], default: () => [] })
-  value
+  @Prop({ type: Object, required: true }) options
+  @Prop({ type: [Array, Object], default: () => [] }) value
 
   get mergeOptions () {
     this.options.series[0].data = this.value

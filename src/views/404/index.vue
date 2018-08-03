@@ -1,10 +1,11 @@
-<template lang="pug">
-  .nofind
-    .nofind__main
-      p.font--focus 404
-      p.font--helper 抱歉，你访问的页面不存在
-      el-button(type="primary" @click="onclick") 返回首页
-
+<template>
+  <div class=".nofind">
+    <div class="nofind__main">
+      <p class="font--focus">404</p>
+      <p class="font--helper">抱歉，你访问的页面不存在</p>
+      <el-button type="primary" @click="onclick">返回首页</el-button>
+    </div>
+  </div>
 </template>
 
 <script>

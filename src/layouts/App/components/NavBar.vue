@@ -1,10 +1,12 @@
-<template lang="pug">
-  .nav-bar
-    .nav-bar__helper
-      i(:class="helperClass" @click="handleCollapse")
-    .nav-bar__main
-      slot
-
+<template>
+  <div class="nav-bar">
+    <div class="nav-bar__helper">
+      <i :class="helperClass" @click="handleCollapse"></i>
+    </div>
+    <div class="nav-bar__main">
+      <slot/>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -12,8 +14,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class NavBar extends Vue {
-  @Prop({ type: Boolean })
-  collapse
+  @Prop({ type: Boolean })collapse
 
   get helperClass () {
     return {

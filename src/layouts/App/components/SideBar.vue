@@ -1,27 +1,34 @@
-<template lang="pug">
-  el-menu.fix-menu(:collapse="collapse" :collapse-transition="true" router unique-opened)
+<template>
+  <el-menu class="fix-menu" :collapse="collapse" :collapse-transition="true" router unique-opened>
+    <LogoWrap type="dark" :logo="logo">{{ title }}</LogoWrap>
+    <template v-for="(item, index) in nav">
 
-    LogoWrap(type="dark" :logo="logo") {{title}}
+      <template v-if="item.childs && item.childs.length > 0">
+        <el-submenu :index="item.index ?item.index :`${index}`" :key="index">
+          <template :slot="'title'">
+            <el-icon :name="item.icon"/>
+            <span :slot="'title'">{{ item.title }}</span>
+          </template>
+          <template v-for="(citem, cindex) in item.childs">
+            <el-menu-item :index="citem.index" :key="cindex">
+              <template v-if="citem.icon && citem.icon">
+                <el-icon :name="citem.icon"/>
+                {{ citem.title }}
+              </template>
+            </el-menu-item>
+          </template>
+        </el-submenu>
+      </template>
 
-    template(v-for="(item, index) in nav")
+      <template v-else>
+        <el-menu-item :index="item.index" :key="index">
+          <el-icon :name="item.icon"/>
+          <span :slot="'title'">{{ item.title }}</span>
+        </el-menu-item>
+      </template>
 
-      template(v-if="item.childs && item.childs.length > 0")
-        el-submenu(:index="item.index ?item.index :`${index}`" :key="index")
-          template(:slot="'title'")
-            el-icon(:name="item.icon")
-            span(:slot="'title'") {{ item.title }}
-
-          template(v-for="(citem, cindex) in item.childs")
-            el-menu-item(:index="citem.index" :key="cindex")
-              template(v-if="citem.icon && citem.icon")
-                el-icon(:name="citem.icon")
-              | {{ citem.title }}
-
-      template(v-else)
-        el-menu-item(:index="item.index" :key="index")
-          el-icon(:name="item.icon")
-          span(:slot="'title'") {{ item.title }}
-
+    </template>
+  </el-menu>
 </template>
 
 <script>
@@ -32,17 +39,10 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
   components: { LogoWrap }
 })
 export default class SideBar extends Vue {
-  @Prop({ type: String })
-  logo
-
-  @Prop({ type: String })
-  title
-
-  @Prop({ default: false, type: Boolean })
-  collapse
-
-  @Prop({ type: Array })
-  nav
+  @Prop({ type: String }) logo
+  @Prop({ type: String }) title
+  @Prop({ default: false, type: Boolean }) collapse
+  @Prop({ type: Array }) nav
 }
 </script>
 

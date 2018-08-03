@@ -1,21 +1,27 @@
-<template lang="pug">
-  Card
-    template(slot="head")
-      span {{title}}
-      el-tooltip(effect="dark" placement="top" :content="tip")
-        i.el-icon-icon-question-circle-o
+<template>
+  <Card>
+    <template slot="head">
+      <span>{{title}}</span>
+      <el-tooltip effect="dark" placement="top" :content="tip">
+        <i class="el-icon-icon-question-circle-o"></i>
+      </el-tooltip>
+    </template>
 
-    template(slot="content")
-      template(v-if="$slots.content")
-        .font--focus
-          slot(name="content")
+    <template slot="content">
+      <template v-if="$slots.content">
+        <div class="font--focus">
+          <slot name="content"></slot>
+        </div>
+      </template>
+      <ECharts style="width: 100%;" :style="{height: height}"
+        :options="mergeOptions" :auto-resize="true"
+      />
+    </template>
 
-      ECharts(style="width: 100%;" :style="{height: height}"
-        :options="mergeOptions" :auto-resize="true")
-
-    template(slot="foot")
-      slot(name="foot")
-
+    <template slot="foot">
+      <slot name="foot"/>
+    </template>
+  </Card>
 </template>
 
 <script>
@@ -28,16 +34,11 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
   components: { Card, ECharts }
 })
 export default class ChartCard extends Vue {
-  @Prop({ type: String, default: '100px' })
-  height
-  @Prop({ type: String, default: 'Title' })
-  title
-  @Prop({ type: String, default: 'Tip' })
-  tip
-  @Prop({ type: Object, required: true })
-  options
-  @Prop({ type: [Array, Object], default: () => [] })
-  value
+  @Prop({ type: String, default: '100px' }) height
+  @Prop({ type: String, default: 'Title' }) title
+  @Prop({ type: String, default: 'Tip' }) tip
+  @Prop({ type: Object, required: true }) options
+  @Prop({ type: [Array, Object], default: () => [] }) value
 
   get mergeOptions () {
     this.options.series[0].data = this.value

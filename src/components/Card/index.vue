@@ -1,18 +1,23 @@
-<template lang="pug" functional>
-  el-card(shadow="never")
-    .card
-      template(v-if="slots().head")
-      .card__head
-        slot(name="head")
+<template functional>
+  <el-card shadow="never">
+    <div class="card">
+      <template v-if="slots().head">
+        <div class="card__head"><slot name="head"></slot></div>
+      </template>
 
-      template(v-if="slots().content")
-      .card__content(:style="{ height: props.height? props.height: 'auto'}")
-        slot(name="content")
+      <template v-if="slots().content">
+        <div class="card__content" :style="{ height: props.height? props.height: 'auto' }">
+          <slot name="content"></slot>
+        </div>
+      </template>
 
-      template(v-if="slots().foot")
-        .card__foot
-          slot(name="foot")
-
+      <template v-if="slots().foot">
+        <div class="card__foot">
+          <slot name="foot"></slot>
+        </div>
+      </template>
+    </div>
+  </el-card>
 </template>
 
 <script>

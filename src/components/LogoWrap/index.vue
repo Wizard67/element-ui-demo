@@ -1,9 +1,15 @@
-<template lang="pug" functional>
-  div(:class="[props.size === 'large'? 'logo--large': 'logo', props.type === 'dark'? 'is-dark': '']")
-    img(:src="props.logo" :class="props.size === 'large'? 'logo__image--large': 'logo__image'")
-    div(v-if="!props.collapse" :class="props.size === 'large'? 'logo__text--large': 'logo__text'")
-      slot
-
+<template functional>
+  <div
+    :class="[
+      props.size === 'large'? 'logo--large': 'logo',
+      props.type === 'dark'? 'is-dark': ''
+    ]"
+  >
+    <img :src="props.logo" :class="props.size === 'large'? 'logo__image--large': 'logo__image'">
+    <div v-if="!props.collapse" :class="props.size === 'large'? 'logo__text--large': 'logo__text'">
+      <slot/>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -11,14 +17,10 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class LogoWrap extends Vue {
-    @Prop({ type: String, default: '' })
-    type
-    @Prop({ type: String, default: '' })
-    size
-    @Prop({ required: true, type: String })
-    logo
-    @Prop({ default: false, type: Boolean })
-    collapse
+  @Prop({ type: String, default: '' }) type
+  @Prop({ type: String, default: '' }) size
+  @Prop({ required: true, type: String }) logo
+  @Prop({ default: false, type: Boolean }) collapse
 }
 </script>
 

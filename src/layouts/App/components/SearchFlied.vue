@@ -1,19 +1,22 @@
-<template lang="pug">
-  div
-    i.el-icon-icon-search.fix-icon(@click="handleSubmit")
-
-    transition(name="slide-fade")
-      el-autocomplete.fix-autocomplete(ref="searchFiled"
+<template>
+  <div>
+    <i class="el-icon-icon-search fix-icon" @click="handleSubmit"/>
+    <transition name="slide-fade">
+      <el-autocomplete class="fix-autocomplete" ref="searchFiled"
         popper-class="my-autocomplete"
         v-if="isShow"
         v-model="searchInput"
         :fetch-suggestions="querySearch"
         placeholder="站内搜索"
         @select="handleSelect"
-        @keyup.enter.native="handleSubmit")
-        template(slot-scope="{ item }")
-          .message {{ item.message }}
-
+        @keyup.enter.native="handleSubmit"
+      >
+        <template slot-scope="{ item }">
+          <div class="message">{{ item.message }}</div>
+        </template>
+      </el-autocomplete>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -28,8 +31,7 @@ export default class SearchFiled extends Vue {
   isShow = false
   searchInput = ''
 
-  @Prop({ type: Array })
-  suggestions
+  @Prop({ type: Array }) suggestions
 
   querySearch (queryString, cb) {
     const restaurants = this.suggestions
