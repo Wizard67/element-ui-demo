@@ -13,8 +13,8 @@
             <el-menu-item :index="citem.index" :key="cindex">
               <template v-if="citem.icon && citem.icon">
                 <el-icon :name="citem.icon"/>
-                {{ citem.title }}
               </template>
+              {{ citem.title }}
             </el-menu-item>
           </template>
         </el-submenu>
