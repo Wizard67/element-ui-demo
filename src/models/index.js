@@ -7,8 +7,12 @@ const context = require.context('./', false, /\.js$/)
 context.keys()
   .filter(item => item !== './index.js')
   .map(key => {
+    const namespace = key.match(/(?<=\.\/).*?(?=\.js)/)
     const module = context(key).default
-    modules[module.namespace] = module
+    modules[namespace[0]] = {
+      namespaced: true,
+      ...module
+    }
   })
 
 Vue.use(Vuex)
