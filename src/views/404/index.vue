@@ -1,5 +1,5 @@
 <template>
-  <div class=".nofind">
+  <div class="nofind">
     <div class="nofind__main">
       <p class="font--focus">404</p>
       <p class="font--helper">抱歉，你访问的页面不存在</p>
