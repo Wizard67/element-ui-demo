@@ -83,7 +83,7 @@ import { messageTips } from '@/utils'
 import { Vue, Component } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 
-const layoutModule = namespace('layout')
+const moduleUser = namespace('user')
 
 @Component({
   components: { LogoWrap },
@@ -105,14 +105,14 @@ export default class Login extends Vue {
     }
   }
 
-  @layoutModule.Action login
-  @layoutModule.Action getCaptcha
+  @moduleUser.Action login
+  @moduleUser.Action getCaptcha
 
   onSubmit () {
     this.$refs[this.tabsActive].validate(valid => {
       if (!valid) return false
-
       this.isLogin = true
+
       this.login({ ...this.form[this.tabsActive], autoLogin: this.autoLogin })
         .then(res => {
           messageTips(res)

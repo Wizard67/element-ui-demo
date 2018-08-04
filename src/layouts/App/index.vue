@@ -17,7 +17,7 @@
           <MessageBox class="hidden-xs-only" :messages="messages"/>
 
           <el-dropdown class="fix-dropdown">
-            <UserCard :userName="userInfo.userName" :avatar="userInfo.avatar"/>
+            <UserCard :userName="userName" :avatar="avatar"/>
 
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item disabled>个人中心</el-dropdown-item>
@@ -49,7 +49,8 @@ import { layoutMixin } from '@/utils/mixin'
 
 import { Vue, Component } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
-const layoutModule = namespace('layout')
+const moduleUser = namespace('user')
+const moduleMessages = namespace('messages')
 
 @Component({
   components: { SideBar, NavBar, SearchFiled, UserCard, MessageBox, FooterInfo },
@@ -62,17 +63,15 @@ export default class App extends Vue {
   fixedAside = false
   isFixedAsideShow = false
 
-  @layoutModule.State userInfo
-  @layoutModule.State nav
-  @layoutModule.State suggestions
-  @layoutModule.State messages
+  @moduleUser.Getter userName
+  @moduleUser.Getter avatar
+  @moduleUser.Getter nav
 
-  @layoutModule.Action initApp
-  @layoutModule.Action logout
+  @moduleMessages.State suggestions
+  @moduleMessages.State messages
 
-  created () {
-    this.initApp()
-  }
+  @moduleUser.Action logout
+  @moduleMessages.Action getMessage
 
   handleCollapse () {
     if (this.preSideBarStatus === 'xs') {

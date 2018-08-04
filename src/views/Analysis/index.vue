@@ -99,7 +99,7 @@ import chartConfig from './config'
 
 import { Vue, Component } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
-const analysisModule = namespace('analysis')
+const moduleCharts = namespace('charts')
 
 @Component({
   components: { ChartCard, MapCard },
@@ -112,14 +112,14 @@ export default class Analysis extends Vue {
     disabledDate: date => date.getTime() > Date.now()
   }
 
-  @analysisModule.State chartCardDate
-  @analysisModule.State mapCardData
+  @moduleCharts.State chartCardDate
+  @moduleCharts.State mapCardData
 
-  @analysisModule.Action initAnalysis
-  @analysisModule.Action getMapDate
+  @moduleCharts.Action getAllChartsDate
+  @moduleCharts.Action getMapDate
 
   created () {
-    this.initAnalysis()
+    this.getAllChartsDate()
   }
 
   fetchMapDate () {

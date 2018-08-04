@@ -9,7 +9,7 @@ export default {
       payments: [],
       activity: [],
       traffic: [],
-      payload: [0],
+      payload: [],
       visitsType: []
     },
     mapCardData: []
@@ -38,10 +38,10 @@ export default {
   },
 
   actions: {
-    initAnalysis ({ commit, state }) {
+    getAllChartsDate ({ commit, state }) {
       if (state.isFetchDate) return
 
-      Promise.all([request('initAnalysisCard'), request('initAnalysisMap')]).then(
+      Promise.all([request('allChartsDate'), request('mapDate')]).then(
         res => {
           commit('setChartCardDate', res[0].payload)
           commit('setMapCardData', res[1].payload.areaVisitsData)
@@ -51,7 +51,7 @@ export default {
     },
 
     getMapDate ({ commit }) {
-      request('initAnalysisMap').then(({ payload }) => {
+      request('mapDate').then(({ payload }) => {
         commit('setMapCardData', payload.areaVisitsData)
       })
     }
