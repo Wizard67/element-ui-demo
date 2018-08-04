@@ -33,13 +33,13 @@
         <el-tab-pane label="手机号登录" name="captcha">
           <el-form ref="captcha" :model="form.captcha">
 
-            <el-form-item prop="phone" :rules="{ required: true, message: '请输入手机号', trigger: 'change' }">
+            <el-form-item prop="phone" :rules="{ validator: validatePhone, message: '请输入手机号', trigger: 'change' }">
               <el-input
                 type="text" placeholder="mobile number"
                 v-model="form.captcha.phone"
                 clearable
               >
-                <i class="el-input__icon el-icon-icon-mobile" solt="perfix"></i>
+                <i class="el-input__icon el-icon-icon-mobile" slot="prefix"></i>
               </el-input>
             </el-form-item>
 
@@ -68,7 +68,9 @@
           <el-button type="text">忘记密码</el-button>
         </el-form-item>
         <el-form-item>
-          <el-button class="fix-button" type="primary" :loading="isLogin" @click="onSubmit">登录</el-button>
+          <el-button class="fix-button" type="primary"
+            :loading="isLogin" @click="onSubmit" :disabled="checkFieldValue"
+          >登录</el-button>
         </el-form-item>
       </el-form>
     </article>
@@ -82,8 +84,9 @@ import { messageTips } from '@/utils'
 
 import { Vue, Component } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
-
 const moduleUser = namespace('user')
+
+const phoneRegExp = /^1(3|4|5|6|7|8|9)\d{9}$/
 
 @Component({
   components: { LogoWrap },
@@ -108,6 +111,26 @@ export default class Login extends Vue {
   @moduleUser.Action login
   @moduleUser.Action getCaptcha
 
+  get checkFieldValue () {
+    let field = this.form[this.tabsActive]
+    let status = false
+    for (const key in field) {
+      if (field[key] === '') {
+        status = true
+        break
+      }
+    }
+    return status
+  }
+
+  validatePhone = (rule, value, callback) => {
+    if (phoneRegExp.test(value)) {
+      callback()
+    } else {
+      callback(new Error(rule.message))
+    }
+  }
+
   onSubmit () {
     this.$refs[this.tabsActive].validate(valid => {
       if (!valid) return false
@@ -124,12 +147,21 @@ export default class Login extends Vue {
   }
 
   sendCaptcha () {
-    this.getCaptcha().then(res => {
-      this.$message({
-        showClose: true,
-        message: '验证码已发送',
-        type: 'success'
-      })
+    // element 中验证方法并不能返回验证结果
+    // 所以此处仅作为样式展示
+    this.$refs[this.tabsActive].validateField('phone')
+
+    return new Promise((resolve, reject) => {
+      if (phoneRegExp.test(this.form.captcha.phone)) {
+        this.getCaptcha().then(res => {
+          this.$message({
+            showClose: true,
+            message: '验证码已发送',
+            type: 'success'
+          })
+        })
+        resolve()
+      }
     })
   }
 }
