@@ -7,9 +7,12 @@ const context = require.context('./', false, /\.js$/)
 context.keys()
   .filter(item => item !== './index.js')
   .map(key => {
-    const namespace = key.match(/(?<=\.\/).*?(?=\.js)/)
+    // uglifigjs error
+    // const namespace = key.match(/(?<=\.\/).*?(?=\.js)/)
+    const namespace = key.replace(/(\.\/)|(\.js)/g, '')
+
     const module = context(key).default
-    modules[namespace[0]] = {
+    modules[namespace] = {
       namespaced: true,
       ...module
     }
