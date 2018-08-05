@@ -53,6 +53,9 @@ export default {
 
     logout () {
       storage.removeItem('token')
+      storage.removeItem('userName')
+      storage.removeItem('avatar')
+      storage.removeItem('nav')
     },
 
     getCaptcha () {
