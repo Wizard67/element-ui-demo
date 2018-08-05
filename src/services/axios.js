@@ -38,6 +38,7 @@ axios.interceptors.response.use(
     return response.data
   },
   error => {
+    checkPendingStatus(error.config)
     return {
       status: 500,
       message: 'Internal Server Error',
