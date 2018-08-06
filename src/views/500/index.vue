@@ -1,9 +1,10 @@
 <template>
   <div class="nofind">
     <div class="nofind__main">
-      <p class="font--focus">404</p>
-      <p class="font--helper">抱歉，你访问的页面不存在</p>
-      <el-button type="primary" @click="onclick">返回首页</el-button>
+      <p class="font--focus">500</p>
+      <p class="font--helper">抱歉，服务器出错了</p>
+      <el-button type="primary" @click="onclick" plain>返回首页</el-button>
+      <el-button type="primary" @click="onclick">重新请求</el-button>
     </div>
   </div>
 </template>
@@ -12,7 +13,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 
 @Component
-export default class NotFind extends Vue {
+export default class ServerError extends Vue {
   onclick () {
     this.$router.push('/')
   }

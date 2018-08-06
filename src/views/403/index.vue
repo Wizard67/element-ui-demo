@@ -1,8 +1,8 @@
 <template>
   <div class="nofind">
     <div class="nofind__main">
-      <p class="font--focus">404</p>
-      <p class="font--helper">抱歉，你访问的页面不存在</p>
+      <p class="font--focus">403</p>
+      <p class="font--helper">抱歉，你无权访问该页面</p>
       <el-button type="primary" @click="onclick">返回首页</el-button>
     </div>
   </div>
@@ -12,7 +12,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 
 @Component
-export default class NotFind extends Vue {
+export default class NotAuth extends Vue {
   onclick () {
     this.$router.push('/')
   }
