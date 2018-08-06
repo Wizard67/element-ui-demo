@@ -21,11 +21,12 @@ npm run build
 ## Todo
 
 - [ ] 项目
-    - [x] 目录结构的划分
-    - [x] 去中心化的<del>路由注册与</del>状态管理
+    - [x] 目录结构的层次划分
+    - [x] <del>去中心化的路由注册与状态管理</del>
     - [x] 在线 Mock 服务( [esay-mock](https://easy-mock.com/) )
     - [x] eslint + standard 统一代码风格
     - [ ] TypeScript 支持
+    - [x] 路由权限判断
 - [ ] element-ui
     - [x] 响应式 UI 布局
     - [x] 扩展 el-icon 组件图标类型
