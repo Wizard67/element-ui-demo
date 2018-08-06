@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import routes from './routes'
-import { beforeEach, afterEach } from './hook'
+import { beforeEach, beforeResolve, afterEach } from './hook'
 
 Vue.use(Router)
 
@@ -10,6 +10,7 @@ const router = new Router({
 })
 
 router.beforeEach(beforeEach)
+router.beforeResolve(beforeResolve)
 router.afterEach(afterEach)
 
 export default router

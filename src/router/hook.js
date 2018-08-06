@@ -1,17 +1,16 @@
-import storage from '@/utils/storage'
 import NProgress from '@/libs/nprogress'
+import { loginProtection, checkRouteAuth } from './utils'
 
 export const beforeEach = (to, from, next) => {
-  const target = {}
-  if (to.name === 'login' && storage.getItem('token')) {
-    target.name = from.name
-  }
-  if (to.name !== 'login' && !storage.getItem('token')) {
-    target.name = 'login'
-  }
+  next(
+    loginProtection(to, from) ||
+    checkRouteAuth(to, from)
+  )
+}
 
+export const beforeResolve = (to, from, next) => {
   NProgress.start()
-  next(target)
+  next()
 }
 
 export const afterEach = (to, from) => {
