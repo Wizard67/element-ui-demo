@@ -139,7 +139,6 @@ export default class App extends Vue {
 }
 
 .fix-main {
-  overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
 </style>
