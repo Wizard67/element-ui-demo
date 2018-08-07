@@ -132,6 +132,7 @@ export default class App extends Vue {
 
 .fix-header {
   padding: 0;
+  border-bottom: 1px #ebeef5 solid;
 }
 
 .fix-dropdown {
