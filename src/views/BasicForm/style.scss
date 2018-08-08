@@ -1,0 +1,113 @@
+@import "~@nn-yy/css-flex/flex";
+
+.fix-card {
+  @include flex(center);
+  padding: 40px 0;
+}
+
+.fix-form {
+  width: 600px;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+  }
+}
+
+.fix-row {
+  @include flex(between);
+  @include flex-wrap();
+  width: 100%;
+
+  &::before,
+  &::after {
+    all: unset;
+  }
+}
+
+.fix-upload {
+  /deep/ {
+    .el-upload {
+      border: 1px dashed #d9d9d9;
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+
+      &:hover {
+        border-color: #545c64;
+      }
+    }
+    img {
+      display: block;
+      width: 178px;
+      height: 178px;
+    }
+    .el-icon-plus {
+      font-size: 28px;
+      color: #8c939d;
+      width: 178px;
+      height: 178px;
+      line-height: 178px;
+      text-align: center;
+    }
+  }
+}
+
+.fix-cascader {
+  width: 100%;
+}
+
+.fix-datepicker {
+  width: 100%;
+
+  @media screen and (max-width: 769px) {
+    margin-bottom: 22px;
+  }
+}
+
+.fix-timepicker {
+  width: 100%;
+}
+
+.fix-checkbox {
+  /deep/ {
+    .el-checkbox {
+      @media screen and (max-width: 992px) {
+        width: 40%;
+        & + .el-checkbox {
+          margin: 0;
+        }
+      }
+      @media screen and (max-width: 769px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.fix-radio {
+  display: block;
+  /deep/ {
+    label.el-radio {
+      line-height: 40px;
+    }
+    .el-radio {
+      @media screen and (max-width: 992px) {
+        width: 40%;
+        & + .el-radio {
+          margin: 0;
+        }
+      }
+      @media screen and (max-width: 769px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.fix-slider {
+  /deep/ {
+    .el-slider__button {
+      border: 2px #e4e7ed solid;
+    }
+  }
+}

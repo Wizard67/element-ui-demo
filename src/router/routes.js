@@ -32,8 +32,19 @@ export default [
         component: () => import('@/views/Analysis')
       },
       /*
-      * Exception
-      */
+       * Form
+       */
+      {
+        name: 'basicForm',
+        path: '/form/basic-form',
+        meta: {
+          auth: false
+        },
+        component: () => import('@/views/BasicForm')
+      },
+      /*
+       * Exception
+       */
       {
         path: '/exception/403',
         redirect: {

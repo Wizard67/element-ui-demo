@@ -8,3 +8,5 @@ export const message = ajax(`${baseUrl}/message`, 'get')
 
 export const allChartsDate = ajax(`${baseUrl}/allChartsDate`, 'get')
 export const mapDate = ajax(`${baseUrl}/mapDate`, 'get')
+
+export const activity = ajax(`${baseUrl}/activity`, 'post', 'form')
