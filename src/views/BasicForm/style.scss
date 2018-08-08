@@ -23,6 +23,18 @@
   }
 }
 
+.fix-col {
+  /deep/ {
+    .el-form-item__content {
+      margin-left: 0 !important;
+
+      @media screen and (max-width: 769px) {
+        margin-left: 70px !important;
+      }
+    }
+  }
+}
+
 .fix-upload {
   /deep/ {
     .el-upload {
@@ -58,10 +70,6 @@
 
 .fix-datepicker {
   width: 100%;
-
-  @media screen and (max-width: 769px) {
-    margin-bottom: 22px;
-  }
 }
 
 .fix-timepicker {

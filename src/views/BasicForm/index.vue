@@ -18,11 +18,11 @@
               :model="form"
             >
 
-              <el-form-item label="活动名称">
+              <el-form-item label="活动名称" prop="name">
                 <el-input v-model="form.name"/>
               </el-form-item>
 
-              <el-form-item label="活动封面">
+              <el-form-item label="活动封面" prop="cover">
                 <el-upload
                   class="fix-upload"
                   ref="upload"
@@ -36,9 +36,9 @@
                 </el-upload>
               </el-form-item>
 
-              <el-form-item label="活动区域">
+              <el-form-item label="活动区域" prop="region">
                 <el-row>
-                  <el-col :xs="16" :sm="12" :md="12" :lg="12" :xl="12">
+                  <el-col :xs="24" :sm="16" :md="16" :lg="16" :xl="16">
                     <el-cascader
                       class="fix-cascader"
                       :options="cascaderOptions"
@@ -48,9 +48,9 @@
                 </el-row>
               </el-form-item>
 
-              <el-form-item label="活动时间">
-                <el-row class="fix-row">
-                  <el-col :xs="16" :sm="12" :md="12" :lg="12" :xl="12">
+              <el-row class="fix-row">
+                <el-col :xs="24" :sm="13" :md="13" :lg="13" :xl="13">
+                  <el-form-item label="活动时间" prop="date">
                     <el-date-picker
                       class="fix-datepicker"
                       type="date"
@@ -58,26 +58,25 @@
                       value-format="timestamp"
                       v-model="form.date">
                     </el-date-picker>
-                  </el-col>
-                  <el-col :xs="16" :sm="11" :md="11" :lg="11" :xl="11">
+                  </el-form-item>
+                </el-col>
+                <el-col :xs="24" :sm="10" :md="10" :lg="10" :xl="10" class="fix-col">
+                  <el-form-item prop="time">
                     <el-time-picker
                       class="fix-timepicker"
-                      :picker-options="{
-                        selectableRange: '09:30:00 - 20:30:00'
-                      }"
                       placeholder="选择时间"
                       value-format="timestamp"
                       v-model="form.time">
                     </el-time-picker>
-                  </el-col>
-                </el-row>
-              </el-form-item>
+                  </el-form-item>
+                </el-col>
+              </el-row>
 
-              <el-form-item label="即时配送">
+              <el-form-item label="即时配送" prop="delivery">
                 <el-switch v-model="form.delivery"/>
               </el-form-item>
 
-              <el-form-item label="活动性质">
+              <el-form-item label="活动性质" prop="type">
                 <el-checkbox-group class="fix-checkbox" v-model="form.type">
                   <el-checkbox label="美食/餐厅线上活动" name="type"/>
                   <el-checkbox label="地推活动" name="type"/>
@@ -86,14 +85,14 @@
                 </el-checkbox-group>
               </el-form-item>
 
-              <el-form-item label="特殊资源">
+              <el-form-item label="特殊资源" prop="resource">
                 <el-radio-group class="fix-radio" v-model="form.resource">
                   <el-radio label="线上品牌商赞助"/>
                   <el-radio label="线下场地免费"/>
                 </el-radio-group>
               </el-form-item>
 
-              <el-form-item label="优先级">
+              <el-form-item label="优先级" prop="rank">
                 <el-slider
                   class="fix-slider"
                   :min="1"
@@ -103,7 +102,7 @@
                 </el-slider>
               </el-form-item>
 
-              <el-form-item label="活动形式">
+              <el-form-item label="活动形式" prop="desc">
                 <el-input
                   type="textarea"
                   :autosize="{ minRows: 4, maxRows: 6}"
@@ -185,6 +184,9 @@ export default class BasicForm extends Vue {
     this.submitForm(this.form).then(res => {
       this.$message.success('表单上传成功')
       this.isSubmit = false
+      // reset form
+      this.cover = ''
+      this.$refs.form.resetFields()
     })
   }
 }
