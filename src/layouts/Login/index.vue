@@ -11,8 +11,7 @@
               <el-input
                 type="text" placeholder="admin"
                 v-model="form.password.username"
-                clearable
-              >
+                clearable>
                 <i class="el-input__icon el-icon-icon-user" slot="prefix"></i>
               </el-input>
             </el-form-item>
@@ -21,8 +20,7 @@
               <el-input
                 type="password" placeholder="admin"
                 v-model="form.password.password"
-                clearable
-              >
+                clearable>
                 <i class="el-input__icon el-icon-icon-lock" slot="prefix"></i>
               </el-input>
             </el-form-item>
@@ -37,8 +35,7 @@
               <el-input
                 type="text" placeholder="mobile number"
                 v-model="form.captcha.phone"
-                clearable
-              >
+                clearable>
                 <i class="el-input__icon el-icon-icon-mobile" slot="prefix"></i>
               </el-input>
             </el-form-item>
@@ -48,8 +45,7 @@
                 <el-col :span="16" :xs="14" :sm="16">
                   <el-input
                     type="text" placeholder="captcha"
-                    v-model="form.captcha.captcha" clearable
-                  >
+                    v-model="form.captcha.captcha" clearable>
                     <i class="el-input__icon el-icon-icon-mail" slot="prefix"></i>
                   </el-input>
                 </el-col>
@@ -69,8 +65,9 @@
         </el-form-item>
         <el-form-item>
           <el-button class="fix-button" type="primary"
-            :loading="isLogin" @click="onSubmit" :disabled="checkFieldValue"
-          >登录</el-button>
+            :loading="isLogin" @click="onSubmit" :disabled="checkFieldValue">
+            登录
+          </el-button>
         </el-form-item>
       </el-form>
     </article>

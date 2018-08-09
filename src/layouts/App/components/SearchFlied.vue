@@ -9,8 +9,7 @@
         :fetch-suggestions="querySearch"
         placeholder="站内搜索"
         @select="handleSelect"
-        @keyup.enter.native="handleSubmit"
-      >
+        @keyup.enter.native="handleSubmit">
         <template slot-scope="{ item }">
           <div class="message">{{ item.message }}</div>
         </template>

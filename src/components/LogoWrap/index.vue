@@ -3,8 +3,7 @@
     :class="[
       props.size === 'large'? 'logo--large': 'logo',
       props.type === 'dark'? 'is-dark': ''
-    ]"
-  >
+    ]">
     <img :src="props.logo" :class="props.size === 'large'? 'logo__image--large': 'logo__image'">
     <div v-if="!props.collapse" :class="props.size === 'large'? 'logo__text--large': 'logo__text'">
       <slot/>

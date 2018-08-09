@@ -10,8 +10,7 @@
         <el-col :lg="16">
           <ECharts ref="map" style="width: 100%; height: 500px;"
             :options="mergeOptions"
-            :auto-resize="false"
-          />
+            :auto-resize="false"/>
         </el-col>
 
         <el-col :lg="8">

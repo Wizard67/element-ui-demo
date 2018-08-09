@@ -10,12 +10,11 @@
     <template slot="content">
       <template v-if="$slots.content">
         <div class="font--focus">
-          <slot name="content"></slot>
+          <slot name="content"/>
         </div>
       </template>
       <ECharts style="width: 100%;" :style="{height: height}"
-        :options="mergeOptions" :auto-resize="true"
-      />
+        :options="mergeOptions" :auto-resize="true"/>
     </template>
 
     <template slot="foot">

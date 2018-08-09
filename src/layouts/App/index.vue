@@ -4,8 +4,7 @@
       :class="{
         'isFixed': fixedAside,
         'isFixedAsideShow': isFixedAsideShow
-      }"
-    >
+      }">
       <SideBar title="ElementUI Demo" :logo="logo" :nav="nav" :collapse="isCollapse"/>
     </el-aside>
 
