@@ -6,9 +6,18 @@
 }
 
 .fix-form {
-  width: 600px;
+  width: 610px;
   @media screen and (max-width: 992px) {
     width: 100%;
+  }
+
+  /deep/ {
+    .el-form-item.is-error {
+      .el-upload--text {
+        color:  #f56c6c;
+        border-color: #f56c6c;
+      }
+    }
   }
 }
 
@@ -29,15 +38,18 @@
       margin-left: 0 !important;
 
       @media screen and (max-width: 769px) {
-        margin-left: 70px !important;
+        margin-left: 80px !important;
       }
     }
   }
 }
 
 .fix-upload {
+  @include flex();
+
   /deep/ {
     .el-upload {
+      display: block;
       border: 1px dashed #d9d9d9;
       border-radius: 6px;
       position: relative;

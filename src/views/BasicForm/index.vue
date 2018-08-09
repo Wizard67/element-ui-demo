@@ -14,29 +14,42 @@
         <el-row :gutter="10">
           <el-col :span="24">
             <el-form class="fix-form" ref="form"
-              label-width="70px"
-              :model="form"
-            >
+              label-width="80px"
+              :model="form">
 
-              <el-form-item label="活动名称" prop="name">
+              <el-form-item label="活动名称" prop="name"
+                :rules="{
+                  required: true,
+                  message: '请输入活动名称',
+                  trigger: 'change'
+                }">
                 <el-input v-model="form.name"/>
               </el-form-item>
 
-              <el-form-item label="活动封面" prop="cover">
+              <el-form-item label="活动封面" prop="cover"
+                :rules="{
+                  validator: validatCover,
+                  required: true,
+                  trigger: 'change'
+                }">
                 <el-upload
                   class="fix-upload"
                   ref="upload"
                   action="noused"
                   :auto-upload="false"
                   :show-file-list="false"
-                  :on-change="handleCoverChange"
-                >
+                  :on-change="handleCoverChange">
                   <img v-if="cover" :src="cover">
                   <i v-else class="el-icon-plus"></i>
                 </el-upload>
               </el-form-item>
 
-              <el-form-item label="活动区域" prop="region">
+              <el-form-item label="活动区域" prop="region"
+                :rules="{
+                  required: true,
+                  message: '请选择活动区域',
+                  trigger: 'change'
+                }">
                 <el-row>
                   <el-col :xs="24" :sm="16" :md="16" :lg="16" :xl="16">
                     <el-cascader
@@ -50,7 +63,12 @@
 
               <el-row class="fix-row">
                 <el-col :xs="24" :sm="13" :md="13" :lg="13" :xl="13">
-                  <el-form-item label="活动时间" prop="date">
+                  <el-form-item label="活动时间" prop="date"
+                    :rules="{
+                      required: true,
+                      message: '请选择活动日期',
+                      trigger: 'change'
+                    }">
                     <el-date-picker
                       class="fix-datepicker"
                       type="date"
@@ -61,7 +79,12 @@
                   </el-form-item>
                 </el-col>
                 <el-col :xs="24" :sm="10" :md="10" :lg="10" :xl="10" class="fix-col">
-                  <el-form-item prop="time">
+                  <el-form-item prop="time"
+                    :rules="{
+                      required: true,
+                      message: '请选择活动时间',
+                      trigger: 'change'
+                    }">
                     <el-time-picker
                       class="fix-timepicker"
                       placeholder="选择时间"
@@ -106,8 +129,8 @@
                 <el-input
                   type="textarea"
                   :autosize="{ minRows: 4, maxRows: 6}"
-                  v-model="form.desc"
-                ></el-input>
+                  v-model="form.desc">
+                </el-input>
               </el-form-item>
 
               <el-form-item>
@@ -135,17 +158,6 @@ import { Vue, Component } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 const moduleActivity = namespace('activity')
 
-const checkFileStatus = file => {
-  const isJPG = file.type === 'image/jpeg'
-  const isLt2M = file.size / 1024 / 1024 < 2
-  let message = ''
-
-  if (!isLt2M) message = '上传封面图片大小不能超过 2MB!'
-  if (!isJPG) message = '上传封面图片只能是 JPG 格式!'
-
-  return isJPG && isLt2M ? '' : message
-}
-
 @Component({
   components: { Card }
 })
@@ -166,27 +178,45 @@ export default class BasicForm extends Vue {
     desc: ''
   }
 
+  validatCover = (rule, value, callback) => {
+    if (value instanceof File) {
+      const isJPG = value.type === 'image/jpeg'
+      const isLt2M = value.size / 1024 / 1024 < 2
+
+      if (!isJPG) {
+        return callback(new Error('上传封面图片只能是 JPG 格式!'))
+      }
+      if (!isLt2M) {
+        return callback(new Error('上传封面图片大小不能超过 2MB!'))
+      }
+      callback()
+    } else {
+      callback(new Error('请选择活动封面'))
+    }
+  }
+
   @moduleActivity.Action submitForm
 
   handleCoverChange (file) {
-    const fileStatus = checkFileStatus(file.raw)
-    if (fileStatus) {
-      this.$message.error(fileStatus)
-      return false
-    }
-
     this.cover = file.url
     this.form.cover = file.raw
+
+    // 触发表单验证
+    this.$refs.form.validateField('cover')
   }
 
   onSubmit () {
-    this.isSubmit = true
-    this.submitForm(this.form).then(res => {
-      this.$message.success('表单上传成功')
-      this.isSubmit = false
-      // reset form
-      this.cover = ''
-      this.$refs.form.resetFields()
+    this.$refs.form.validate((valid) => {
+      if (!valid) return false
+
+      this.isSubmit = true
+      this.submitForm(this.form).then(res => {
+        this.$message.success('表单上传成功')
+        this.isSubmit = false
+        // reset form
+        this.cover = ''
+        this.$refs.form.resetFields()
+      })
     })
   }
 }
