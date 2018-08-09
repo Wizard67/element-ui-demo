@@ -6,6 +6,7 @@ import { beforeEach, beforeResolve, afterEach } from './hook'
 Vue.use(Router)
 
 const router = new Router({
+  mode: 'hash',
   routes
 })
 
