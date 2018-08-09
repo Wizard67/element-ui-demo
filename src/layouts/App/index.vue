@@ -88,7 +88,10 @@ export default class App extends Vue {
   handleLogout () {
     this.logout().then(() => {
       this.$message.success('退出登录成功')
-      setTimeout(() => this.$router.push({ name: 'login' }), 500)
+      setTimeout(() => {
+        this.$router.push({ name: 'login' })
+        window.location.reload()
+      }, 500)
     })
   }
 }
