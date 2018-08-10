@@ -55,6 +55,8 @@
                     <el-cascader
                       class="fix-cascader"
                       :options="cascaderOptions"
+                      :filterable="true"
+                      :clearable="true"
                       v-model="form.region">
                     </el-cascader>
                   </el-col>
@@ -151,11 +153,12 @@
 </template>
 
 <script>
-import cascaderOptions from './cascaderOptions'
+import areaDate from './areaDate'
 
 import Card from '@/components/Card'
 import { Vue, Component } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
+
 const moduleActivity = namespace('activity')
 
 @Component({
@@ -164,7 +167,7 @@ const moduleActivity = namespace('activity')
 export default class BasicForm extends Vue {
   isSubmit = false
   cover = ''
-  cascaderOptions = cascaderOptions
+  cascaderOptions = areaDate
   form = {
     name: '',
     cover: '',
