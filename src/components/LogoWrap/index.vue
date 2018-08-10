@@ -5,7 +5,7 @@
       props.type === 'dark'? 'is-dark': ''
     ]">
     <img :src="props.logo" :class="props.size === 'large'? 'logo__image--large': 'logo__image'">
-    <div v-if="!props.collapse" :class="props.size === 'large'? 'logo__text--large': 'logo__text'">
+    <div v-show="!props.collapse" :class="props.size === 'large'? 'logo__text--large': 'logo__text'">
       <slot/>
     </div>
   </div>
