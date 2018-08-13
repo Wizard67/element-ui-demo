@@ -33,7 +33,7 @@ const getParentsRouterName = router => {
   let i = router.matched.length
   while (i > 0) {
     i--
-    if (router.matched[i].meta && router.matched[i].meta.auth === false) break
+    if (router.matched[i].meta && router.matched[i].meta.auth !== true) break
 
     allMatchedRouter.push(router.matched[i].name)
   }
@@ -65,24 +65,25 @@ export const loginProtection = (to, from) => {
 export const checkRouteAuth = (to, from) => {
   let target
 
-  if ((to.meta && to.meta.auth) === false) {
+  const permission = getRouterName(
+    JSON.parse(storage.getItem('nav'))
+  )
+
+  const allMatchedRouter = getParentsRouterName(to)
+
+  const isIncludes = permission.filter(
+    v => allMatchedRouter.includes(v)
+  )
+
+  if (Object.keys(to.meta).length && to.meta.auth !== true) {
+    target = undefined
+    return target
+  }
+
+  if (isIncludes.length) {
     target = undefined
   } else {
-    const permission = getRouterName(
-      JSON.parse(storage.getItem('nav'))
-    )
-
-    const allMatchedRouter = getParentsRouterName(to)
-
-    const isIncludes = permission.filter(
-      v => allMatchedRouter.includes(v)
-    )
-
-    if (isIncludes.length) {
-      target = undefined
-    } else {
-      target = { name: '403' }
-    }
+    target = { name: '403' }
   }
 
   return target

@@ -5,9 +5,6 @@ export default [
   {
     name: 'login',
     path: '/login',
-    meta: {
-      auth: false
-    },
     component: () => import('@/layouts/Login')
   },
 
@@ -17,9 +14,6 @@ export default [
   {
     name: 'app',
     path: '/',
-    meta: {
-      auth: false
-    },
     component: () => import('@/layouts/App'),
     children: [
       /*
@@ -28,6 +22,9 @@ export default [
       {
         name: 'analysis',
         path: '/dashboard/analysis',
+        meta: {
+          auth: true
+        },
         alias: '/',
         component: () => import('@/views/Analysis')
       },
@@ -35,10 +32,10 @@ export default [
        * Form
        */
       {
-        name: 'basicForm',
+        name: 'basic-form',
         path: '/form/basic-form',
         meta: {
-          auth: false
+          auth: true
         },
         component: () => import('@/views/BasicForm')
       },
@@ -47,18 +44,27 @@ export default [
        */
       {
         path: '/exception/403',
+        meta: {
+          auth: true
+        },
         redirect: {
           name: '403'
         }
       },
       {
         path: '/exception/404',
+        meta: {
+          auth: true
+        },
         redirect: {
           name: '404'
         }
       },
       {
         path: '/exception/500',
+        meta: {
+          auth: true
+        },
         redirect: {
           name: '500'
         }
@@ -75,9 +81,6 @@ export default [
     children: [{
       name: '403',
       path: '',
-      meta: {
-        auth: false
-      },
       component: () => import('@/views/403')
     }]
   },
@@ -91,9 +94,6 @@ export default [
     children: [{
       name: '500',
       path: '',
-      meta: {
-        auth: false
-      },
       component: () => import('@/views/500')
     }]
   },
@@ -108,9 +108,6 @@ export default [
     children: [{
       name: '404',
       path: '',
-      meta: {
-        auth: false
-      },
       component: () => import('@/views/404')
     }]
   },
