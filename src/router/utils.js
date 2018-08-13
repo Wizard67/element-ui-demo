@@ -25,6 +25,25 @@ const getRouterName = router => {
 }
 
 /*
+ *  获取当前路由的同源路由数组
+ */
+const getParentsRouterName = router => {
+  const allMatchedRouter = []
+
+  let i = router.matched.length
+  while (i > 0) {
+    i--
+    if (router.matched[i].meta && router.matched[i].meta.auth === false) break
+
+    allMatchedRouter.push(router.matched[i].name)
+  }
+
+  allMatchedRouter.push(router.name)
+
+  return allMatchedRouter
+}
+
+/*
  *  登录保护，未登录页面强制跳转 login 页面
  */
 export const loginProtection = (to, from) => {
@@ -53,7 +72,13 @@ export const checkRouteAuth = (to, from) => {
       JSON.parse(storage.getItem('nav'))
     )
 
-    if (permission.includes(to.name)) {
+    const allMatchedRouter = getParentsRouterName(to)
+
+    const isIncludes = permission.filter(
+      v => allMatchedRouter.includes(v)
+    )
+
+    if (isIncludes.length) {
       target = undefined
     } else {
       target = { name: '403' }
