@@ -89,13 +89,14 @@ import MapCard from './components/MapCard'
 
 import chartConfig from './config'
 
+import { toThousands } from '@/utils/filter'
 import { Vue, Component } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 const moduleCharts = namespace('charts')
 
 @Component({
   components: { ChartCard, MapCard },
-  filters: { toThousands: num => (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,') }
+  filters: { toThousands }
 })
 export default class Analysis extends Vue {
   datePick = [new Date(), new Date()]
