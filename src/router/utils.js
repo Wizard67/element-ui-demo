@@ -25,20 +25,23 @@ const getRouterName = router => {
 }
 
 /*
- *  获取当前路由的同源路由数组
+ *  获取当前路由的同源路由数组，
+ *  为最近须权限节点
  */
-const getParentsRouterName = router => {
+const getOriginRouterName = router => {
   const allMatchedRouter = []
 
   let i = router.matched.length
   while (i > 0) {
     i--
-    if (router.matched[i].meta && router.matched[i].meta.auth !== true) break
-
     allMatchedRouter.push(router.matched[i].name)
-  }
 
-  allMatchedRouter.push(router.name)
+    if (
+      router.matched[i].meta &&
+      router.matched[i].meta.auth !== true &&
+      router.name !== router.matched[i].name
+    ) break
+  }
 
   return allMatchedRouter
 }
@@ -65,20 +68,23 @@ export const loginProtection = (to, from) => {
 export const checkRouteAuth = (to, from) => {
   let target
 
+  const allMatchedRouter = getOriginRouterName(to)
+
+  if (
+    (to.meta && to.meta.auth === false) ||
+    (allMatchedRouter.length === 1)
+  ) {
+    target = undefined
+    return target
+  }
+
   const permission = getRouterName(
     JSON.parse(storage.getItem('nav'))
   )
 
-  const allMatchedRouter = getParentsRouterName(to)
-
   const isIncludes = permission.filter(
     v => allMatchedRouter.includes(v)
   )
-
-  if (Object.keys(to.meta).length && to.meta.auth !== true) {
-    target = undefined
-    return target
-  }
 
   if (isIncludes.length) {
     target = undefined
