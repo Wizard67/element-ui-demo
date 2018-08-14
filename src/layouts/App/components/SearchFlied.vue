@@ -19,7 +19,9 @@
 </template>
 
 <script>
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Prop } from 'vue-property-decorator'
 
 const _createFilter = (queryString, flied) => {
   return restaurant => restaurant[flied].toLowerCase().indexOf(queryString.toLowerCase()) > 0

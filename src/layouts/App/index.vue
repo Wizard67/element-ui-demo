@@ -36,6 +36,10 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { namespace } from 'vuex-class'
+
 import UserCard from '@/components/UserCard'
 import FooterInfo from '@/components/FooterInfo'
 
@@ -46,8 +50,6 @@ import MessageBox from './components/MessageBox'
 
 import { layoutMixin } from '@/utils/mixin'
 
-import { Vue, Component } from 'vue-property-decorator'
-import { namespace } from 'vuex-class'
 const moduleUser = namespace('user')
 const moduleMessages = namespace('messages')
 

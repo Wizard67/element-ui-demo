@@ -21,9 +21,11 @@
 </template>
 
 <script>
-import MessageBoxItem from './MessageBoxItem'
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Prop } from 'vue-property-decorator'
 
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import MessageBoxItem from './MessageBoxItem'
 
 @Component({
   components: { MessageBoxItem }

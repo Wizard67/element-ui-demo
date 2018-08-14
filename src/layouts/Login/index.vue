@@ -75,12 +75,15 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { namespace } from 'vuex-class'
+
 import LogoWrap from '@/components/LogoWrap'
+
 import { directiveCountDown as countDown } from '@/utils/directive'
 import { messageTips } from '@/utils'
 
-import { Vue, Component } from 'vue-property-decorator'
-import { namespace } from 'vuex-class'
 const moduleUser = namespace('user')
 
 const phoneRegExp = /^1(3|4|5|6|7|8|9)\d{9}$/

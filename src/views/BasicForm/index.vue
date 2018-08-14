@@ -153,11 +153,12 @@
 </template>
 
 <script>
-import areaDate from './areaDate'
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { namespace } from 'vuex-class'
 
 import Card from '@/components/Card'
-import { Vue, Component } from 'vue-property-decorator'
-import { namespace } from 'vuex-class'
+import areaDate from './areaDate'
 
 const moduleActivity = namespace('activity')
 

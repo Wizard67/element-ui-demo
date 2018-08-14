@@ -84,14 +84,15 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { namespace } from 'vuex-class'
+
 import ChartCard from './components/ChartCard'
 import MapCard from './components/MapCard'
-
+import { toThousands } from '@/utils/filter'
 import chartConfig from './config'
 
-import { toThousands } from '@/utils/filter'
-import { Vue, Component } from 'vue-property-decorator'
-import { namespace } from 'vuex-class'
 const moduleCharts = namespace('charts')
 
 @Component({

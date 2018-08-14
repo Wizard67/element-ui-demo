@@ -32,8 +32,11 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Prop } from 'vue-property-decorator'
+
 import LogoWrap from '@/components/LogoWrap'
-import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component({
   components: { LogoWrap }

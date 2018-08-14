@@ -22,14 +22,16 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Prop } from 'vue-property-decorator'
+
 import Card from '@/components/Card'
 import List from '@/components/List'
 import ECharts from '@/libs/echarts'
 
 import { addListener, removeListener } from 'resize-detector'
 import debounce from 'lodash/debounce'
-
-import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component({
   components: { Card, List, ECharts }

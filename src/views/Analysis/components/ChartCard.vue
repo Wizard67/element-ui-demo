@@ -24,10 +24,12 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Prop } from 'vue-property-decorator'
+
 import Card from '@/components/Card'
 import ECharts from '@/libs/echarts'
-
-import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component({
   components: { Card, ECharts }
