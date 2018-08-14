@@ -28,8 +28,8 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 
+import ECharts from 'vue-echarts/components/ECharts'
 import Card from '@/components/Card'
-import ECharts from '@/libs/echarts'
 
 @Component({
   components: { Card, ECharts }

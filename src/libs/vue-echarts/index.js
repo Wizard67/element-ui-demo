@@ -13,8 +13,4 @@ import 'echarts/lib/chart/gauge'
 
 import mapJson from './china.json'
 
-// const mapJson = import('')
-
 ECharts.registerMap('china', mapJson)
-
-export default ECharts

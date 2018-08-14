@@ -26,9 +26,9 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 
+import ECharts from 'vue-echarts/components/ECharts'
 import Card from '@/components/Card'
 import List from '@/components/List'
-import ECharts from '@/libs/echarts'
 
 import { addListener, removeListener } from 'resize-detector'
 import debounce from 'lodash/debounce'

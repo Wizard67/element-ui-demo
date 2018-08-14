@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import router from '@/router'
 import models from '@/models'
-
-import '@/libs/element-ui'
-import '@/libs/vue-class-component'
+import '@/libs'
 
 Vue.config.productionTip = false
 

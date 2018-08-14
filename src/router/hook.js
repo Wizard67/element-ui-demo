@@ -1,4 +1,4 @@
-import NProgress from '@/libs/nprogress'
+import NProgress from 'nprogress'
 import { loginProtection, checkRouteAuth } from './utils'
 
 export const beforeEach = (to, from, next) => {
