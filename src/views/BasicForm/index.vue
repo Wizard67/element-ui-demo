@@ -158,7 +158,7 @@ import Component from 'vue-class-component'
 import { namespace } from 'vuex-class'
 
 import Card from '@/components/Card'
-import areaDate from './areaDate'
+import { regionData } from 'element-china-area-data'
 
 const moduleActivity = namespace('activity')
 
@@ -168,7 +168,7 @@ const moduleActivity = namespace('activity')
 export default class BasicForm extends Vue {
   isSubmit = false
   cover = ''
-  cascaderOptions = areaDate
+  cascaderOptions = regionData
   form = {
     name: '',
     cover: '',
