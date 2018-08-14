@@ -64,6 +64,7 @@ export default class StepFormConfirm extends Vue {
     this.submitForm(this.form).then(res => {
       setTimeout(() => {
         this.isSubmit = false
+        this.$emit('onFormSumbit')
         this.$router.push({name: 'step-form-result'})
       }, 1000)
     })

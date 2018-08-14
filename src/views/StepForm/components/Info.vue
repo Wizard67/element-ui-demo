@@ -36,8 +36,7 @@
       <el-input v-model.number="form.money" prefix-icon="el-icon-icon-YUAN"/>
     </el-form-item>
 
-    <el-form-item label="备注" prop="remark"
-      :rules="{}">
+    <el-form-item label="备注" prop="remark">
       <el-input
         type="textarea"
         :autosize="{ minRows: 4, maxRows: 6}"

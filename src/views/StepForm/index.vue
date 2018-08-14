@@ -21,7 +21,7 @@
           </el-col>
 
           <el-col :xs="24" :sm="15" :md="14" :lg="11" :xl="8">
-            <component :is="currentComponent" :form="form"/>
+            <component :is="currentComponent" :form="form" @onFormSumbit="resetFields"/>
           </el-col>
         </el-row>
       </template>
@@ -56,6 +56,15 @@ export default class StepForm extends Vue {
   }
 
   @moduleActivity.Action submitForm
+
+  resetFields () {
+    this.form = {
+      name: '',
+      account: '',
+      money: null,
+      remark: ''
+    }
+  }
 
   @Watch('$route', {immediate: true})
   onRouterChange (route) {
