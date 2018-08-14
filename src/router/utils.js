@@ -70,7 +70,17 @@ export const limitRouteForm = (to, from) => {
   let target
 
   if (to.meta && to.meta.limit && to.meta.limit.from) {
-    if (to.meta.limit.from !== from.name) {
+    let limits = []
+
+    if (typeof to.meta.limit.from === 'string') {
+      limits.push(to.meta.limit.from)
+    } else if (Array.isArray(to.meta.limit.from)) {
+      limits = to.meta.limit.from
+    } else {
+      throw Error('[limitRouteForm]: limt.form expected String or Array')
+    }
+
+    if (!limits.includes(from.name)) {
       target = { name: to.meta.limit.back || '404' }
     }
   }
