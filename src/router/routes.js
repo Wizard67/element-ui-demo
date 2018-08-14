@@ -39,6 +39,41 @@ export default [
         },
         component: () => import('@/views/BasicForm')
       },
+      {
+        name: 'step-form',
+        path: '/form/step-form',
+        meta: {
+          auth: true
+        },
+        redirect: { name: 'step-form-info' },
+        component: () => import('@/views/StepForm'),
+        children: [
+          {
+            name: 'step-form-info',
+            path: 'info'
+          },
+          {
+            name: 'step-form-confirm',
+            path: 'confirm',
+            meta: {
+              limit: {
+                from: 'step-form-info',
+                back: 'step-form-info'
+              }
+            }
+          },
+          {
+            name: 'step-form-result',
+            path: 'result',
+            meta: {
+              limit: {
+                from: 'step-form-confirm',
+                back: 'step-form-info'
+              }
+            }
+          }
+        ]
+      },
       /*
        * Exception
        */

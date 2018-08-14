@@ -10,3 +10,4 @@ export const allChartsDate = ajax(`${baseUrl}/allChartsDate`, 'get')
 export const mapDate = ajax(`${baseUrl}/mapDate`, 'get')
 
 export const activity = ajax(`${baseUrl}/activity`, 'post', 'form')
+export const assets = ajax(`${baseUrl}/assets`, 'post', 'json')
