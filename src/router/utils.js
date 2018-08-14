@@ -49,7 +49,7 @@ const getOriginRouterName = router => {
 /*
  *  登录保护，未登录页面强制跳转 login 页面
  */
-export const loginProtection = (to, from) => {
+export const protectLogin = (to, from) => {
   let target
 
   if (to.name === 'login' && storage.getItem('token')) {
@@ -57,6 +57,22 @@ export const loginProtection = (to, from) => {
   }
   if (to.name !== 'login' && !storage.getItem('token')) {
     target = { name: 'login' }
+  }
+
+  return target
+}
+
+/*
+ *  指定路由来源，
+ *  meta: { from: RouterNmae[, back: RouterNmae] }
+ */
+export const limitRouteForm = (to, from) => {
+  let target
+
+  if (to.meta && to.meta.limit && to.meta.limit.from) {
+    if (to.meta.limit.from !== from.name) {
+      target = { name: to.meta.limit.back || '404' }
+    }
   }
 
   return target
