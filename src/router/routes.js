@@ -23,7 +23,8 @@ export default [
         name: 'analysis',
         path: '/dashboard/analysis',
         meta: {
-          auth: true
+          auth: true,
+          menu: '/dashboard/analysis'
         },
         alias: '/',
         component: () => import('@/views/Analysis')
@@ -35,7 +36,8 @@ export default [
         name: 'basic-form',
         path: '/form/basic-form',
         meta: {
-          auth: true
+          auth: true,
+          menu: '/form/basic-form'
         },
         component: () => import('@/views/BasicForm')
       },
@@ -43,19 +45,24 @@ export default [
         name: 'step-form',
         path: '/form/step-form',
         meta: {
-          auth: true
+          auth: true,
+          menu: '/form/step-form'
         },
         redirect: { name: 'step-form-info' },
         component: () => import('@/views/StepForm'),
         children: [
           {
             name: 'step-form-info',
-            path: 'info'
+            path: 'info',
+            meta: {
+              menu: '/form/step-form'
+            }
           },
           {
             name: 'step-form-confirm',
             path: 'confirm',
             meta: {
+              menu: '/form/step-form',
               limit: {
                 from: 'step-form-info',
                 back: 'step-form-info'
@@ -66,6 +73,7 @@ export default [
             name: 'step-form-result',
             path: 'result',
             meta: {
+              menu: '/form/step-form',
               limit: {
                 from: 'step-form-confirm',
                 back: 'step-form-info'
@@ -78,31 +86,31 @@ export default [
        * Exception
        */
       {
+        name: 'exception-403',
         path: '/exception/403',
         meta: {
-          auth: true
+          auth: true,
+          menu: '/exception/403'
         },
-        redirect: {
-          name: '403'
-        }
+        component: () => import('@/views/403')
       },
       {
+        name: 'exception-404',
         path: '/exception/404',
         meta: {
-          auth: true
+          auth: true,
+          menu: '/exception/404'
         },
-        redirect: {
-          name: '404'
-        }
+        component: () => import('@/views/404')
       },
       {
+        name: 'exception-500',
         path: '/exception/500',
         meta: {
-          auth: true
+          auth: true,
+          menu: '/exception/500'
         },
-        redirect: {
-          name: '500'
-        }
+        component: () => import('@/views/500')
       }
     ]
   },

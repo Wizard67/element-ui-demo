@@ -1,5 +1,10 @@
 <template>
-  <el-menu class="fix-menu" :collapse="collapse" :collapse-transition="true" router unique-opened>
+  <el-menu class="fix-menu"
+    :default-active="active"
+    :collapse="collapse"
+    :collapse-transition="true"
+    router
+    unique-opened>
     <LogoWrap type="dark" :logo="logo">{{ title }}</LogoWrap>
     <template v-for="(item, index) in nav">
 
@@ -44,6 +49,7 @@ import LogoWrap from '@/components/LogoWrap'
 export default class SideBar extends Vue {
   @Prop({ type: String }) logo
   @Prop({ type: String }) title
+  @Prop({ type: String }) active
   @Prop({ default: false, type: Boolean }) collapse
   @Prop({ type: Array }) nav
 }

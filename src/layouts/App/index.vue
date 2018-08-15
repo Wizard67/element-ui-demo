@@ -5,7 +5,12 @@
         'isFixed': fixedAside,
         'isFixedAsideShow': isFixedAsideShow
       }">
-      <SideBar title="ElementUI Demo" :logo="logo" :nav="nav" :collapse="isCollapse"/>
+      <SideBar title="ElementUI Demo"
+        :logo="logo"
+        :nav="nav"
+        :active="currentActive"
+        :collapse="isCollapse">
+      </SideBar>
     </el-aside>
 
     <el-container>
@@ -38,6 +43,7 @@
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import { Watch } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 
 import UserCard from '@/components/UserCard'
@@ -59,6 +65,7 @@ const moduleMessages = namespace('messages')
 })
 export default class App extends Vue {
   logo = require('@/assets/images/logo.png')
+  currentActive = ''
   isCollapse = false
   preSideBarStatus = ''
   fixedAside = false
@@ -95,6 +102,13 @@ export default class App extends Vue {
         window.location.reload()
       }, 500)
     })
+  }
+
+  @Watch('$route', {immediate: true})
+  onRouterChange (route) {
+    if (route.meta && route.meta.menu) {
+      this.currentActive = route.meta.menu
+    }
   }
 }
 </script>
