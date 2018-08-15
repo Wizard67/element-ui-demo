@@ -31,16 +31,19 @@ const getRouterName = router => {
 const getOriginRouterName = router => {
   const allMatchedRouter = []
 
-  let i = router.matched.length
-  while (i > 0) {
-    i--
-    allMatchedRouter.push(router.matched[i].name)
-
+  let i = 0
+  let flag = false
+  while (i < router.matched.length) {
     if (
-      router.matched[i].meta &&
-      router.matched[i].meta.auth !== true &&
-      router.name !== router.matched[i].name
-    ) break
+      (router.matched[i].meta && router.matched[i].meta.auth === true) ||
+      router.name === router.matched[i].name ||
+      flag
+    ) {
+      flag = true
+      allMatchedRouter.push(router.matched[i].name)
+    }
+
+    i++
   }
 
   return allMatchedRouter
