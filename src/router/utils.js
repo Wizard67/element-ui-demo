@@ -123,3 +123,17 @@ export const checkRouteAuth = (to, from) => {
 
   return target
 }
+
+/*
+ *  设置窗口标题
+ */
+export const setWindowTitle = (to, from) => {
+  let target
+
+  if (to.meta && to.meta.title) {
+    // side effect
+    window.document.title = to.meta.title
+  }
+
+  return target
+}
