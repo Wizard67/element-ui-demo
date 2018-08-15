@@ -53,7 +53,7 @@ export const protectLogin = (to, from) => {
   let target
 
   if (to.name === 'login' && storage.getItem('token')) {
-    target = false
+    target = { name: from.name }
   }
   if (to.name !== 'login' && !storage.getItem('token')) {
     target = { name: 'login' }
