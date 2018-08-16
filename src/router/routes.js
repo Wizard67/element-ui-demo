@@ -8,7 +8,7 @@ export default [
     meta: {
       title: '登录页 - Element-ui-demo'
     },
-    component: () => import('@/layouts/Login')
+    component: () => import(/* webpackChunkName: 'login' */ '@/layouts/Login')
   },
 
   /*
@@ -31,7 +31,7 @@ export default [
           menu: '/dashboard/analysis'
         },
         alias: '/',
-        component: () => import('@/views/Analysis')
+        component: () => import(/* webpackChunkName: 'analysis' */ '@/views/Analysis')
       },
       /*
        * Form
@@ -44,7 +44,7 @@ export default [
           auth: true,
           menu: '/form/basic-form'
         },
-        component: () => import('@/views/BasicForm')
+        component: () => import(/* webpackChunkName: 'basic-form' */ '@/views/BasicForm')
       },
       {
         name: 'step-form',
@@ -55,7 +55,7 @@ export default [
           menu: '/form/step-form'
         },
         redirect: { name: 'step-form-info' },
-        component: () => import('@/views/StepForm'),
+        component: () => import(/* webpackChunkName: 'step-form' */ '@/views/StepForm'),
         children: [
           {
             name: 'step-form-info',
@@ -102,7 +102,7 @@ export default [
           auth: true,
           menu: '/exception/403'
         },
-        component: () => import('@/views/403')
+        component: () => import(/* webpackChunkName: '403' */ '@/views/403')
       },
       {
         name: 'exception-404',
@@ -112,7 +112,7 @@ export default [
           auth: true,
           menu: '/exception/404'
         },
-        component: () => import('@/views/404')
+        component: () => import(/* webpackChunkName: '404' */ '@/views/404')
       },
       {
         name: 'exception-500',
@@ -122,7 +122,7 @@ export default [
           auth: true,
           menu: '/exception/500'
         },
-        component: () => import('@/views/500')
+        component: () => import(/* webpackChunkName: '500' */ '@/views/500')
       }
     ]
   },
@@ -139,7 +139,7 @@ export default [
       meta: {
         title: '403 - Element-ui-demo'
       },
-      component: () => import('@/views/403')
+      component: () => import(/* webpackChunkName: '403' */ '@/views/403')
     }]
   },
 
@@ -155,7 +155,7 @@ export default [
       meta: {
         title: '500 - Element-ui-demo'
       },
-      component: () => import('@/views/500')
+      component: () => import(/* webpackChunkName: '500' */ '@/views/500')
     }]
   },
 
@@ -172,7 +172,7 @@ export default [
       meta: {
         title: '404 - Element-ui-demo'
       },
-      component: () => import('@/views/404')
+      component: () => import(/* webpackChunkName: '404' */ '@/views/404')
     }]
   },
   {

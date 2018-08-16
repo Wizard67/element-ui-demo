@@ -1,7 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import routes from './routes'
-import { beforeEach, beforeResolve, afterEach } from './hook'
+import NProgress from 'nprogress'
+
+import protectLogin from './middleware/protectLogin'
+import limitRouteFrom from './middleware/limitRouteFrom'
+import checkRouteAuth from './middleware/checkRouteAuth'
+import setWindowTitle from './middleware/setWindowTitle'
 
 Vue.use(Router)
 
@@ -10,8 +15,18 @@ const router = new Router({
   routes
 })
 
-router.beforeEach(beforeEach)
-router.beforeResolve(beforeResolve)
-router.afterEach(afterEach)
+router.beforeEach(setWindowTitle)
+router.beforeEach(protectLogin)
+router.beforeEach(limitRouteFrom)
+router.beforeEach(checkRouteAuth)
+
+router.beforeResolve((to, from, next) => {
+  NProgress.start()
+  next()
+})
+
+router.afterEach((to, from) => {
+  NProgress.done()
+})
 
 export default router
