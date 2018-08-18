@@ -1,3 +1,5 @@
+const t = title => `${title} - Element-ui-demo`
+
 export default [
   /*
    * Login
@@ -6,7 +8,7 @@ export default [
     name: 'login',
     path: '/login',
     meta: {
-      title: '登录页 - Element-ui-demo'
+      title: t('登录页')
     },
     component: () => import(/* webpackChunkName: 'login' */ '@/layouts/Login')
   },
@@ -26,7 +28,7 @@ export default [
         name: 'analysis',
         path: '/dashboard/analysis',
         meta: {
-          title: '分析页 - Element-ui-demo',
+          title: t('分析页'),
           auth: true,
           menu: '/dashboard/analysis'
         },
@@ -40,7 +42,7 @@ export default [
         name: 'basic-form',
         path: '/form/basic-form',
         meta: {
-          title: '基础表单页 - Element-ui-demo',
+          title: t('基础表单页'),
           auth: true,
           menu: '/form/basic-form'
         },
@@ -50,7 +52,7 @@ export default [
         name: 'step-form',
         path: '/form/step-form',
         meta: {
-          title: '分步表单页（填写信息） - Element-ui-demo',
+          title: t('分步表单页（填写信息）'),
           auth: true,
           menu: '/form/step-form'
         },
@@ -61,7 +63,7 @@ export default [
             name: 'step-form-info',
             path: 'info',
             meta: {
-              title: '分步表单页（填写信息） - Element-ui-demo',
+              title: t('分步表单页（填写信息）'),
               menu: '/form/step-form'
             }
           },
@@ -69,7 +71,7 @@ export default [
             name: 'step-form-confirm',
             path: 'confirm',
             meta: {
-              title: '分步表单页（确认信息） - Element-ui-demo',
+              title: t('分步表单页（确认信息）'),
               menu: '/form/step-form',
               limit: {
                 from: 'step-form-info',
@@ -81,7 +83,7 @@ export default [
             name: 'step-form-result',
             path: 'result',
             meta: {
-              title: '分步表单页（完成） - Element-ui-demo',
+              title: t('分步表单页（完成）'),
               menu: '/form/step-form',
               limit: {
                 from: 'step-form-confirm',
@@ -98,7 +100,7 @@ export default [
         name: 'exception-403',
         path: '/exception/403',
         meta: {
-          title: '403 - Element-ui-demo',
+          title: t('403'),
           auth: true,
           menu: '/exception/403'
         },
@@ -108,7 +110,7 @@ export default [
         name: 'exception-404',
         path: '/exception/404',
         meta: {
-          title: '404 - Element-ui-demo',
+          title: t('404'),
           auth: true,
           menu: '/exception/404'
         },
@@ -118,7 +120,7 @@ export default [
         name: 'exception-500',
         path: '/exception/500',
         meta: {
-          title: '500 - Element-ui-demo',
+          title: t('500'),
           auth: true,
           menu: '/exception/500'
         },
@@ -137,7 +139,7 @@ export default [
       name: '403',
       path: '',
       meta: {
-        title: '403 - Element-ui-demo'
+        title: t('403')
       },
       component: () => import(/* webpackChunkName: '403' */ '@/views/403')
     }]
@@ -153,7 +155,7 @@ export default [
       name: '500',
       path: '',
       meta: {
-        title: '500 - Element-ui-demo'
+        title: t('500')
       },
       component: () => import(/* webpackChunkName: '500' */ '@/views/500')
     }]
@@ -170,7 +172,7 @@ export default [
       name: '404',
       path: '',
       meta: {
-        title: '404 - Element-ui-demo'
+        title: t('404')
       },
       component: () => import(/* webpackChunkName: '404' */ '@/views/404')
     }]
