@@ -1,6 +1,6 @@
 import vue from 'vue'
 import storage from '@/utils/storage'
-import { get } from '../utils'
+import { get } from './utils'
 
 /*
  *  查找路由数组中的 name

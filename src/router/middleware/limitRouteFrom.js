@@ -1,5 +1,5 @@
 import vue from 'vue'
-import { get, checkRouterName } from '../utils'
+import { get, checkRouterName } from './utils'
 
 /*
  *  限制可访问路由的来源

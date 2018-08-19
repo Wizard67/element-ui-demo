@@ -1,4 +1,4 @@
-import { get } from '../utils'
+import { get } from './utils'
 
 /*
  *  设置页面标题
