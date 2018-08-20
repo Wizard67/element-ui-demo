@@ -17,7 +17,7 @@ axios.interceptors.request.use(
 // add a response interceptor
 axios.interceptors.response.use(...handleResponseCancel)
 axios.interceptors.response.use(
-  response => response.data,
+  response => response,
   error => Promise.reject(error)
 )
 
