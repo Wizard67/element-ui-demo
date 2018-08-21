@@ -33,7 +33,7 @@ export default [
           menu: '/dashboard/analysis'
         },
         alias: '/',
-        component: () => import(/* webpackChunkName: 'analysis' */ '@/views/Analysis')
+        component: () => import(/* webpackChunkName: 'analysis' */ '@/views/dashboard/Analysis')
       },
       /*
        * Form
@@ -46,7 +46,7 @@ export default [
           auth: true,
           menu: '/form/basic-form'
         },
-        component: () => import(/* webpackChunkName: 'basic-form' */ '@/views/BasicForm')
+        component: () => import(/* webpackChunkName: 'basic-form' */ '@/views/form/BasicForm')
       },
       {
         name: 'step-form',
@@ -57,7 +57,7 @@ export default [
           menu: '/form/step-form'
         },
         redirect: { name: 'step-form-info' },
-        component: () => import(/* webpackChunkName: 'step-form' */ '@/views/StepForm'),
+        component: () => import(/* webpackChunkName: 'step-form' */ '@/views/form/StepForm'),
         children: [
           {
             name: 'step-form-info',
@@ -104,7 +104,7 @@ export default [
           auth: true,
           menu: '/exception/403'
         },
-        component: () => import(/* webpackChunkName: '403' */ '@/views/403')
+        component: () => import(/* webpackChunkName: '403' */ '@/views/exception/403')
       },
       {
         name: 'exception-404',
@@ -114,7 +114,7 @@ export default [
           auth: true,
           menu: '/exception/404'
         },
-        component: () => import(/* webpackChunkName: '404' */ '@/views/404')
+        component: () => import(/* webpackChunkName: '404' */ '@/views/exception/404')
       },
       {
         name: 'exception-500',
@@ -124,7 +124,7 @@ export default [
           auth: true,
           menu: '/exception/500'
         },
-        component: () => import(/* webpackChunkName: '500' */ '@/views/500')
+        component: () => import(/* webpackChunkName: '500' */ '@/views/exception/500')
       }
     ]
   },
@@ -141,7 +141,7 @@ export default [
       meta: {
         title: t('403')
       },
-      component: () => import(/* webpackChunkName: '403' */ '@/views/403')
+      component: () => import(/* webpackChunkName: '403' */ '@/views/exception/403')
     }]
   },
 
@@ -157,7 +157,7 @@ export default [
       meta: {
         title: t('500')
       },
-      component: () => import(/* webpackChunkName: '500' */ '@/views/500')
+      component: () => import(/* webpackChunkName: '500' */ '@/views/exception/500')
     }]
   },
 
@@ -174,7 +174,7 @@ export default [
       meta: {
         title: t('404')
       },
-      component: () => import(/* webpackChunkName: '404' */ '@/views/404')
+      component: () => import(/* webpackChunkName: '404' */ '@/views/exception/404')
     }]
   },
   {
