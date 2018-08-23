@@ -158,6 +158,7 @@ export default class App extends Vue {
 }
 
 .fix-main {
+  min-height: calc(100vh - 60px);
   -webkit-overflow-scrolling: touch;
 }
 </style>
