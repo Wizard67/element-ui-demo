@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import '~@nn-yy/css-flex/flex';
 
 // reset global style
 html {
@@ -30,4 +31,20 @@ body {
 // reset el-card component
 .el-card {
   margin-bottom: 20px; 
+}
+// reset el-date-picker component
+.el-date-range-picker {
+  @media screen and (max-width: 769px) {
+    width: 320px;
+      /deep/ {
+      .el-picker-panel__body {
+        @include flex-column();
+        min-width: unset;
+
+        .el-picker-panel__content {
+          width: 320px;
+        }
+      }
+    }
+  }
 }
