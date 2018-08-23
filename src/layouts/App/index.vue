@@ -132,6 +132,7 @@ export default class App extends Vue {
 .fix-aside {
   width: unset !important;
   border-right: solid 1px #e6e6e6;
+  z-index: 6666;
 
   &.isFixed {
     position: fixed;
