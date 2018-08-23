@@ -36,9 +36,9 @@ import { Watch } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 
 import Card from '@/components/Card'
-import Info from './components/Info'
-import Confirm from './components/Confirm'
-import Result from './components/Result'
+const Info = () => import(/* webpackChunkName: 'step-form' */ './components/Info')
+const Confirm = () => import(/* webpackChunkName: 'step-form' */ './components/Confirm')
+const Result = () => import(/* webpackChunkName: 'step-form' */ './components/Result')
 
 const moduleActivity = namespace('activity')
 
