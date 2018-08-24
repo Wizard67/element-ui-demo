@@ -93,6 +93,16 @@ export default [
           }
         ]
       },
+      {
+        name: 'advanced-form',
+        path: '/form/advanced-form',
+        meta: {
+          title: t('高级表单页'),
+          auth: true,
+          menu: '/form/advanced-form'
+        },
+        component: () => import(/* webpackChunkName: 'basic-form' */ '@/views/form/AdvancedForm')
+      },
       /*
        * Exception
        */

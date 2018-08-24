@@ -11,3 +11,4 @@ export const mapDate = ajax().get(`${baseUrl}/mapDate`)
 
 export const activity = ajax().post(`${baseUrl}/activity`).format('form')
 export const assets = ajax().post(`${baseUrl}/assets`)
+export const repository = ajax().post(`${baseUrl}/repository`)
