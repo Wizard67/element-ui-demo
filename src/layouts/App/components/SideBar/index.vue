@@ -69,6 +69,10 @@ export default class SideBar extends Vue {
         color: white;
         background-color: #909090;
       }
+
+      i[class^="el-icon-"] {
+        color: unset;
+      }
     }
   }
 }
