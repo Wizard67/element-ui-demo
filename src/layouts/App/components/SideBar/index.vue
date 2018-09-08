@@ -6,33 +6,8 @@
     router
     unique-opened>
     <LogoWrap type="dark" :logo="logo">{{ title }}</LogoWrap>
-    <template v-for="(item, index) in nav">
 
-      <template v-if="item.children && item.children.length > 0">
-        <el-submenu :index="item.index ?item.index :`${index}`" :key="index">
-          <template :slot="'title'">
-            <el-icon :name="item.icon"/>
-            <span :slot="'title'">{{ item.title }}</span>
-          </template>
-          <template v-for="(citem, cindex) in item.children">
-            <el-menu-item :index="citem.index" :key="cindex">
-              <template v-if="citem.icon && citem.icon">
-                <el-icon :name="citem.icon"/>
-              </template>
-              {{ citem.title }}
-            </el-menu-item>
-          </template>
-        </el-submenu>
-      </template>
-
-      <template v-else>
-        <el-menu-item :index="item.index" :key="index">
-          <el-icon :name="item.icon"/>
-          <span :slot="'title'">{{ item.title }}</span>
-        </el-menu-item>
-      </template>
-
-    </template>
+    <MenuTree :nav="nav"/>
   </el-menu>
 </template>
 
@@ -43,8 +18,10 @@ import { Prop } from 'vue-property-decorator'
 
 import LogoWrap from '@/components/LogoWrap'
 
+import MenuTree from './MenuTree'
+
 @Component({
-  components: { LogoWrap }
+  components: { LogoWrap, MenuTree }
 })
 export default class SideBar extends Vue {
   @Prop({ type: String }) logo

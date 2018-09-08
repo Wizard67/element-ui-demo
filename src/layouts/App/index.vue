@@ -49,7 +49,7 @@ import { namespace } from 'vuex-class'
 import UserCard from '@/components/UserCard'
 import FooterInfo from '@/components/FooterInfo'
 
-import SideBar from './components/SideBar'
+import SideBar from './components/SideBar/'
 import NavBar from './components/NavBar'
 import SearchFiled from './components/SearchFlied'
 import MessageBox from './components/MessageBox'
