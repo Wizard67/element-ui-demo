@@ -41,7 +41,7 @@ import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 
-import toThousands from '@/vue/filters/toThousands'
+import toThousands from '@filters/toThousands'
 
 const moduleAssets = namespace('assets')
 

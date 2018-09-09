@@ -54,7 +54,7 @@ import NavBar from './components/NavBar'
 import SearchFiled from './components/SearchFlied'
 import MessageBox from './components/MessageBox'
 
-import layoutMixin from '@/vue/mixins/layout'
+import layoutMixin from '@mixins/layout'
 
 const moduleUser = namespace('user')
 const moduleMessages = namespace('messages')

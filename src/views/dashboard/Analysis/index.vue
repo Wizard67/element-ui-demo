@@ -90,7 +90,7 @@ import { namespace } from 'vuex-class'
 
 import ChartCard from './components/ChartCard'
 import MapCard from './components/MapCard'
-import toThousands from '@/vue/filters/toThousands'
+import toThousands from '@filters/toThousands'
 import chartConfig from './config'
 
 const moduleCharts = namespace('charts')

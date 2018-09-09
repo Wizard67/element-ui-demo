@@ -81,7 +81,7 @@ import { namespace } from 'vuex-class'
 
 import LogoWrap from '@/components/LogoWrap'
 
-import countDown from '@/vue/directives/countDown'
+import countDown from '@directives/countDown'
 import { messageTips } from '@/utils'
 
 const moduleUser = namespace('user')
