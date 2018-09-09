@@ -1,7 +1,7 @@
 import debounce from 'lodash/debounce'
 import { getWindowSizeType } from '@/utils'
 
-export const layoutMixin = {
+export default {
   created () {
     this.initSideBarStatus()
 

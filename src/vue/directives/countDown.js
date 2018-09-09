@@ -1,4 +1,4 @@
-export const directiveCountDown = {
+export default {
   inserted: (el, binding, vnode) => {
     vnode.event$ = () => {
       const defaultText = el.innerText
