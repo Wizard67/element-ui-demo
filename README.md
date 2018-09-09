@@ -24,6 +24,7 @@ npm run build
   - [x] 修改部分组件为响应式
   - [x] scss 主题修改
   - [x] 扩展 el-icon 组件图标类型
+  - [x] el-menu 组件多级菜单支持
 - layout
   - [x] Login 登录页面
   - [x] App 内容主体布局
