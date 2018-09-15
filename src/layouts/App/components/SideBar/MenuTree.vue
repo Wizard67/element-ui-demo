@@ -27,7 +27,9 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Prop } from 'vue-property-decorator'
 
-@Component
+@Component({
+  name: 'MenuTree'
+})
 export default class MenuTree extends Vue {
   @Prop({ type: Array }) nav
 }
