@@ -11,7 +11,7 @@
     "axios": "^0.18.0",
     "echarts": "^4.1.0",
     "element-china-area-data": "^4.1.1",
-    "element-ui": "^2.4.6",
+    "element-ui": "^2.4.7",
     "lodash": "^4.17.10",
     "nprogress": "^0.2.0",
     "vue": "^2.5.17",
