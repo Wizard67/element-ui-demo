@@ -1,14 +1,12 @@
 import Ajax from './convertors/ajaxConfig'
 const ajax = (config) => new Ajax(config)
 
-const baseUrl = 'https://easy-mock.com/mock/5b212f773cfa8868e0eba929/element-ui-demo'
+export const login = ajax().post(process.env.VUE_APP_LOGIN)
+export const message = ajax().get(process.env.VUE_APP_MESSAGE)
 
-export const login = ajax().post(`${baseUrl}/login`)
-export const message = ajax().get(`${baseUrl}/message`)
+export const allChartsDate = ajax().get(process.env.VUE_APP_ALL_CHARTS_DATA)
+export const mapDate = ajax().get(process.env.VUE_APP_MAP_DATA)
 
-export const allChartsDate = ajax().get(`${baseUrl}/allChartsDate`)
-export const mapDate = ajax().get(`${baseUrl}/mapDate`)
-
-export const activity = ajax().post(`${baseUrl}/activity`).format('form')
-export const assets = ajax().post(`${baseUrl}/assets`)
-export const repository = ajax().post(`${baseUrl}/repository`)
+export const activity = ajax().post(process.env.VUE_APP_ACTIVITY).format('form')
+export const assets = ajax().post(process.env.VUE_APP_ASSETS)
+export const repository = ajax().post(process.env.VUE_APP_REPOSITORY)
