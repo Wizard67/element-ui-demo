@@ -11,11 +11,15 @@
 clone or download the repository
 
 ```bash
-npm install
+yarn install
 
-npm run serve
+yarn serve
 
-npm run build
+yarn build:serve
+
+yarn build
+
+yarn lint
 ```
 
 ## Todo
