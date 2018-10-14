@@ -18,7 +18,7 @@ import Component from 'vue-class-component'
 @Component
 export default class StepFormResult extends Vue {
   again () {
-    this.$router.push({name: 'step-form-info'})
+    this.$router.push({ name: 'step-form-info' })
   }
 }
 </script>

@@ -14,7 +14,7 @@ import { Prop } from 'vue-property-decorator'
 
 @Component
 export default class MessageBoxItem extends Vue {
-  @Prop({type: Array})
+  @Prop({ type: Array })
   content
 }
 </script>

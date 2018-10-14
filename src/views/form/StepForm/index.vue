@@ -66,7 +66,7 @@ export default class StepForm extends Vue {
     }
   }
 
-  @Watch('$route', {immediate: true})
+  @Watch('$route', { immediate: true })
   onRouterChange (route) {
     switch (route.name) {
       case 'step-form-info':

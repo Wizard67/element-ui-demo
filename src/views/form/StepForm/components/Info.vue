@@ -59,12 +59,12 @@ import { Prop } from 'vue-property-decorator'
 export default class StepForm extends Vue {
   select= 'alipay'
 
-  @Prop({type: Object}) form
+  @Prop({ type: Object }) form
 
   next () {
     this.$refs.form.validate(valid => {
       if (!valid) return false
-      this.$router.push({name: 'step-form-confirm'})
+      this.$router.push({ name: 'step-form-confirm' })
     })
   }
 }

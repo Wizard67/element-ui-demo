@@ -1,6 +1,6 @@
 import axios from 'axios'
 import requestWithToken from './interceptors/requestWithToken'
-import {handleRequestCancel, handleResponseCancel} from './interceptors/cancelTheSameRequest'
+import { handleRequestCancel, handleResponseCancel } from './interceptors/cancelTheSameRequest'
 import retryWhenTimeout from './interceptors/retryWhenTimeout'
 
 axios.defaults.baseURL = '/'

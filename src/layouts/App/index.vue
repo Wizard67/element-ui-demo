@@ -104,7 +104,7 @@ export default class App extends Vue {
     })
   }
 
-  @Watch('$route', {immediate: true})
+  @Watch('$route', { immediate: true })
   onRouterChange (route) {
     if (route.meta && route.meta.menu) {
       this.currentActive = route.meta.menu

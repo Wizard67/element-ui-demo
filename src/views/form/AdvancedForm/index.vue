@@ -213,16 +213,16 @@ export default class BasicForm extends Vue {
   isSubmit = false
   selectOptions = {
     manager: [
-      {value: 'Zhangsan', label: '张三'},
-      {value: 'Lisi', label: '李四'}
+      { value: 'Zhangsan', label: '张三' },
+      { value: 'Lisi', label: '李四' }
     ],
     reviewer: [
-      {value: 'Zhangsan', label: '张三'},
-      {value: 'Lisi', label: '李四'}
+      { value: 'Zhangsan', label: '张三' },
+      { value: 'Lisi', label: '李四' }
     ],
     type: [
-      {value: 'private', label: '私密'},
-      {value: 'public', label: '公开'}
+      { value: 'private', label: '私密' },
+      { value: 'public', label: '公开' }
     ]
   }
   form = {

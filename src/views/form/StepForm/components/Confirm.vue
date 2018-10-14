@@ -51,12 +51,12 @@ const moduleAssets = namespace('assets')
 export default class StepFormConfirm extends Vue {
   isSubmit = false
 
-  @Prop({type: Object}) form
+  @Prop({ type: Object }) form
 
   @moduleAssets.Action submitForm
 
   previous () {
-    this.$router.push({name: 'step-form-info'})
+    this.$router.push({ name: 'step-form-info' })
   }
 
   submit () {
@@ -65,7 +65,7 @@ export default class StepFormConfirm extends Vue {
       setTimeout(() => {
         this.isSubmit = false
         this.$emit('onFormSumbit')
-        this.$router.push({name: 'step-form-result'})
+        this.$router.push({ name: 'step-form-result' })
       }, 1000)
     })
   }

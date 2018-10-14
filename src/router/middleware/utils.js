@@ -7,7 +7,7 @@ export const checkRouterName = routers => {
 
   let isVlidatedRouteName = true
   routers.forEach(name => {
-    const vlidate = router.getMatchedComponents({name: name})
+    const vlidate = router.getMatchedComponents({ name: name })
     if (vlidate.length === 0) {
       isVlidatedRouteName = false
     }
