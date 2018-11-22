@@ -82,7 +82,6 @@ import { namespace } from 'vuex-class'
 import LogoWrap from '@/components/LogoWrap'
 
 import countDown from '@directives/countDown'
-import { messageTips } from '@/utils'
 
 const moduleUser = namespace('user')
 
@@ -138,10 +137,10 @@ export default class Login extends Vue {
 
       this.login({ ...this.form[this.tabsActive], autoLogin: this.autoLogin })
         .then(res => {
-          messageTips(res)
+          this.$message.success(res.message)
           setTimeout(() => this.$router.push({ path: '/' }), 500)
         })
-        .catch(res => messageTips(res))
+        .catch(res => this.$message.warning(res.message))
         .finally(() => { this.isLogin = false })
     })
   }

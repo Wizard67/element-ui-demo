@@ -1,19 +1,3 @@
-import { Message } from 'element-ui'
-
-export const messageTips = res => {
-  const status = res.status
-  let type
-  if (/^2\d{2}$/.test(status)) type = 'success'
-  if (/^4\d{2}$/.test(status)) type = 'error'
-  if (/^5\d{2}$/.test(status)) type = 'warning'
-
-  Message({
-    showClose: true,
-    message: res.message,
-    type: type
-  })
-}
-
 export const getWindowSizeType = width => {
   let type
   const breakPoint = {
