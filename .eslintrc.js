@@ -13,5 +13,11 @@ module.exports = {
   },
   parserOptions: {
     parser: 'babel-eslint'
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      legacyDecorators: true,
+      experimentalObjectRestSpread: true,
+    }
   }
 }
