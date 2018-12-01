@@ -37,17 +37,19 @@ export default {
       autoLogin ? storage.init('local') : storage.init('session')
 
       return new Promise((resolve, reject) => {
-        request('login', params).then(res => {
-          if (res.status === 200) {
-            storage.setItem('token', res.payload.token)
-            storage.setItem('userName', res.payload.userName)
-            storage.setItem('avatar', res.payload.avatar)
-            storage.setItem('nav', JSON.stringify(res.payload.nav))
-            resolve(res)
-          } else {
-            reject(res)
-          }
-        })
+        request('login', params)
+          .then(res => {
+            if (res.status === 200) {
+              storage.setItem('token', res.payload.token)
+              storage.setItem('userName', res.payload.userName)
+              storage.setItem('avatar', res.payload.avatar)
+              storage.setItem('nav', JSON.stringify(res.payload.nav))
+              resolve(res)
+            } else {
+              reject(res)
+            }
+          })
+          .catch(err => reject(err))
       })
     },
 

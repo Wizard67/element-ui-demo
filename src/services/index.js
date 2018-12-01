@@ -9,7 +9,7 @@ export const request = (api, data) => {
 
       resolve(result.data)
     }).catch(error => {
-      if (!error.response) return
+      // if (!error.response) return
       // handle error
 
       reject(error)
