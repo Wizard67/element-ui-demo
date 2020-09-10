@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Wizard67/element-ui-demo.svg?branch=master)](https://travis-ci.org/Wizard67/element-ui-demo)
  
-使用 [vue-cli-plugin-admin](http://wizard67.com/vue-cli-plugin-admin/) 生成项目架构并搭配 [element-ui](https://github.com/ElemeFE/element) 编写的后台管理项目示例。
+使用 [element-ui](https://github.com/ElemeFE/element) 编写的 vue2 后台管理项目示例。
 
 [在线预览](https://wizard67.github.io/element-ui-demo/)
 
